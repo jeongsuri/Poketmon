@@ -1,14 +1,36 @@
 <%@ tag body-content="scriptless" %>
 <%@ tag pageEncoding="UTF-8" trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layouts" %>
 <%@ attribute name="title" %>
+<fmt:setBundle basename="messages.commons" />
 <c:url var="cssUrl" value="/css/" />
 <c:url var="jsUrl" value="/js/" />
+<c:url var="logoUrl" value="/images/logo.png" />
 
 <layout:common title="${title}">
     <jsp:attribute name="header">
-        <h1>메인 레이아웃 상단 영역!</h1>
+        <section class="site-top">
+            <style>
+                div {
+                    text-align: center;
+                }
+            </style>
+            <div>
+                <img src="${logoUrl}" alt="<fmt:message key='로고' />">
+            </div>
+        </section>
+        <nav>
+            <div class="layout-width inner">
+                <a href="http://localhost:3000/project/board">공지사항</a>
+                <a href="http://localhost:3000/project/main">도감 보기</a>
+                <a href="http://localhost:3000/project/member/mypage">내 포켓몬</a>
+                <a href="http://localhost:3000/project/game">포켓몬 잡기</a>
+                <a href="#">랭킹 조회</a>
+                <a href="http://localhost:3000/project/member/login">로그아웃</a>
+            </div>
+        </nav>
     </jsp:attribute>
     <jsp:attribute name="footer">
         <h1>메인 레이아웃 하단 영역!</h1>
