@@ -23,7 +23,7 @@
         </section>
         <nav>
             <div class="layout-width inner">
-                <a href="http://localhost:3000/project/board">공지사항</a>
+                <a href="http://localhost:3000/project/board">자유게시판</a>
                 <a href="http://localhost:3000/project/main">도감 보기</a>
                 <a href="http://localhost:3000/project/member/mypage">내 포켓몬</a>
                 <a href="http://localhost:3000/project/game">포켓몬 잡기</a>
