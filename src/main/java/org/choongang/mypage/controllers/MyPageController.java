@@ -9,4 +9,6 @@ import org.choongang.global.config.annotations.RequestMapping;
 @RequestMapping("/mypage")
 @RequiredArgsConstructor
 public class MyPageController {
+
+
 }
