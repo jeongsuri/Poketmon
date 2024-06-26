@@ -8,7 +8,8 @@
 
 <layout:main title="${pageTitle}">
     <div class="content-wrapper">
-    <section class="content-box">
+        <img src="images/o.png" class="o" >
+        <section class="content-box">
             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" class="pokemon">
             <div>
                 <div class="pokemonType">

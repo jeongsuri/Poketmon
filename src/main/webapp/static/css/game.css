@@ -74,15 +74,12 @@
     color: #fff;
 }
 
-.arrow {
-
-}
 
 
 main {
     margin: 0;
-    background: url(https://lh3.googleusercontent.com/6LjkWcXFt4Ef2E_BnLIrmQNWUpdiBnG6LYpbwlDt0h36hcBRYyK4VwE-y70ruPWyDDNlVcsPZiXB44cxiOGc=s0) center center;
-    background-size: cover;
+    background: url("../images/pokemonGameBack.jpg") center center;
+    background-size: contain;
     padding: 50px 0;
 }
 
@@ -90,8 +87,8 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0px 400px;
-    width: 1325px;
+    margin: 0px 150px;
+    width: 1400px;
 }
 
 .arrow {
@@ -100,4 +97,13 @@ main {
     margin-left: -10px;
     max-width: 230px;
     max-width: 230px;
+}
+
+.o {
+    padding-bottom: 430px;
+    padding-left: 350px;
+}
+
+.arrow {
+    padding-left: 150px;
 }
