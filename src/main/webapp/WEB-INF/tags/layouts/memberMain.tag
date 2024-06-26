@@ -8,9 +8,8 @@
 <c:url var="cssUrl" value="/css/" />
 <c:url var="jsUrl" value="/js/" />
 <c:url var="logoUrl" value="/images/logo.png" />
-<c:url var="footerlogoUrl" value="/images/footerlogo.png" />
 
-<layout:common title="${title}">
+<layout:memberCommon title="${title}">
     <jsp:attribute name="header">
         <section class="site-top">
             <style>
@@ -22,31 +21,12 @@
                 <img src="${logoUrl}" alt="<fmt:message key='로고' />">
             </div>
         </section>
-        <nav>
-            <div class="layout-width inner">
-                <a href="http://localhost:3000/project/board">자유게시판</a>
-                <a href="http://localhost:3000/project/main">도감 보기</a>
-                <a href="http://localhost:3000/project/member/mypage">내 포켓몬</a>
-                <a href="http://localhost:3000/project/game">포켓몬 잡기</a>
-                <a href="http://localhost:3000/project/rank">순위표</a>
-                <a href="http://localhost:3000/project/member/login">로그아웃</a>
-            </div>
-        </nav>
     </jsp:attribute>
     <jsp:attribute name="footer">
-        <section class="site-bottom">
-            <style>
-                div {
-                    text-align: center;
-                }
-            </style>
-            <div>
-                <img src="${footerlogoUrl}" alt="<fmt:message key='푸터 로고' />">
-            </div>
-        </section>
+        <h1>메인 레이아웃 하단 영역!</h1>
     </jsp:attribute>
     <jsp:attribute name="commonCss">
-        <link rel="stylesheet" type="text/css" href="${cssUrl}main.css">
+        <link rel="stylesheet" type="text/css" href="${cssUrl}memberMain.css">
     </jsp:attribute>
     <jsp:attribute name="commonJs">
         <script src="${jsUrl}main.js"></script>
@@ -54,4 +34,4 @@
     <jsp:body>
         <jsp:doBody />
     </jsp:body>
-</layout:common>
+</layout:memberCommon>

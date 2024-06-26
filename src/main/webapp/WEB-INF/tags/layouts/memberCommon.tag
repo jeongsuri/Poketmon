@@ -16,7 +16,7 @@
     <meta charset="UTF-8">
     <title>
         <c:if test="${!empty title}">
-            ${title} -
+            ${title}
         </c:if>
         <fmt:message key="SITE_TITLE" />
     </title>
