@@ -7,15 +7,19 @@
 <c:url var="actionUrl" value="/game" />
 
 <layout:main title="${pageTitle}">
-        <layout:game>
         <section class="content-box">
-            <h1>${pageTitle}</h1>
-            <h2>포켓몬 이름</h2>
-            <span>포켓몬 설명@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span><br>
-            <span>타입1</span><br>
-            <span>타입2</span><br>
-            <span>몸무게</span><br>
-            <img src="images/2.png" class="pokemon">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" class="pokemon">
+            <div class="font">
+                <div class="pokemontype">
+                        <b class="type1">타입1</b>
+                        <b class="type2">타입2</b><br>
+                </div>
+                    <span class="content">태어났을 때부터 등에 이상한 씨앗이 심어져 있으며 몸과 함께 자란다고 한다.</span><br>
+                    <span class="weight">무게 : 100 kg</span><br>
+                <form>
+                    <input type="text" name="pokemonName" autofocus placeholder="정답 입력" class="pokemonName" >
+                    <button type="submit" class="submit">포획!</button>
+                </form>
+            </div>
         </section>
-    </layout:game>
 </layout:main>
