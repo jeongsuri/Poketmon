@@ -2,27 +2,42 @@
 .border-top{
     font-size:1.3rem;
     text-align: center;
-    margin: 10px auto;
     border-bottom: 1px solid #000;
     border-top: 1px solid #000;
 }
 
-form{
+form.search{
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
 }
 
 input.keyword{
-    width: 200px;
+    width: 400px;
     height: 30px;
+    align-content: center;
+    align-items: center;
 }
 button{
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 35px;
 }
 /* 게시판 헤더영역 E */
 
-th{
-    margin : 0;
+/* 게시판 바디영역 S */
+.border-body{
+    padding: 0 25px;
+    line-height: 45px;
+    margin : 10px;
     border : 1px solid #000;
+    display: flex;
+    justify-content: center;
+}
+
+_listA{
+    border-bottom: 1px solid #000;
+}
+
+th{
+    border: 1px solid #000;
+    width: 180px;
 }
