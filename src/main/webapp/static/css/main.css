@@ -27,3 +27,25 @@ nav > .inner a {
 
 }
 /* 사이트 헤더 영역 E */
+
+/* 푸터 영역 S */
+.site-bottom {
+    background: #000;
+    padding: 10px 0;
+    margin-top: 25px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.site-bottom div {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.site-bottom img {
+    max-width: 300px;
+    vertical-align: middle;
+}
+
+/* 푸터 영역 E */
