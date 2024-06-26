@@ -10,10 +10,10 @@ main {
     max-width: 700px;
     min-height: 650px;
     margin: 0 auto;
-    border-style: solid;
+    border-style: solid #31445a;;
     border-radius: 20px;
     padding: 30px;
-    background: #fff;
+    background: #31445a;
 }
 
 .content-box h1 {
@@ -22,14 +22,16 @@ main {
     line-height: 1;
     padding: 0 0 15px;
     margin: 0 0 20px;
+    color: #fff;
 }
 
 .search {
     margin: 0 auto;
     height: 40px;
     width: 600px;
-    border: 1px solid #000000;
+    border: 2px solid #1d2837;
     background: #ffffff;
+    margin-bottom: 50px;
 }
 
 .trainer_search {
@@ -45,8 +47,38 @@ main {
     width: 50px;
     height: 100%;
     border: 0px;
-    background: #000000;
+    background: #1d2837;
     outline: none;
     float: right;
     color: #ffffff;
+}
+
+.ranking {
+    display: flex;
+    color: #fff;
+    background-color: #1d2837;
+    height: 40px;
+    width: 600px;
+    border: 1px solid #1d2837;
+    border-radius: 5px;
+    margin: 10px auto;
+}
+
+.trainer_ranking {
+    margin: 0 auto;
+    float: left;
+    width: 100px
+
+}
+
+.trainer {
+    width: 400px
+
+
+}
+
+.score {
+    float: right;
+    width: 100px
+
 }
