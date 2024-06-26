@@ -7,7 +7,7 @@
 <c:url var="actionUrl" value="/game" />
 
 <layout:main title="${pageTitle}">
-    <layout:game>
+        <layout:game>
         <section class="content-box">
             <h1>${pageTitle}</h1>
             <h2>포켓몬 이름</h2>
