@@ -83,10 +83,25 @@ textarea {
     [type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
         cursor: pointer;
     }
-    background-color: #da343c !important;; /* 버튼의 배경색을 파란색으로 설정 */
+    background-color: #000 !important;; /* 버튼의 배경색 설정 */
     color: white; /* 버튼의 텍스트 색상을 흰색으로 설정 */
     border: none; /* 버튼의 테두리를 없앰 */
-    border-color: #da343c !important;
+    border-color: #000000 !important;
+    padding: 10px 20px; /* 버튼의 패딩 설정 */
+    font-size: 15px; /* 버튼의 글꼴 크기 설정 */
+    font-weight: bold;
+    width: 100%;
+    cursor: pointer;
+}
+
+.button2 {
+    [type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+        cursor: pointer;
+    }
+    background-color: #ffffff !important;; /* 버튼의 배경색 설정 */
+    color: black; /* 버튼의 텍스트 색상을 흰색으로 설정 */
+    border: none; /* 버튼의 테두리를 없앰 */
+    border-color: #ffffff !important;
     padding: 10px 20px; /* 버튼의 패딩 설정 */
     font-size: 15px; /* 버튼의 글꼴 크기 설정 */
     font-weight: bold;

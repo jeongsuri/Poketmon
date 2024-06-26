@@ -9,19 +9,26 @@
 <layout:memberMain title="${pageTitle}">
     <div class="content-box small">
         <h1>${pageTitle}</h1>
-        <form name="frmLogin" method="POST" action="${actionUrl}" target="ifrmProcess" autocomplete="off">
+        <form class="form-container" name="frmLogin" method="POST" action="${actionUrl}" target="ifrmProcess" autocomplete="off">
             <c:if test="${! empty param.redirectUrl}">
                 <input type="hidden" name="redirectUrl" value="${param.redirectUrl}">
             </c:if>
-
-            <input type="text" name="email" placeholder="<fmt:message key='아이디' />">
+            <dl>
+                <dd>
+            <input type="text" name="userId" placeholder="<fmt:message key='아이디' />">
+                </dd>
+            </dl>
+            <dl>
+                <dd>
             <input type="password" name="password" placeholder="<fmt:message key='비밀번호' />">
-            <div class="button-group2">
-            <button type="submit">
+                </dd>
+            </dl>
+            <div class="button-group">
+            <button type="submit" class="button">
                 <fmt:message key="로그인" />
             </button>
 
-            <button type="submit" class="login_button">
+            <button type="submit" class="button2">
                 <fmt:message key="아직_회원이_아니신가요?" />
             </button>
             </div>
