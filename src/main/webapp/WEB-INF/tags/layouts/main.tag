@@ -33,6 +33,7 @@
             </div>
         </nav>
     </jsp:attribute>
+
     <jsp:attribute name="footer">
         <section class="site-bottom">
             <style>
@@ -45,6 +46,7 @@
             </div>
         </section>
     </jsp:attribute>
+
     <jsp:attribute name="commonCss">
         <link rel="stylesheet" type="text/css" href="${cssUrl}main.css">
     </jsp:attribute>
