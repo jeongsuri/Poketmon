@@ -16,11 +16,11 @@ public class BoardController {
     private final HttpServletRequest request;
 
     //게시판 목록 페이지
-    @GetMapping()
+    @GetMapping
     public String boarding() {
         String url = request.getRequestURI();
         request.setAttribute("addCss", List.of("board"));
-        return "board";
+        return "board/board";
     }
 
 }

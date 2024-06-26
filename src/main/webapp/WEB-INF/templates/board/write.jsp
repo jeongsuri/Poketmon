@@ -9,4 +9,3 @@
 <layout:main title="${pageTitle}">
     <h1>글쓰기</h1>
 </layout:main>
-
