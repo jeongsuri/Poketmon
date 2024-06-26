@@ -4,32 +4,27 @@
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layouts" %>
 <fmt:setBundle basename="messages.commons" />
 <fmt:message var="pageTitle" key='로그인' />
-<c:url var="actionUrl" value="/member/join" />
+<c:url var="actionUrl" value="/member/login" />
 
 <layout:memberMain title="${pageTitle}">
-    <section class="content-box">
+    <div class="content-box small">
         <h1>${pageTitle}</h1>
-        <form name="frmJoin" method="POST" action="${actionUrl}" autocomplete="off" target="ifrmProcess">
-            <dl>
-                <dd>
-                    <input type="text" name="userId" autofocus placeholder="아이디">
-                </dd>
-            </dl>
-            <dl>
-                <dd>
-                    <input type="password" name="password" autofocus placeholder="비밀번호">
-                </dd>
-            </dl>
-            <div class="button-group">
-                <button type="submit">
-                    <fmt:message key="로그인" />
-                </button>
-            </div>
-            <div class="button-group">
-                <button type="submit">
-                    <fmt:message key="아직_회원이_아니신가요?" />
-                </button>
+        <form name="frmLogin" method="POST" action="${actionUrl}" target="ifrmProcess" autocomplete="off">
+            <c:if test="${! empty param.redirectUrl}">
+                <input type="hidden" name="redirectUrl" value="${param.redirectUrl}">
+            </c:if>
+
+            <input type="text" name="email" placeholder="<fmt:message key='아이디' />">
+            <input type="password" name="password" placeholder="<fmt:message key='비밀번호' />">
+            <div class="button-group2">
+            <button type="submit">
+                <fmt:message key="로그인" />
+            </button>
+
+            <button type="submit" class="login_button">
+                <fmt:message key="아직_회원이_아니신가요?" />
+            </button>
             </div>
         </form>
-    </section>
+    </div>
 </layout:memberMain>

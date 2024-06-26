@@ -23,7 +23,6 @@
         </section>
     </jsp:attribute>
     <jsp:attribute name="footer">
-        <h1>메인 레이아웃 하단 영역!</h1>
     </jsp:attribute>
     <jsp:attribute name="commonCss">
         <link rel="stylesheet" type="text/css" href="${cssUrl}memberMain.css">

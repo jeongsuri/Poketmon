@@ -6,16 +6,19 @@
 }
 
 .content-box {
-    min-width: 550px;
+    min-width: 600px;
     max-width: 700px;
     min-height: 650px;
     margin: 50px auto;
     border-radius: 20px;
-    padding: 200px;
+    padding-top: 200px; /* 위쪽 패딩 */
+    padding-right: 100px; /* 오른쪽 패딩 */
+    padding-bottom: 200px; /* 아래쪽 패딩 */
+    padding-left: 100px; /* 왼쪽 패딩 */
 }
 
 .content-box h1 {
-    font-size: 1.5rem;
+    font-size: 1.5rem; /* 회원가입 글씨크기*/
     line-height: 1;
     padding: 0 0 15px;
     margin: 0 0 20px;
@@ -23,6 +26,37 @@
 /* 메인 레이아웃 공통 E */
 
 /* 사이트 메인 영역 S */
+/*
+.form-container input[type="text"], input[type="password"]{
+    margin-bottom: 10px;
+}
+
+.form-container {
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+}
+
+.text-muted {
+    margin-top: 2px;
+    font-size: 12px;
+    color: #767676;
+}
+
+.button {
+    [type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+        cursor: pointer;
+    }
+    background-color: #da343c !important;;  버튼의 배경색을 파란색으로 설정
+    color: white;  버튼의 텍스트 색상을 흰색으로 설정
+    border: none;  버튼의 테두리를 없앰
+    border-color: #da343c !important;
+    padding: 10px 20px;  버튼의 패딩 설정
+    font-size: 15px;  버튼의 글꼴 크기 설정
+    font-weight: bold;
+    width: 100%;
+    cursor: pointer;
+}
+*/
 
 /* 사이트 메인 영역 E */
 
@@ -43,6 +77,6 @@ footer {
     margin-top: 100px;
     min-height: 250px;
     background: #000000;
-    border-top: 1px solid #0000000;
+    border-top: 1px solid #000;
 }
 /* 사이트 푸터 영역 E */
