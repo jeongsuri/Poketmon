@@ -9,12 +9,13 @@
 <c:url var="jsUrl" value="/js/" />
 <c:url var="logoUrl" value="/images/logo.png" />
 
-<layout:memberCommon title="${title}">
+<layout:common title="${title}">
     <jsp:attribute name="header">
         <section class="site-top">
             <style>
                 div {
                     text-align: center;
+                    margin-top: 20px
                 }
             </style>
             <div>
@@ -23,10 +24,9 @@
         </section>
     </jsp:attribute>
     <jsp:attribute name="footer">
-        <h1>메인 레이아웃 하단 영역!</h1>
     </jsp:attribute>
     <jsp:attribute name="commonCss">
-        <link rel="stylesheet" type="text/css" href="${cssUrl}memberMain.css">
+        <link rel="stylesheet" type="text/css" href="${cssUrl}member/main.css">
     </jsp:attribute>
     <jsp:attribute name="commonJs">
         <script src="${jsUrl}main.js"></script>
@@ -34,4 +34,4 @@
     <jsp:body>
         <jsp:doBody />
     </jsp:body>
-</layout:memberCommon>
+</layout:common>

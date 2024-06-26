@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+
+/*태그 기본 스타일 초기화 S */
+* {
+    box-sizing: border-box;
+    font-family: "Nanum Gothic", sans-serif;     /*폰트글씨체*/
+    color: #000;     /*폰트색상*/
+    font-size: large;
+}
+
+html {
+    font-size: 23px; /*1rem - 13px*/
+    margin: 4px 0 19px;
+}
+
+body {
+    margin: 0;
+}
+
+a {
+    /*스타일 제거*/
+    test-decoration: none;
+}
+
+ul, ol {
+    /*스타일제거*/
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+dl, dt, dd {
+    /*스타일제거*/ /*들여쓰기 제거*/
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    /*스타일제거*/
+    border: 0;
+}
+
+/*태그 기본 스타일 초기화 E */
+
+input[type='text'],
+input[type='number'],
+input[type='email'],
+input[type='password']{
+    border: 1px solid #ccc;
+    padding: 0 10px;
+    width: 100%;
+    height: 35px;
+    font-size: 14px;
+}
+
+textarea {
+    border: 1px solid #ccc;
+    padding: 10px;
+    min-height: 100px;
+    resize: none;
+    border-radius: 3px;
+}
+
+.dn { display: none !important; }
+
+/* 회원가입 사이트 메인 영역 S */
+.form-container input[type="text"], input[type="password"]{
+    margin-bottom: 10px;
+    height: 70px;
+}
+
+.form-container {
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+}
+
+.text-muted {
+    margin-top: 2px;
+    font-size: 14px;
+    color: #767676;
+}
+
+.button {
+    [type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+        cursor: pointer;
+    }
+    background-color: #da343c !important;; /* 버튼의 배경색을 파란색으로 설정 */
+    color: white; /* 버튼의 텍스트 색상을 흰색으로 설정 */
+    border: none; /* 버튼의 테두리를 없앰 */
+    border-color: #da343c !important;
+    padding: 10px 20px; /* 버튼의 패딩 설정 */
+    font-size: 18px; /* 버튼의 글꼴 크기 설정 */
+    font-weight: bold;
+    width: 100%;
+    cursor: pointer;
+    height: 70px;
+    margin: 15px auto 0;
+}
+
+/* 회원가입 사이트 메인 영역 E */
+
