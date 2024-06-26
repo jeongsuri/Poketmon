@@ -11,8 +11,8 @@ import org.choongang.global.config.annotations.RequestMapping;
 @RequiredArgsConstructor
 public class MainController {
 
-    @GetMapping
+    /* @GetMapping
     public String main() {
         return "main";
-    }
+    } */
 }
