@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&display=swap'); /* 공통 폰트 설정 */
+@import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&family=Jua&display=swap'); /* 공통 폰트 설정 */
 
 /* 메인 레이아웃 공통 */
 .layout-width {
@@ -17,11 +17,11 @@ nav {
     display: flex;
     height: 45px;
     background: #000;
-    font-family: "Dongle", sans-serif; /* 기본 폰트, 대체 폰트 */
+    font-family: "Jua", sans-serif; /* 기본 폰트, 대체 폰트 */
 }
 
 nav > .inner a {
-    font-size: 1.35rem;
+    font-size: 1.8rem;
     color: #fff;
     padding: 0 25px;
     line-height: 45px;
