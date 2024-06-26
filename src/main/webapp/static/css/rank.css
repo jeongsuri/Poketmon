@@ -1,0 +1,52 @@
+main {
+    margin: 0;
+    background: url(https://lh3.googleusercontent.com/6LjkWcXFt4Ef2E_BnLIrmQNWUpdiBnG6LYpbwlDt0h36hcBRYyK4VwE-y70ruPWyDDNlVcsPZiXB44cxiOGc=s0) center center;
+    background-size: cover;
+    padding: 50px 0;
+}
+
+.content-box {
+    min-width: 550px;
+    max-width: 700px;
+    min-height: 650px;
+    margin: 0 auto;
+    border-style: solid;
+    border-radius: 20px;
+    padding: 30px;
+    background: #fff;
+}
+
+.content-box h1 {
+    text-align: center;
+    font-size: 1.5rem;
+    line-height: 1;
+    padding: 0 0 15px;
+    margin: 0 0 20px;
+}
+
+.search {
+    margin: 0 auto;
+    height: 40px;
+    width: 600px;
+    border: 1px solid #000000;
+    background: #ffffff;
+}
+
+.trainer_search {
+    font-size: 16px;
+    width: 500px;
+    padding: 10px;
+    border: 0px;
+    outline: none;
+    float: left;
+}
+
+.search_btn {
+    width: 50px;
+    height: 100%;
+    border: 0px;
+    background: #000000;
+    outline: none;
+    float: right;
+    color: #ffffff;
+}
