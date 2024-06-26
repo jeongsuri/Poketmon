@@ -1,1 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&display=swap'); /* 공통 폰트 설정 */
+
+{
+    font-family: "Dongle", sans-serif; /* 기본 폰트, 대체 폰트 */
+}
+
 .dn { display: none !important; }
