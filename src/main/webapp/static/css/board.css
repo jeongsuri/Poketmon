@@ -1,5 +1,28 @@
-.boarding{
-    margin: 0;
-    width: 100%;
-    border: 1px solid #ededed;
+/* 게시판 헤더영역 S */
+.border-top{
+    font-size:1.3rem;
+    text-align: center;
+    margin: 10px auto;
+    border-bottom: 1px solid #000;
+    border-top: 1px solid #000;
+}
+
+form{
+    display: flex;
+    justify-content: flex-end;
+}
+
+input.keyword{
+    width: 200px;
+    height: 30px;
+}
+button{
+    width: 30px;
+    height: 30px;
+}
+/* 게시판 헤더영역 E */
+
+th{
+    margin : 0;
+    border : 1px solid #000;
 }
