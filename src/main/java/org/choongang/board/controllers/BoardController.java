@@ -15,12 +15,18 @@ import java.util.List;
 public class BoardController {
     private final HttpServletRequest request;
 
-    //게시판 양식
+    //게시판 보기페이지
     @RequestMapping()
     public String boarding() {
         String url = request.getRequestURI();
         request.setAttribute("addCss", List.of("board"));
         return "board/boarding";
+    }
+
+    //게시글 작성페이지
+    @RequestMapping("/write")
+    public String writing() {
+        return "board/write";
     }
 
 
