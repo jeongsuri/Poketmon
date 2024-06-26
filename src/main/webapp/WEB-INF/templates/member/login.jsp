@@ -7,8 +7,9 @@
 <c:url var="actionUrl" value="/member/login" />
 
 <layout:memberMain title="${pageTitle}">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
     <div class="content-box small">
-        <h1>${pageTitle}</h1>
+        <img src="<c:url value='/images/logo2.png' />" alt="Company Logo" width="200">
         <form class="form-container" name="frmLogin" method="POST" action="${actionUrl}" target="ifrmProcess" autocomplete="off">
             <c:if test="${! empty param.redirectUrl}">
                 <input type="hidden" name="redirectUrl" value="${param.redirectUrl}">
@@ -30,6 +31,7 @@
 
             <button type="submit" class="button2">
                 <fmt:message key="아직_회원이_아니신가요?" />
+                <i class="xi-angle-right"></i>
             </button>
             </div>
         </form>

@@ -31,7 +31,7 @@ header .site-top {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 50;
+    padding-bottom: 20px;
     background: #FFF;
     box-shadow: 0 1px 20px 0px rgba(0, 0, 0, 0.3);
 }

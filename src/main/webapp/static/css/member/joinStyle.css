@@ -66,6 +66,7 @@ textarea {
 /* 회원가입 사이트 메인 영역 S */
 .form-container input[type="text"], input[type="password"]{
     margin-bottom: 10px;
+    height: 70px;
 }
 
 .form-container {
@@ -75,7 +76,7 @@ textarea {
 
 .text-muted {
     margin-top: 2px;
-    font-size: 12px;
+    font-size: 14px;
     color: #767676;
 }
 
@@ -88,10 +89,12 @@ textarea {
     border: none; /* 버튼의 테두리를 없앰 */
     border-color: #da343c !important;
     padding: 10px 20px; /* 버튼의 패딩 설정 */
-    font-size: 15px; /* 버튼의 글꼴 크기 설정 */
+    font-size: 18px; /* 버튼의 글꼴 크기 설정 */
     font-weight: bold;
     width: 100%;
     cursor: pointer;
+    height: 70px;
+    margin: 15px auto 0;
 }
 
 /* 회원가입 사이트 메인 영역 E */

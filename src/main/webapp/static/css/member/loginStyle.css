@@ -66,11 +66,14 @@ textarea {
 /* 회원가입 사이트 메인 영역 S */
 .form-container input[type="text"], input[type="password"]{
     margin-bottom: 10px;
+    height: 70px;
+    padding: 15px 20px;
 }
 
 .form-container {
     padding-bottom: 30px;
     margin-bottom: 30px;
+    padding-top: 10px;
 }
 
 .text-muted {
@@ -88,10 +91,12 @@ textarea {
     border: none; /* 버튼의 테두리를 없앰 */
     border-color: #000000 !important;
     padding: 10px 20px; /* 버튼의 패딩 설정 */
-    font-size: 15px; /* 버튼의 글꼴 크기 설정 */
+    font-size: 18px; /* 버튼의 글꼴 크기 설정 */
     font-weight: bold;
     width: 100%;
     cursor: pointer;
+    height: 70px;
+    margin: 15px auto 30px;
 }
 
 .button2 {
@@ -102,11 +107,16 @@ textarea {
     color: black; /* 버튼의 텍스트 색상을 흰색으로 설정 */
     border: none; /* 버튼의 테두리를 없앰 */
     border-color: #ffffff !important;
-    padding: 10px 20px; /* 버튼의 패딩 설정 */
+    padding: 10px 0px 10px 0px; /* 버튼의 패딩 설정 */
     font-size: 15px; /* 버튼의 글꼴 크기 설정 */
     font-weight: bold;
-    width: 100%;
+    width: 45%;
     cursor: pointer;
+    margin: 20px auto 0;
+}
+
+.button2 i {
+
 }
 
 /* 회원가입 사이트 메인 영역 E */

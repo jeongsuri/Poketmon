@@ -15,6 +15,7 @@
             <style>
                 div {
                     text-align: center;
+                    margin-top: 20px
                 }
             </style>
             <div>
