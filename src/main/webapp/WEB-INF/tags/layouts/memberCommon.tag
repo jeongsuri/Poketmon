@@ -20,7 +20,7 @@
         </c:if>
         <fmt:message key="SITE_TITLE" />
     </title>
-    <link rel="stylesheet" type="text/css" href="${cssUrl}style.css">
+    <link rel="stylesheet" type="text/css" href="${cssUrl}memberStyle.css">
     <jsp:invoke fragment="commonCss" />
     <c:if test="${addCss != null}">
         <c:forEach var="cssFile" items="${addCss}">
