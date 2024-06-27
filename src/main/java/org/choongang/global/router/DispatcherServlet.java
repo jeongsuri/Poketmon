@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import org.choongang.global.config.annotations.Service;
 import org.choongang.global.config.containers.BeanContainer;
 
 import java.io.IOException;
