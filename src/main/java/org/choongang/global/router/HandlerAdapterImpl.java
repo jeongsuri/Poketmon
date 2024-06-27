@@ -35,7 +35,7 @@ public class HandlerAdapterImpl implements HandlerAdapter {
     }
 
     @Override
-    public void execute(HttpServletRequest request, HttpServletResponse response, List<Object> data) {
+    public void execute(HttpServletRequest request, HttpServletResponse response, List<Object> data) throws Exception {
 
         Object controller = data.get(0); // 컨트롤러
         Method method = (Method)data.get(1); // 찾은 요청 메서드
@@ -91,7 +91,6 @@ public class HandlerAdapterImpl implements HandlerAdapter {
         /* 메서드 매개변수 의존성 주입 처리 S */
         List<Object> args = new ArrayList<>();
         for (Parameter param : method.getParameters()) {
-            try {
                 Class cls = param.getType();
                 String paramValue = null;
                 for (Annotation pa : param.getDeclaredAnnotations()) {
@@ -154,14 +153,12 @@ public class HandlerAdapterImpl implements HandlerAdapter {
                     }
                     args.add(paramObj);
                 } // endif
-            } catch (Exception e) {
-                throw new RuntimeException(e.getMessage());
-            }
+
         }
         /* 메서드 매개변수 의존성 주입 처리 E */
 
         /* 요청 메서드 호출 S */
-        try {
+
             // controller 적용 범위  Advice 처리
             handlerControllerAdvice.handle(controller);
 
@@ -186,15 +183,11 @@ public class HandlerAdapterImpl implements HandlerAdapter {
             RequestDispatcher rd = request.getRequestDispatcher(tpl);
             rd.forward(request, response);
 
-        } catch (Exception e) {
-            throw new RuntimeException(e.getMessage());
-        }
         /* 요청 메서드 호출 E */
     }
 
     /**
      * 자료형 변환 후 메서드 호출 처리
-     *
      * @param paramObj
      * @param method
      * @param value
@@ -263,7 +256,6 @@ public class HandlerAdapterImpl implements HandlerAdapter {
 
     /**
      * 요청 메서드 & 애노테이션으로 설정된 mapping Url 조회
-     *
      * @param method
      * @param anno
      * @return
