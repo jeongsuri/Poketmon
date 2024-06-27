@@ -5,10 +5,7 @@ import org.choongang.global.config.annotations.mybatis.MapperScan;
 
 import java.util.Arrays;
 
-@MapperScan({
-        "org.choongang.member.mapper",
-        "org.choongang.pokemon.mapper",
-})
+@MapperScan({"org.choongang.member.mapper"})
 public class MapperProvider {
 
     public static MapperProvider instance;

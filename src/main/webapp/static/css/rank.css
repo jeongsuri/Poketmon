@@ -10,8 +10,8 @@ main {
 .content-box {
 
     min-width: 550px;
-    max-width: 590px;
-    height: 760px;
+    max-width: 640px;
+    height: 670px;
     margin: 0 auto;
     border-style: solid #31445a;;
     border-radius: 20px;
@@ -44,7 +44,7 @@ main {
 .search {
     margin: 0 auto;
     height: 40px;
-    width: 400px;
+    width: 500px;
     border: 2px solid #1d2837;
     background: #ffffff;
     margin-bottom: 30px;
@@ -52,7 +52,7 @@ main {
 
 .trainer_search {
     font-size: 16px;
-    width: 300px;
+    width: 400px;
     padding: 10px;
     border: 0px;
     outline: none;
@@ -76,10 +76,10 @@ main {
     color: #fff;
     background-color: #1d2837;
     height: 40px;
-    width: 500px;
+    width: 600px;
     border: 1px solid #1d2837;
     border-radius: 15px;
-    margin: 20px auto;
+    margin: 10px auto;
 }
 
 .trainer_ranking {
@@ -90,7 +90,7 @@ main {
 }
 
 .trainer {
-    width: 300px
+    width: 400px
 
 
 }
@@ -110,5 +110,5 @@ main {
 }
 
 .trainer_ranking, .trainer, .score {
-    padding-top: 11px;
+    padding-top: 10px;
 }
