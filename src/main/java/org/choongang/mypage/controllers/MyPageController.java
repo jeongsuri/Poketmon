@@ -1,6 +1,7 @@
 package org.choongang.mypage.controllers;
 
 
+import ch.qos.logback.core.model.Model;
 import lombok.RequiredArgsConstructor;
 import org.choongang.global.config.annotations.Controller;
 import org.choongang.global.config.annotations.RequestMapping;
@@ -11,4 +12,10 @@ import org.choongang.global.config.annotations.RequestMapping;
 public class MyPageController {
 
 
+
+     public String mypage() {
+          return "mypage";
+     }
 }
+
+
