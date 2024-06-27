@@ -4,6 +4,8 @@ package org.choongang.member.controllers;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.choongang.global.config.annotations.*;
+import org.choongang.member.services.JoinService;
+import org.choongang.member.services.LoginService;
 
 import java.util.List;
 
@@ -11,18 +13,28 @@ import java.util.List;
 @RequestMapping("/member")
 @RequiredArgsConstructor
 public class MemberController {
+
+    private final JoinService joinService;
+    private final LoginService loginService;
+
     // 회원 가입 양식
     @GetMapping("/join")
     public String join(HttpServletRequest request) {
         request.setAttribute("addCss", List.of("member/joinStyle"));
+
         return "member/join";
     }
 
     // 회원 가입 처리
     @PostMapping("/join")
-    public String joinPs() {
+    public String joinPs(RequestJoin form, HttpServletRequest request) {
 
+        joinService.process(form);
 
+        String url = request.getContextPath() + "/member/login";
+        String script = String.format("parent.location.replace('%s');", url);
+
+        request.setAttribute("script", script);
 
         return "member/join";
     }
