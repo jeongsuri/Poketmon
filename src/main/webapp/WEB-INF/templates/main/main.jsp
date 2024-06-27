@@ -33,13 +33,13 @@
     <!-- Pagination Section -->
     <div class="pagination">
         <c:if test="${page > 1}">
-            <a href="<c:url value='?page=${page - 1}' />">&laquo;</a>
+            <a href="<c:url value='?page=${page - 1}' />">&laquo; 이전</a>
         </c:if>
         <c:forEach var="i" begin="1" end="${totalPages}">
             <a href="<c:url value='?page=${i}' />" class="${page == i ? 'active' : ''}">${i}</a>
         </c:forEach>
         <c:if test="${page < totalPages}">
-            <a href="<c:url value='?page=${page + 1}' />">&raquo;</a>
+            <a href="<c:url value='?page=${page + 1}' />">다음 &raquo;</a>
         </c:if>
     </div>
 </layout:main>
