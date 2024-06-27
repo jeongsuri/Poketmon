@@ -9,8 +9,8 @@ import org.choongang.member.controllers.RequestLogin;
 import org.choongang.member.entities.Member;
 import org.choongang.member.mapper.MemberMapper;
 import org.mindrot.jbcrypt.BCrypt;
+import org.choongang.global.validators.Validator;
 
-import javax.xml.validation.Validator;
 
 @Component
 @RequiredArgsConstructor
@@ -20,18 +20,18 @@ public class LoginValidator implements Validator<RequestLogin>, RequiredValidato
 
     @Override
     public void check(RequestLogin form) {
-        String email = form.getUserId();
+        String userId = form.getUserId();
         String password = form.getPassword();
 
         int status = HttpServletResponse.SC_BAD_REQUEST;
 
         // 필수 항목 검증 - 이메일, 비밀번호
-        checkRequired(email, new AlertException("이메일을 입력하세요.", status));
+        checkRequired(userId, new AlertException("아이디를 입력하세요.", status));
         checkRequired(password, new AlertException("비밀번호를 입력하세요.", status));
 
         // 가입된 회원인지 체크
-        String message = "이메일 또는 비밀번호가 일치하지 않습니다.";
-        Member member = mapper.get(email);
+        String message = "아이디 또는 비밀번호가 일치하지 않습니다.";
+        Member member = mapper.get(userId);
         checkTrue(member != null, new AlertException(message, status));
 
         // 비밀번호 일치 여부 체크

@@ -181,6 +181,13 @@ public class HandlerAdapterImpl implements HandlerAdapter {
                return;
            }
 
+            String returnValue = (String)result;
+            if(returnValue.startsWith("redirect:")) {
+                String redirectUrl = returnValue.replace("redirect:",request.getContextPath());
+                response.sendRedirect(redirectUrl);
+                return;
+            }
+
             // 일반 컨트롤러인 경우 문자열 반환값을 템플릿 경로로 사용
             String tpl = "/WEB-INF/templates/" + result + ".jsp";
             RequestDispatcher rd = request.getRequestDispatcher(tpl);

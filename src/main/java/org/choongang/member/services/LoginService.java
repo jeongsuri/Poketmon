@@ -20,7 +20,7 @@ public class LoginService {
         loginValidator.check(form);
 
         // 회원 정보 조회
-        Member member = mapper.get(form.getuserId());
+        Member member = mapper.get(form.getUserId());
 
         // 세션에 회원 정보 유지
         HttpSession session = BeanContainer.getInstance().getBean(HttpSession.class);

@@ -7,7 +7,6 @@ import lombok.RequiredArgsConstructor;
 import org.choongang.global.config.annotations.*;
 import org.choongang.member.services.JoinService;
 import org.choongang.member.services.LoginService;
-
 import java.util.List;
 
 @Controller
@@ -37,7 +36,7 @@ public class MemberController {
 
         request.setAttribute("script", script);
 
-        return "member/join";
+        return "commons/execute_script";
     }
 
     // 로그인 양식
@@ -68,6 +67,6 @@ public class MemberController {
     public String logout(HttpSession session) {
         session.invalidate(); // 세션 비우기 : 로그 아웃
 
-        return "redirect:/member/login"; // 페이지 이동 response.sendRedirect(...)
+        return "redirect:/board"; // 페이지 이동 response.sendRedirect(...)
     }
 }

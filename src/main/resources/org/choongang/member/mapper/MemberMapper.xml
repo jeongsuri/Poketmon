@@ -8,7 +8,7 @@
         <result column="USER_ID" property="userId" />
         <result column="PASSWORD" property="password" />
         <result column="USER_TYPE" property="userType" />
-        <result column="NICKNAME" property="ninkName" />
+        <result column="NICKNAME" property="nickName" />
     </resultMap>
 
     <select id="get" resultMap="memberMap">
@@ -21,6 +21,6 @@
 
     <insert id="register">
         INSERT INTO MEMBER (USER_NO, USER_ID, PASSWORD, USER_TYPE, NICKNAME)
-        VALUES (SEQ_POKEMEMBER.NEXTVAL, #{userId}, #{password}, #{userType}, #{ninkName})
+        VALUES (SEQ_MEMBER.NEXTVAL, #{userId}, #{password}, #{userType}, #{nickName})
     </insert>
 </mapper>

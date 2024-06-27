@@ -26,9 +26,9 @@ public class JoinService {
 
         // DB에 영구 저장 처리
         Member member = Member.builder()
-                .userId(form.getuserId())
+                .userId(form.getUserId())
                 .password(hash)
-                .userName(form.getUserName())
+                .nickName(form.getNickName())
                 .userType(UserType.USER)
                 .build();
 

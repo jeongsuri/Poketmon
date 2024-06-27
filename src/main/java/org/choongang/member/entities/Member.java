@@ -13,6 +13,5 @@ public class Member {
     private String userId;
     private String password;
     private UserType userType = UserType.USER;
-    private String ninkName;
-
+    private String nickName;
 }

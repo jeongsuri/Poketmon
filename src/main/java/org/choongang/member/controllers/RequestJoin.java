@@ -7,5 +7,5 @@ public class RequestJoin {
     private String userId;
     private String password;
     private String confirmPassword;
-    private String ninkName;
+    private String nickName;
 }
