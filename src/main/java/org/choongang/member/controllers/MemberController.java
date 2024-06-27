@@ -2,6 +2,7 @@ package org.choongang.member.controllers;
 
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.choongang.global.config.annotations.*;
 import org.choongang.member.services.JoinService;
@@ -49,8 +50,24 @@ public class MemberController {
 
     // 로그인 처리
     @PostMapping("/login")
-    public String loginPs() {
+    public String loginPs(RequestLogin form, HttpServletRequest request) {
 
-        return "member/login";
+        loginService.process(form);
+
+        String redirectUrl = form.getRedirectUrl();
+        redirectUrl = redirectUrl == null || redirectUrl.isBlank() ? "/" : redirectUrl;
+
+        String script = String.format("parent.location.replace('%s');", request.getContextPath() + redirectUrl);
+
+        request.setAttribute("script", script);
+
+        return "commons/execute_script";
+    }
+
+    @RequestMapping("/logout")
+    public String logout(HttpSession session) {
+        session.invalidate(); // 세션 비우기 : 로그 아웃
+
+        return "redirect:/member/login"; // 페이지 이동 response.sendRedirect(...)
     }
 }
