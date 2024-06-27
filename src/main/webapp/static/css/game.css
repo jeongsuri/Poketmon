@@ -30,7 +30,6 @@
     justify-content: center;
     font-family: "Jua", sans-serif;
     margin:20px auto 0 auto;
-
 }
 
 .pokemonType {
@@ -74,8 +73,6 @@
     color: #fff;
 }
 
-
-
 main {
     margin: 0;
     background: url("../images/pokemonGameBack.jpg") center center;
@@ -93,7 +90,6 @@ main {
 
 .arrow {
     filter: brightness(200%);
-
     margin-left: -10px;
     max-width: 230px;
     max-width: 230px;
