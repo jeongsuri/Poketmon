@@ -6,7 +6,7 @@ import org.choongang.pokemon.entities.Pokemon;
 
 @Data
 @Builder
-public class PokemonDetail {
+public class PokemonDetail extends AbstractPokemonDetail {
     private long seq;
     private long rowNum;
     private String name;
@@ -17,6 +17,4 @@ public class PokemonDetail {
     private String frontDefault;
     private String rawData;
 
-
-    private Pokemon pokemon;
 }
