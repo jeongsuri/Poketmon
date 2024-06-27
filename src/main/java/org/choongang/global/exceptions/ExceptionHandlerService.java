@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
+import org.apache.ibatis.plugin.Invocation;
 import org.choongang.global.advices.HandlerControllerAdvice;
 import org.choongang.global.config.annotations.ControllerAdvice;
 import org.choongang.global.config.annotations.RestController;
@@ -14,6 +15,7 @@ import org.choongang.global.config.annotations.RestControllerAdvice;
 import org.choongang.global.config.annotations.Service;
 
 import java.io.PrintWriter;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -27,7 +29,11 @@ public class ExceptionHandlerService {
     private final HttpSession session;
     private final HandlerControllerAdvice handlerAdvice;
 
-    public void handle(Exception e, Object controller) {
+    public void handle(Throwable e, Object controller) {
+        if (e instanceof InvocationTargetException invocationTargetException) {
+            e = invocationTargetException.getTargetException();
+        }
+
         Class clazz = e.getClass();
         Method method = null;
         Object obj = controller;
