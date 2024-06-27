@@ -38,7 +38,7 @@ public class HandlerAdapterImpl implements HandlerAdapter {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response, List<Object> data) throws Exception {
 
-        Object controller = data.get(0); // 컨트롤러 객체
+        Object controller = data.get(0); // 컨트롤러
         Method method = (Method)data.get(1); // 찾은 요청 메서드
 
         String m = request.getMethod().toUpperCase(); // 요청 메서드

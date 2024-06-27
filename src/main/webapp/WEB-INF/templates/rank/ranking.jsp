@@ -10,10 +10,13 @@
 
 <layout:main title="${pageTitle}">
     <section class="content-box">
-        <h1>${pageTitle}</h1>
+        <div class=title>${pageTitle}</div>
+        <div class=subTitle>포켓몬 척척박사 트레이너들을 아래에서 확인해 보세요.</div>
         <div class="search">
         <input class="trainer_search" type="text" placeholder="아이디 검색">
-        <button class="search_btn">검색</button>
+        <button class="search_btn" type="submit">
+            <fmt:message key="검색"/>
+        </button>
         </div>
         <div class="ranking">
             <div class="trainer_ranking">1</div>
