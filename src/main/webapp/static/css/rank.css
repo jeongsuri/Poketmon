@@ -82,25 +82,6 @@ main {
     margin: 20px auto;
 }
 
-.trainer_ranking {
-    text-align: center;
-    float: left;
-    width: 100px
-
-}
-
-.trainer {
-    width: 300px
-
-
-}
-
-.score {
-    float: right;
-    width: 100px
-
-}
-
 .site-bottom div {
     display:none;
 }

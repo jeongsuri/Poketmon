@@ -5,9 +5,10 @@ import lombok.Data;
 
 @Data
 @Builder
+
 public class Rank {
-    private long userNo;
-    private String userId;
-    private long pokemonNo;
-    private String nickName;
+    private int RANKING;
+    private int POCKEMON_NO;
+    private int USER_NO;
+    private String USER_ID;
 }
