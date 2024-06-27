@@ -4,6 +4,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.choongang.global.config.annotations.Component;
 import org.choongang.global.exceptions.AlertException;
+import org.choongang.global.validators.PasswordValidator;
 import org.choongang.global.validators.UserIdValidator;
 import org.choongang.global.validators.RequiredValidator;
 import org.choongang.global.validators.Validator;
@@ -13,7 +14,7 @@ import org.choongang.member.mapper.MemberMapper;
 
 @Component
 @RequiredArgsConstructor
-public class JoinValidator implements Validator<RequestJoin>, RequiredValidator, UserIdValidator {
+public class JoinValidator implements Validator<RequestJoin>, RequiredValidator, UserIdValidator, PasswordValidator {
     private final MemberMapper mapper;
 
     @Override
@@ -38,7 +39,7 @@ public class JoinValidator implements Validator<RequestJoin>, RequiredValidator,
         checkTrue(mapper.exists(userId) == 0L, new AlertException("이미 가입된 아이디입니다.", status));
 
         // 비밀번호 자리수는 8자리 이상
-        checkTrue(password.length() >= 8, new AlertException("비밀번호는 8자리 이상 입력하세요.", status));
+        checkTrue(checkPassword(password), new AlertException("비밀번호는 영문자와 숫자로 구성된 8자 이상 20자 이하로 입력해 주세요.", status));
 
         // 비밀번호와 비밀번호 확인의 일치 여부
         checkTrue(password.equals(confirmPassword), new AlertException("비밀번호가 일치하지 않습니다.", status));
