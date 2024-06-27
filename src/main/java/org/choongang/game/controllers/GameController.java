@@ -18,10 +18,17 @@ public class GameController {
     @GetMapping
     public String game() {
         String uri = request.getRequestURI();
-        System.out.println(uri);
 
         request.setAttribute("addCss", List.of("game"));
 
         return "game/game";
+    }
+
+    @GetMapping("/catchPokemon")
+    public String Catch() {
+
+        request.setAttribute("addCss", List.of("catch"));
+
+        return "game/catchPokemon";
     }
 }
