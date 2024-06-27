@@ -10,17 +10,16 @@ import org.choongang.global.config.annotations.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("/board")
+@RequestMapping("/board/write")
 @RequiredArgsConstructor
-public class BoardController {
+public class BoardWriteController {
     private final HttpServletRequest request;
 
-    //게시판 목록 페이지
-    @GetMapping
-    public String boarding() {
+    //글쓰기 페이지
+    @GetMapping()
+    public String write() {
         String url = request.getRequestURI();
-        request.setAttribute("addCss", List.of("board"));
-        return "board/board";
+        request.setAttribute("addCss", List.of("write"));
+        return "board/write";
     }
-
 }
