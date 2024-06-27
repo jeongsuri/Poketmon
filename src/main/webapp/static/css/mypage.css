@@ -1,0 +1,63 @@
+.layout-width {
+    min-width: 1100px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* 사이트 헤더 영역 S */
+header .site-top {
+    background: #FFF;
+    border-bottom: 1px solid #000;
+}
+
+.form{
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    padding-top: 10px;
+}
+
+nav {
+    background: #000;
+}
+
+nav {
+    display: flex;
+    height: 45px;
+}
+
+nav > .inner a {
+    font-size: 1.35rem;
+    color: #fff;
+    padding: 0 25px;
+    line-height: 45px;
+    text-decoration-line: none;
+
+}
+* {
+    box-sizing: border-box;
+    font-family: "Nanum Gothic", sans-serif;     /*폰트글씨체*/
+    color: #000;     /*폰트색상*/
+    font-size: large;
+}
+
+
+input.search{
+     width: 400px;
+     height: 30px;
+}
+
+
+.button-push {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 80px;
+    color: #ffffff;
+    background: #000000;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    line-height: 35px;
+}
+
