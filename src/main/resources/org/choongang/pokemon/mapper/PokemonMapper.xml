@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.choongang.pokemon.mapper.PokemonMapper">
+    <resultMap id="pokemonMap" type="org.choongang.pokemon.PokemonDetail">
+        <result column="SEQ" property="seq" />
+        <result column="NUM" property="rowNum" />
+        <result column="NAME" property="name" />
+        <result column="WEIGHT" property="weight" />
+        <result column="TYPE1" property="type1" />
+        <result column="TYPE2" property="type2" />
+        <result column="FLAVOR_TEXT" property="flavorText" />
+        <result column="FRONT_DEFAULT" property="frontDefault" />
+        <result column="RAW_DATA" property="rawData" />
+    </resultMap>
+
+    <insert id="register">
+        INSERT INTO POKEMON VALUES (#{seq}, #{name}, #{weight}, #{type1}, #{type2}, #{flavorText}, #{frontDefault}, #{rawData})
+    </insert>
+
+    <select id="get" resultMap="pokemonMap">
+        SELECT ROWNUM, P.* FROM POKEMON P WHERE P.seq=#{seq}
+    </select>
+
+    <select id="getList" resultMap="pokemonMap">
+
+        SELECT * FROM (SELECT ROWNUM NUM, P.* FROM POKEMON P
+        <where>
+            <if test="skey != null">
+                AND P.NAME LIKE #{skey}
+            </if>
+        </where>
+        ) P2
+        WHERE
+        <![CDATA[
+            P2.NUM >= #{offset} AND P2.NUM < #{endRows} ORDER BY P2.seq
+        ]]>
+    </select>
+</mapper>
