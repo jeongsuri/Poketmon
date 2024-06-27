@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+
+/*태그 기본 스타일 초기화*/
+* {
+    box-sizing: border-box;
+    font-family: "Nanum Gothic", sans-serif;     /*폰트글씨체*/
+    color: #000;     /*폰트색상*/
+    font-size: large;
+}
+
+html {
+    font-size: 23px; /*1rem - 13px*/
+    margin: 4px 0 19px;
+}
+
+body {
+    margin: 0;
+}
+
+a {
+    /*스타일 제거*/
+    test-decoration: none;
+}
+
+ul, ol {
+    /*스타일제거*/
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+dl, dt, dd {
+    /*스타일제거*/ /*들여쓰기 제거*/
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    /*스타일제거*/
+    border: 0;
+}
+
+input[type='text'],
+input[type='number'],
+input[type='email'],
+input[type='password']{
+    border: 1px solid #ccc;
+    padding: 0 10px;
+    width: 100%;
+    height: 35px;
+}
+
+textarea {
+    border: 1px solid #ccc;
+    padding: 10px;
+    min-height: 100px;
+    resize: none;
+    border-radius: 3px;
+}
+
+.dn { display: none !important; }
