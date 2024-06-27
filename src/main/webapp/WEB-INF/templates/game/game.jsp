@@ -10,7 +10,7 @@
     <div class="content-wrapper">
         <img src="images/o.png" class="o" >
         <section class="content-box">
-            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" class="pokemon">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${randomNumber}.png" class="pokemon">
             <div>
                 <div class="pokemonType">
                     <b class="type1">타입1</b>
