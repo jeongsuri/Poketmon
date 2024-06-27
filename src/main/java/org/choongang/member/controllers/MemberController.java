@@ -67,6 +67,6 @@ public class MemberController {
     public String logout(HttpSession session) {
         session.invalidate(); // 세션 비우기 : 로그 아웃
 
-        return "redirect:/board"; // 페이지 이동 response.sendRedirect(...)
+        return "redirect:/member/login"; // 페이지 이동 response.sendRedirect(...)
     }
 }
