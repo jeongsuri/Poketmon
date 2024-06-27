@@ -4,8 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.choongang.global.config.annotations.Service;
 import org.choongang.pokemon.PokemonDetail;
 import org.choongang.pokemon.entities.Pokemon;
-import org.choongang.pokemon.entities.Type;
-import org.choongang.pokemon.mappers.PokemonMapper;
+import org.choongang.pokemon.mapper.PokemonMapper;
 
 @Service
 @RequiredArgsConstructor

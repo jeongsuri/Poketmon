@@ -1,4 +1,4 @@
-package org.choongang.pokemon.mappers;
+package org.choongang.pokemon.mapper;
 
 
 import org.choongang.pokemon.PokemonDetail;

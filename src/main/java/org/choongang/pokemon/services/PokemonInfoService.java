@@ -15,7 +15,7 @@ import org.choongang.pokemon.PokemonSearch;
 import org.choongang.pokemon.entities.ApiResult;
 import org.choongang.pokemon.entities.Item;
 import org.choongang.pokemon.entities.Pokemon;
-import org.choongang.pokemon.mappers.PokemonMapper;
+import org.choongang.pokemon.mapper.PokemonMapper;
 
 import java.net.http.HttpResponse;
 import java.util.Collections;

@@ -7,7 +7,7 @@ import org.choongang.global.services.ObjectMapperService;
 import org.choongang.pokemon.PokemonDetail;
 import org.choongang.pokemon.PokemonSearch;
 import org.choongang.pokemon.entities.Item;
-import org.choongang.pokemon.mappers.PokemonMapper;
+import org.choongang.pokemon.mapper.PokemonMapper;
 import org.choongang.pokemon.services.PokemonInfoService;
 import org.choongang.pokemon.services.PokemonSaveService;
 import org.junit.jupiter.api.BeforeEach;
