@@ -1,0 +1,70 @@
+/* 컨텐츠 박스*/
+.content-box {
+    background-color: #eae4e4;
+    max-width: 700px;
+    min-width: 700px;
+    min-height: 600px;
+    margin: 0px auto;
+    border: 2px solid #000;
+    border-radius: 10px;
+    padding: 20px;
+    font-family: "Jua", sans-serif; /* 기본 폰트, 대체 폰트 */
+}
+
+.pokemon {
+    min-width: 300px;
+    max-width: 300px;
+    min-height: 300px;
+    max-height: 300px;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    margin:0 auto;
+}
+
+.headText {
+    margin-top: 30px;
+    font-size: 2.0rem;
+    display: flex;
+    justify-content: center;
+}
+
+.pokemonNick {
+    font-size: 2rem;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    font-family: "Jua", sans-serif;
+    margin:20px auto 0 auto;
+}
+
+main {
+    margin: 0;
+    background: url("../images/pokemonGameBack.jpg") center center;
+    background-size: contain;
+    padding: 50px 0;
+}
+
+.buttons {
+    display: flex;
+    margin-top: 50px;
+    justify-content: center;
+}
+
+.buttons button {
+    font-family: "Jua", sans-serif;
+    font-size: 2rem;
+    width: 90%;
+    border-radius: 7px;
+}
+
+.myPageBtn {
+    margin-right: 10px;
+}
+
+.nick {
+    display: flex;
+    justify-content: center;
+    color: #9d9dd2;
+    margin-bottom: -20px;
+}
