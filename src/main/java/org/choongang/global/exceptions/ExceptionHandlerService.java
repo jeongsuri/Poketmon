@@ -35,12 +35,13 @@ public class ExceptionHandlerService {
         }
 
         Class clazz = e.getClass();
+
         Method method = null;
         Object obj = controller;
         boolean isRest = false;
         // 컨트롤러 내부 에러 처리 메서드 조회 S
         for (Method m : controller.getClass().getDeclaredMethods()) {
-           ExceptionHandler handler = m.getDeclaredAnnotation(ExceptionHandler.class);
+            ExceptionHandler handler = m.getDeclaredAnnotation(ExceptionHandler.class);
             if (handler != null && Arrays.stream(handler.value()).anyMatch(c -> isSuperClass(c, clazz))) {
                 method = m;
                 break;
