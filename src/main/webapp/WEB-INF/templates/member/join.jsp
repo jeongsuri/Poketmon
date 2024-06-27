@@ -15,6 +15,9 @@
                     <input type="text" name="userId" autofocus placeholder="아이디">
                 </dd>
             </dl>
+            <p class="text-muted form-supple">* 영문자와 숫자로 구성된 8~20자의 아이디를 입력해주세요.</p>
+            <dl>
+            </dl>
             <dl>
                 <dd>
                     <input type="password" name="password" autofocus placeholder="비밀번호">
