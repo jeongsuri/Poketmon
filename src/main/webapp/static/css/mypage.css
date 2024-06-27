@@ -10,6 +10,12 @@ header .site-top {
     border-bottom: 1px solid #000;
 }
 
+.form{
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    padding-top: 10px;
+}
+
 nav {
     background: #000;
 }
@@ -27,3 +33,31 @@ nav > .inner a {
     text-decoration-line: none;
 
 }
+* {
+    box-sizing: border-box;
+    font-family: "Nanum Gothic", sans-serif;     /*폰트글씨체*/
+    color: #000;     /*폰트색상*/
+    font-size: large;
+}
+
+
+input.search{
+     width: 400px;
+     height: 30px;
+}
+
+
+.button-push {
+    display: flex; /* 버튼을 flex 컨테이너로 만듭니다 */
+    justify-content: center; /* 버튼을 중앙 정렬합니다 */
+    align-items: center; /* 버튼 내의 텍스트를 수직으로 중앙 정렬합니다 */
+    width: 100px;  /* 원하는 너비 설정 */
+    height: 80px;  /* 원하는 높이 설정 */
+    color: #ffffff;  /* 텍스트 색상 설정 */
+    background: #000000;
+    border: none;  /* 테두리 제거 */
+    cursor: pointer;  /* 마우스 커서 설정 */
+    text-align: center;  /* 텍스트 중앙 정렬 */
+    line-height: 35px;  /* 버튼 높이와 동일하게 설정하여 텍스트 수직 중앙 정렬 */
+}
+
