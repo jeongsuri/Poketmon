@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-.dn { display: none !important; }
-=======
 @import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&family=Jua&display=swap'); /* 공통 폰트 설정 */
 
 .dn { display: none !important; }
 body {
     margin: 0;
 }
->>>>>>> dda219dbfd4672fae733957e8f681b93dd4b8f68
