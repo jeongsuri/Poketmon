@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.choongang.game.mapper.GameMapper">
+    <resultMap id="pokemonMap" type="org.choongang.game.controllers.CatchPokemon">
+        <result column="USER_NO" property="userNo" />
+        <result column="POKEMON_NO" property="pokemonNo" />
+        <result column="NICKNAME" property="nickName" />
+    </resultMap>
+
+
+    <insert id="registerNickName">
+        INSERT INTO MYPOKEMON (USER_NO, POKEMON_NO, NICKNAME) VALUES (#{userNo}, #{pokemonNo}, #{nickName})
+    </insert>
+
+</mapper>
