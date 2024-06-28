@@ -30,6 +30,9 @@
                 <a href="http://localhost:3000/project/game">포켓몬 잡기</a>
                 <a href="http://localhost:3000/project/rank">순위표</a>
                 <a href="http://localhost:3000/project/member/login">로그아웃</a>
+<%--                <c:if test="${isAdmin}">--%>
+
+<%--                </c:if>--%>
             </div>
         </nav>
     </jsp:attribute>
