@@ -4,20 +4,23 @@
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layouts" %>
 <fmt:setBundle basename="messages.commons" />
 <fmt:message var="pageTitle" key="포켓몬_게임" />
-<c:url var="mainUrl" value="/main" />
-<c:url var="myPageurl" value="/mypage" />
-
+<c:url var="gameurl" value="/game" />
+<c:url var="actionUrl" value="/game/catch" />
 <layout:main title="${pageTitle}">
         <section class="content-box">
-                <b class="headText">${answerName}을(를) 잡았다 !</b>
-                <img src="${answerImage}" class="pokemon">
-                <form>
-                       <span class="nick">별명을 지어주세요.</span>
-                <input type="text" name="pokemonNick" autofocus placeholder="별명 입력" class="pokemonNick" >
+                <b class="headText">${param.pokemonName}을(를) 잡았다 !</b>
+                <img src="${param.image}" class="pokemon">
+                <form method="POST" name="frmCatch" autocomplete="off" action="${actionUrl}" target="ifrmProcess">
+                        <input type="hidden" name="pokemonNo" value="${param.seq}">
+                        <input type="hidden" name="userNo" value="0">
+                          <span class="nick">별명을 지어주세요.</span>
+
+                        <input type="text" name="nickName" autofocus placeholder="별명 입력" class="pokemonNick">
                         <div class="buttons">
-                                <button type="submit" class="myPageBtn" formaction="${myPageurl}">박스로 이동</button>
-                                <button type="submit" class="mainBtn" formaction="${mainUrl}">한 번 더 하기</button>
+                                <button type="submit" class="myPageBtn">박스로 이동</button>
+                                <a href="${gameUrl}"><button type="button" class="mainBtn">다시 &nbsp;하기</button></a>
                         </div>
                 </form>
+
         </section>
 </layout:main>

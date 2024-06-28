@@ -14,9 +14,7 @@ public class MyPageController {
 
 
      @GetMapping
-     public String mypage() {
-          return "mypage/index";
-     }
+     public String mypage() {return "mypage/index";}
 }
 
 

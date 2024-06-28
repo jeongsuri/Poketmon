@@ -5,10 +5,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.choongang.game.mapper.GameMapper;
 import org.choongang.game.services.GameService;
-import org.choongang.global.config.annotations.Controller;
-import org.choongang.global.config.annotations.GetMapping;
-import org.choongang.global.config.annotations.RequestMapping;
-import org.choongang.global.config.annotations.RequestParam;
+import org.choongang.global.config.annotations.*;
 import org.choongang.pokemon.PokemonDetail;
 import org.choongang.pokemon.exceptions.PokemonNotFoundException;
 import org.choongang.pokemon.services.PokemonInfoService;
@@ -25,43 +22,34 @@ public class GameController {
     private final PokemonInfoService infoService;
     private final GameService gameService;
 
-    String answerName = "정답";
-    String answerImage;
-    long answerNumber;
 
-    @GetMapping
-    public String game() {
-        String submitName = request.getParameter("pokemonName");
-        if (answerName.equals(submitName)) {
+    @RequestMapping
+    public String game(@RequestParam("pokemonName") String pokemonName, @RequestParam("seq") long seq, @RequestParam("image") String image) {
+        if (seq > 0L && !pokemonName.isBlank()) {
+            PokemonDetail detail = infoService.get(seq).orElse(null);
+            if (detail != null && detail.getName().equals(pokemonName)) {
+                request.setAttribute("addCss", List.of("catch"));
 
-            return "redirect:/game/catchPokemon";
+                return "game/catchPokemon";
+            }
         }
         request.setAttribute("addCss", List.of("game"));
 
         PokemonDetail data = infoService.get((new Random()).nextLong(1, 151)).orElseThrow(PokemonNotFoundException::new);
-        answerName = data.getName();
-        answerNumber = data.getSeq();
-        answerImage = data.getFrontDefault();
-
 
         request.setAttribute("data", data);
 
-            return "game/game";
+        return "game/game";
     }
 
 
 
-    @GetMapping("/catchPokemon")
-    public String Catch(@RequestParam("pokemonNick") String nickName) {
-        request.setAttribute("addCss", List.of("catch"));
-        request.setAttribute("answerName", answerName);
-        request.setAttribute("answerImage", answerImage);
+    @PostMapping("/catch")
+    public String CatchPs(@RequestParam("pokemonNo") long pokemonNo) {
+        gameService.process(pokemonNo);
 
-       // String nickName = request.getParameter("pokemonNick");
-
-       gameService.process(answerNumber, nickName);
-
-
-            return "game/catchPokemon";
+        String script = String.format("parent.location.replace('%s');", request.getContextPath() + "/mypage");
+        request.setAttribute("script", script);
+        return "commons/execute_script";
     }
 }

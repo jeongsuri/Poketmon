@@ -20,13 +20,17 @@
                 </div>
                     <span class="content">${fn:replace(data.flavorText, '\\n', '<br>')}</span><br>
                     <span class="weight">무게 : ${data.weight/10} kg</span><br>
-                <form>
+                <form method="POST" autocomplete="off">
+                    <input type="hidden" name="seq" value="${data.seq}">
+                    <input type="hidden" name="image" value="${data.frontDefault}">
                     <input type="text" name="pokemonName" autofocus placeholder="정답 입력" class="pokemonName" >
                     <button type="submit" class="submitBtn">포획!</button>
                 </form>
             </div>
         </section>
-        <img src="images/arrow.png" class="arrow" >
+        <button type="reset" class="reButton">
+            <a href="game" ><img src="images/arrow.png" alt="Arrow" class="arrow"></a>
+        </button>
     </div>
 </layout:main>
 
