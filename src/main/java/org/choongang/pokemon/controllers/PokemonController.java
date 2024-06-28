@@ -25,7 +25,6 @@ public class PokemonController {
     @GetMapping("/main")
     public String main(PokemonSearch search) {
         commonProcess();
-        System.out.println("유입!");
         ListData<PokemonDetail> listData = infoService.getList(search);
         List<PokemonDetail> items = listData.getItems();
         Pagination pagination = listData.getPagination();
@@ -41,7 +40,6 @@ public class PokemonController {
         commonProcess();
 
         PokemonDetail data = infoService.get(seq).orElseThrow(PokemonNotFoundException::new);
-        System.out.println(data);
         request.setAttribute("data", data);
 
         return "main/view";
