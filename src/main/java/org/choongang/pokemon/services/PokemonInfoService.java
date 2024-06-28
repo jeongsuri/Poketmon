@@ -193,7 +193,7 @@ public class PokemonInfoService {
 
         int page = search.getPage();
         int limit = search.getLimit();
-        int offset = (page - 1) * limit; // 레코드 검색 시작 위치
+        int offset = (page - 1) * limit + 1; // 레코드 검색 시작 위치
         int endRows = offset + limit; // 레코드 검색 종료 위치
 
         search.setOffset(offset);

@@ -1,6 +1,5 @@
 package org.choongang.global.router;
 
-
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -24,7 +23,6 @@ public class RouterService {
 
     /**
      * 컨트롤러 라우팅
-     *
      */
     public void route(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         List<Object> data = null;
@@ -69,6 +67,7 @@ public class RouterService {
             // 찾은 컨트롤러 요청 메서드를 실행
             handlerAdapter.execute(req, res, data);
         } catch (Exception e) {
+            e.printStackTrace();
             req.setAttribute("message", e.getMessage());
             req.setAttribute("exception", e);
 
@@ -96,6 +95,5 @@ public class RouterService {
         }
 
     }
-
 
 }
