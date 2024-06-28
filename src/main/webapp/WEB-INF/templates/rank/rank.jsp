@@ -9,7 +9,7 @@
 
 
 <layout:main title="${pageTitle}">
-    <section class="content-box">
+    <div class=rank>
         <div class=title>${pageTitle}</div>
         <div class=subTitle>포켓몬 척척박사 트레이너들을 아래에서 확인해 보세요.</div>
         <div class="search">
@@ -18,28 +18,15 @@
             <fmt:message key="검색"/>
         </button>
         </div>
-        <div class="ranking">
+
+        <div class="rankings">
+            <c:forEach var="rank" items="${rankingList}">
+                <div="ranking">
+                    <p>${rank.ranking}</p>
+                    <p>${rank.userId}</p>
+                    <p>${rank.pokemonCount}</p>
+                </div>
+            </c:forEach>
         </div>
-        <div class="ranking">
-        </div>
-        <div class="ranking">
-        </div>
-        <div class="ranking">
-        </div>
-        <div class="ranking">
-        </div>
-        <div class="ranking">
-        </div>
-        <div class="ranking">
-        </div>
-        <div class="ranking">
-        </div>
-        <div class="ranking">
-        </div>
-        <div class="ranking">
-        </div>
-    </section>
+    </div>
 </layout:main>
-
-
-

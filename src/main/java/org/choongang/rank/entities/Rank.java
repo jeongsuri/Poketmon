@@ -7,8 +7,7 @@ import lombok.Data;
 @Builder
 
 public class Rank {
-    private int RANKING;
-    private int POCKEMON_NO;
-    private int USER_NO;
-    private String USER_ID;
+    private int ranking;
+    private int pokemonCount;
+    private String userId;
 }
