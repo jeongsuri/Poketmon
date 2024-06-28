@@ -1,11 +1,11 @@
 package org.choongang.mypage.controllers;
 
 
-import ch.qos.logback.core.model.Model;
 import lombok.RequiredArgsConstructor;
 import org.choongang.global.config.annotations.Controller;
 import org.choongang.global.config.annotations.GetMapping;
 import org.choongang.global.config.annotations.RequestMapping;
+
 
 @Controller
 @RequestMapping("/mypage")
@@ -13,8 +13,12 @@ import org.choongang.global.config.annotations.RequestMapping;
 public class MyPageController {
 
 
-     @GetMapping
-     public String mypage() {return "mypage/index";}
+
+    @GetMapping
+    public String mypage() {
+        return "mypage/index";
+
+    }
 }
 
 

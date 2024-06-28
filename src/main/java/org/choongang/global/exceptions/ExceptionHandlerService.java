@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
+import org.apache.ibatis.plugin.Invocation;
 import org.choongang.global.advices.HandlerControllerAdvice;
 import org.choongang.global.config.annotations.ControllerAdvice;
 import org.choongang.global.config.annotations.RestController;

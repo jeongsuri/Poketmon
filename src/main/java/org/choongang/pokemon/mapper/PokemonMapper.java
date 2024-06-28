@@ -1,6 +1,5 @@
 package org.choongang.pokemon.mapper;
 
-
 import org.choongang.pokemon.PokemonDetail;
 import org.choongang.pokemon.PokemonSearch;
 
@@ -11,4 +10,7 @@ public interface PokemonMapper {
     PokemonDetail get(long seq);
     List<PokemonDetail> getList(PokemonSearch search);
 
+
 }
+
+
