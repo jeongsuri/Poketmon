@@ -1,4 +1,4 @@
-package org.choongang.admin.board.constants;
+package org.choongang.board.constants;
 
 public enum Authority {
     ALL,
