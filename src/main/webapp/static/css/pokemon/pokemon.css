@@ -23,13 +23,13 @@
 
 .search-form label { /* 글자 : 포켓몬 검색 */
     font-weight: bold;
-    padding: 4px 6px 0 0;
+    padding: 25px 7px 10px 0;
 }
 
 .image { /* 검색 창 옆 이미지 */
-    padding: 5px;
-    width: 15%;
-    height: auto;
+    padding: 15px;
+    width: 65px;
+    height: 65px;
 }
 
 .pokemon-title { /* 도감 목록 보기 글자 및 배경 */
