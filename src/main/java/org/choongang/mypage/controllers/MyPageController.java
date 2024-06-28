@@ -20,28 +20,12 @@ import java.util.List;
 public class MyPageController {
 
 
-    /* @GetMapping
-     public String mypage() {
-          return "mypage/index"; */
+    @GetMapping
+    public String mypage() {
+        return "mypage/index";
 
-
-          @GetMapping("/member/mypage")
-          public String myPage(Long userId, Model model) {
-               List<Pokemon> pokemons;
-               model.addText("pokemons");
-               return "mypage"; // mypage.jsp 또는 다른 View 이름으로 설정
-          }
-
-    @Component
-    public class MemberUtil { //로그인 여부
-
-
-
-        private boolean getMember() {
-             return false;
-        }
-    }
 
     }
+}
 
 
