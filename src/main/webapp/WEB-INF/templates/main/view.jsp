@@ -7,9 +7,11 @@
         <img src="${data.frontDefault}" alt="이미지">
 
         <div class="p-name">
-                ${data.name}
+            ${data.name}
         </div>
+
         <div class="p-desc">
+            ${fn:replace(data.flavorText, '\\n', '<br>')}
         </div>
 
     </section>
