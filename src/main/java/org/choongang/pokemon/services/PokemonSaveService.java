@@ -12,6 +12,7 @@ public class PokemonSaveService {
     private final PokemonMapper mapper;
 
     public boolean save(Pokemon data) {
+        TranslateName translateName = new TranslateName();
 
         String type2 = "X";
 
@@ -23,12 +24,16 @@ public class PokemonSaveService {
                 .seq(data.getId())
                 .name(data.getName())
                 .weight(data.getWeight())
-                .type1(data.getTypes().get(0).getType().getName())
-                .type2(type2)
+                .type1(translateName.koreanName(data.getTypes().get(0).getType().getName()))
+                .type2( translateName.koreanName(type2))
                 .flavorText(data.getFlavor_text())
                 .frontDefault(data.getSprites().getOther().getOfficial_artwork().getFront_default())
                 .rawData(data.getRawData())
                 .build();
+
+
+
+
         int result = mapper.register(detail);
         return result > 0;
     }
