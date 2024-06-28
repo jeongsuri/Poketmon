@@ -18,3 +18,4 @@ public class PokemonDetail extends AbstractPokemonDetail {
     private String frontDefault;
     private String rawData;
 }
+
