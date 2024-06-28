@@ -54,9 +54,9 @@ public class MemberController {
         loginService.process(form);
 
         String redirectUrl = form.getRedirectUrl();
-        redirectUrl = redirectUrl == null || redirectUrl.isBlank() ? "/" : redirectUrl;
+        redirectUrl = redirectUrl == null || redirectUrl.isBlank() ? "/main" : redirectUrl;
 
-        String script = String.format("parent.location.replace('%s');", request.getContextPath() + redirectUrl + "main");
+        String script = String.format("parent.location.replace('%s');", request.getContextPath() + redirectUrl);
 
         request.setAttribute("script", script);
 
