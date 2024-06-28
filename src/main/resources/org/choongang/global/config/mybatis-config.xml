@@ -38,10 +38,7 @@
     <mappers>
         <mapper resource="org/choongang/member/mapper/MemberMapper.xml"/>
         <mapper resource="org/choongang/pokemon/mapper/PokemonMapper.xml"/>
-<<<<<<< HEAD
         <mapper resource="org/choongang/rank/mapper/RankMapper.xml"/>
-=======
         <mapper resource="org/choongang/board/mapper/BoardMapper.xml" />
->>>>>>> master
     </mappers>
 </configuration>
