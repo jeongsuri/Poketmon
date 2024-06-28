@@ -18,8 +18,6 @@ public class RankController {
     private final HttpServletRequest request;
     private final RankMapper rankMapper;
 
-    private final RankMapper rankMapper;
-
     @GetMapping
     public String rank() {
         List<Rank> rankingList = rankMapper.getRanking();
