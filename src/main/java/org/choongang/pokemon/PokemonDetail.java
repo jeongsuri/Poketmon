@@ -2,6 +2,7 @@ package org.choongang.pokemon;
 
 import lombok.Builder;
 import lombok.Data;
+import org.choongang.pokemon.entities.AbstractPokemonDetail;
 import org.choongang.pokemon.entities.Pokemon;
 
 @Data
@@ -16,5 +17,5 @@ public class PokemonDetail extends AbstractPokemonDetail {
     private String flavorText;
     private String frontDefault;
     private String rawData;
-
 }
+
