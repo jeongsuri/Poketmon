@@ -9,6 +9,7 @@ import java.util.Arrays;
         "org.choongang.member.mapper",
         "org.choongang.pokemon.mapper",
         "org.choongang.board.mapper",
+        "org.choongang.rank.mapper"
 })
 public class MapperProvider {
 
