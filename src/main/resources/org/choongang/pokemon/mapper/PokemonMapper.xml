@@ -27,15 +27,16 @@
 
         SELECT * FROM (SELECT ROWNUM NUM, P.* FROM POKEMON P
         <where>
-            <if test="skey != null">
-                AND P.NAME LIKE #{skey}
+            <if test="skey != null and !skey.equals('')">
+                <bind name="keyword" value="'%' + _parameter.getSkey() + '%'" />
+                AND P.NAME || P.FLAVOR_TEXT LIKE #{keyword}
             </if>
         </where>
-        ORDER BY P2.seq
+        ORDER BY P.SEQ
         ) P2
         WHERE
         <![CDATA[
-            P2.NUM >= #{offset} AND P2.NUM < #{endRows}
+            P2.SEQ >= #{offset} AND P2.SEQ < #{endRows}
         ]]>
     </select>
 </mapper>
