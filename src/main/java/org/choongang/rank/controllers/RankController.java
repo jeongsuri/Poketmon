@@ -16,7 +16,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class RankController {
     private final HttpServletRequest request;
-
     private final RankMapper rankMapper;
 
     @GetMapping
@@ -27,4 +26,14 @@ public class RankController {
 
         return "rank/rank";
     }
+
+    @GetMapping("/search")
+    public String search(String userId) {
+        Rank userRank = rankMapper.getUserRank(userId);
+        request.setAttribute("userRank", userRank);
+        request.setAttribute("addCss", List.of("rank"));
+
+        return "rank/searchResult";
+    }
 }
+
