@@ -16,12 +16,12 @@ import java.util.List;
 @RequiredArgsConstructor
 public class RankController {
     private final HttpServletRequest request;
-    /* private final RankMapper rankMapper; */
+    private final RankMapper rankMapper;
 
     @GetMapping
     public String rank() {
-       /*  List<Rank> rankingList = rankMapper.getRanking();
-        request.setAttribute("rankingList", rankingList); */
+       List<Rank> rankingList = rankMapper.getRanking();
+        request.setAttribute("rankingList", rankingList);
         request.setAttribute("addCss", List.of("rank"));
 
         return "rank/rank";
