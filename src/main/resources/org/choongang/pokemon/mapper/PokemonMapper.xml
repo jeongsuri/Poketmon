@@ -31,10 +31,11 @@
                 AND P.NAME LIKE #{skey}
             </if>
         </where>
+        ORDER BY P2.seq
         ) P2
         WHERE
         <![CDATA[
-            P2.NUM >= #{offset} AND P2.NUM < #{endRows} ORDER BY P2.seq
+            P2.NUM >= #{offset} AND P2.NUM < #{endRows}
         ]]>
     </select>
 </mapper>
