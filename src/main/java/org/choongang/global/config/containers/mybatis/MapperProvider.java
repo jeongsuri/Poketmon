@@ -8,8 +8,10 @@ import java.util.Arrays;
 @MapperScan({
         "org.choongang.member.mapper",
         "org.choongang.pokemon.mapper",
+        "org.choongang.game.mapper"
         "org.choongang.board.mapper",
         "org.choongang.rank.mapper"
+
 })
 public class MapperProvider {
 

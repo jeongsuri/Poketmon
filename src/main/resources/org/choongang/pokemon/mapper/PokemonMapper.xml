@@ -19,6 +19,10 @@
         INSERT INTO POKEMON VALUES (#{seq}, #{name}, #{weight}, #{type1}, #{type2}, #{flavorText}, #{frontDefault}, #{rawData})
     </insert>
 
+    <insert id="registerNickName">
+        INSERT INTO MYPOKEMON VALUES (#{userNo}, #{pokemonNo}, #{nickName})
+    </insert>
+
     <select id="get" resultMap="pokemonMap">
         SELECT ROWNUM NUM, P.* FROM POKEMON P WHERE P.seq=#{seq}
     </select>

@@ -2,8 +2,11 @@ package org.choongang.admin.advices;
 
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
+import org.choongang.global.Interceptor;
 import org.choongang.global.config.annotations.ControllerAdvice;
 import org.choongang.global.config.annotations.ModelAttribute;
+import org.choongang.global.exceptions.UnAuthorizedException;
+import org.choongang.member.MemberUtil;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,22 +17,21 @@ import java.util.regex.Pattern;
 
 @RequiredArgsConstructor
 @ControllerAdvice("org.choongang.admin")
-public class AdminControllerAdvice {
+public class AdminControllerAdvice implements Interceptor {
 
-    //private final MemberUtil memberUtil;
+    private final MemberUtil memberUtil;
     private final HttpServletRequest request;
 
-    /*
+
     @Override
     public boolean preHandle() {
 
         if (!memberUtil.isAdmin()) {
-            //throw new UnAuthorizedException();
+            throw new UnAuthorizedException();
         }
 
         return true;
     }
-    */
 
 
     /**

@@ -9,4 +9,8 @@ public interface PokemonMapper {
     int register(PokemonDetail params);
     PokemonDetail get(long seq);
     List<PokemonDetail> getList(PokemonSearch search);
+
+
 }
+
+

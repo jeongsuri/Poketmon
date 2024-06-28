@@ -36,3 +36,4 @@ public class RankController {
         return "rank/searchResult";
     }
 }
+
