@@ -16,7 +16,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class RankController {
     private final HttpServletRequest request;
-    private final RankMapper rankMapper;
 
     @GetMapping
     public String rank() {

@@ -13,10 +13,10 @@ import org.choongang.global.config.annotations.RequestMapping;
 public class MyPageController {
 
 
+
     @GetMapping
     public String mypage() {
         return "mypage/index";
-
 
     }
 }
