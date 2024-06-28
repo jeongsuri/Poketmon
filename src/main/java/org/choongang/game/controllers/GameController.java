@@ -3,6 +3,7 @@ package org.choongang.game.controllers;
 
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
+import org.choongang.pokemon.services.TranslateName;
 import org.choongang.global.config.annotations.Controller;
 import org.choongang.global.config.annotations.GetMapping;
 import org.choongang.global.config.annotations.RequestMapping;
@@ -28,6 +29,7 @@ public class GameController {
     public String game() {
         String submitName = request.getParameter("pokemonName");
         if (answerName.equals(submitName)) {
+
             return "redirect:/game/catchPokemon";
         }
         request.setAttribute("addCss", List.of("game"));
@@ -36,6 +38,8 @@ public class GameController {
         answerName = data.getName();
         answerNumber = data.getSeq();
         answerImage = data.getFrontDefault();
+
+
         request.setAttribute("data", data);
 
             return "game/game";
@@ -49,6 +53,7 @@ public class GameController {
 
         request.setAttribute("answerName", answerName);
         request.setAttribute("answerImage", answerImage);
-        return "game/catchPokemon";
+
+            return "game/catchPokemon";
     }
 }
