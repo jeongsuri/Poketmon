@@ -3,13 +3,16 @@ package org.choongang.game.controllers;
 
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
-import org.choongang.pokemon.services.TranslateName;
+import org.choongang.game.mapper.GameMapper;
+import org.choongang.game.services.GameService;
 import org.choongang.global.config.annotations.Controller;
 import org.choongang.global.config.annotations.GetMapping;
 import org.choongang.global.config.annotations.RequestMapping;
+import org.choongang.global.config.annotations.RequestParam;
 import org.choongang.pokemon.PokemonDetail;
 import org.choongang.pokemon.exceptions.PokemonNotFoundException;
 import org.choongang.pokemon.services.PokemonInfoService;
+
 
 import java.util.List;
 import java.util.Random;
@@ -20,6 +23,7 @@ import java.util.Random;
 public class GameController {
     private final HttpServletRequest request;
     private final PokemonInfoService infoService;
+    private final GameService gameService;
 
     String answerName = "정답";
     String answerImage;
@@ -48,11 +52,15 @@ public class GameController {
 
 
     @GetMapping("/catchPokemon")
-    public String Catch() {
+    public String Catch(@RequestParam("pokemonNick") String nickName) {
         request.setAttribute("addCss", List.of("catch"));
-
         request.setAttribute("answerName", answerName);
         request.setAttribute("answerImage", answerImage);
+
+       // String nickName = request.getParameter("pokemonNick");
+
+       gameService.process(answerNumber, nickName);
+
 
             return "game/catchPokemon";
     }

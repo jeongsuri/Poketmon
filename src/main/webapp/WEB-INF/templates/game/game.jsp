@@ -26,7 +26,7 @@
                 </form>
             </div>
         </section>
-    <img src="images/arrow.png" class="arrow" >
+        <img src="images/arrow.png" class="arrow" >
     </div>
 </layout:main>
 

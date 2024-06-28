@@ -4,7 +4,8 @@
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layouts" %>
 <fmt:setBundle basename="messages.commons" />
 <fmt:message var="pageTitle" key="포켓몬_게임" />
-<c:url var="actionUrl" value="/game" />
+<c:url var="mainUrl" value="/main" />
+<c:url var="myPageurl" value="/mypage" />
 
 <layout:main title="${pageTitle}">
         <section class="content-box">
@@ -12,10 +13,10 @@
                 <img src="${answerImage}" class="pokemon">
                 <form>
                        <span class="nick">별명을 지어주세요.</span>
-                <input type="text" name="pokemonNick" autofocus placeholder="정답 입력" class="pokemonNick" >
+                <input type="text" name="pokemonNick" autofocus placeholder="별명 입력" class="pokemonNick" >
                         <div class="buttons">
-                                <button type="submit" class="myPageBtn">박스로 이동</button>
-                                <button type="submit" class="mainBtn">한 번 더 하기</button>
+                                <button type="submit" class="myPageBtn" formaction="${myPageurl}">박스로 이동</button>
+                                <button type="submit" class="mainBtn" formaction="${mainUrl}">한 번 더 하기</button>
                         </div>
                 </form>
         </section>
