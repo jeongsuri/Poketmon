@@ -29,6 +29,11 @@
                 <a href="http://localhost:3000/project/mypage">내 포켓몬</a>
                 <a href="http://localhost:3000/project/game">포켓몬 잡기</a>
                 <a href="http://localhost:3000/project/rank">순위표</a>
+                <c:if test="${isAdmin}">
+                    <a href="<c:url value='/admin' />" target="_blank">
+                        <fmt:message key="사이트_관리" />
+                    </a>
+                </c:if>
                 <a href="http://localhost:3000/project/member/login">로그아웃</a>
             </div>
         </nav>
