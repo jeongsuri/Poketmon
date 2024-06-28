@@ -19,6 +19,7 @@
         </button>
         </div>
 
+        <%--
         <div class="rankings">
             <c:forEach var="rank" items="${rankingList}">
                 <div="ranking">
@@ -28,5 +29,6 @@
                 </div>
             </c:forEach>
         </div>
+        --%>
     </div>
 </layout:main>
