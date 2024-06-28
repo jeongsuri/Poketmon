@@ -29,6 +29,7 @@
 .image { /* 검색 창 옆 이미지 */
     padding: 5px;
     width: 15%;
+    height: auto;
 }
 
 .pokemon-title { /* 도감 목록 보기 글자 및 배경 */
@@ -52,7 +53,7 @@
 
 .pokemon-list > li { /* 포켓몬 목록 1줄 당 수 */
     width: calc(100% / 6);
-    padding: 10px 20px 15px;
+    padding: 10px 10px 15px;
 }
 
 .pokemon-list > li a { /* 포켓몬 목록 카드화 */
@@ -69,6 +70,15 @@
     display: block;
 }
 
+.pokemon-list > li .p-number { /* 포켓몬 이미지 위 숫자 부분 */
+    text-align: right;
+    margin-bottom: 6px;
+    font-size: 1rem;
+    font-family: "Jua", sans-serif;
+    font-width: 400;
+    font-weight: bold;
+}
+
 .pokemon-list > li .p-name { /* 포켓몬 이미지 아래 이름 부분 */
     text-align: center;
     margin-top: 10px;
@@ -78,13 +88,4 @@
     font-weight: normal;
     background-color: #AAD1E7; /* #47B7DC #71B5D1 */
     border-radius: 6px;
-}
-
-.pokemon-list > li .p-number {
-    text-align: right;
-    margin-bottom: 5px;
-    font-size: 1rem;
-    font-family: "Jua", sans-serif;
-    font-width: 400;
-    font-weight: bold;
 }
