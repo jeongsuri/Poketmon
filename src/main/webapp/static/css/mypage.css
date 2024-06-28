@@ -10,11 +10,7 @@ header .site-top {
     border-bottom: 1px solid #000;
 }
 
-.form{
-    padding-bottom: 30px;
-    margin-bottom: 30px;
-    padding-top: 10px;
-}
+
 
 nav {
     background: #000;
@@ -47,17 +43,4 @@ input.search{
 }
 
 
-.button-push {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100px;
-    height: 80px;
-    color: #ffffff;
-    background: #000000;
-    border: none;
-    cursor: pointer;
-    text-align: center;
-    line-height: 35px;
-}
 
