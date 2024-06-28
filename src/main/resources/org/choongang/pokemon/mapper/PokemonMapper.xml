@@ -5,7 +5,7 @@
 <mapper namespace="org.choongang.pokemon.mapper.PokemonMapper">
     <resultMap id="pokemonMap" type="org.choongang.pokemon.PokemonDetail">
         <result column="SEQ" property="seq" />
-        <result column="NUM" property="num" />
+        <result column="NUM" property="rowNum" />
         <result column="NAME" property="name" />
         <result column="WEIGHT" property="weight" />
         <result column="TYPE1" property="type1" />

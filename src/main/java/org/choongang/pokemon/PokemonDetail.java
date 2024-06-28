@@ -9,7 +9,7 @@ import org.choongang.pokemon.entities.Pokemon;
 @Builder
 public class PokemonDetail extends AbstractPokemonDetail {
     private long seq;
-    private long num;
+    private long rowNum;
     private String name;
     private int weight;
     private String type1;
