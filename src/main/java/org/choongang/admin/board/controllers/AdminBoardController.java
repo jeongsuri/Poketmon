@@ -6,7 +6,7 @@ import org.choongang.global.config.annotations.RequestMapping;
 
 @Controller
 @RequestMapping("/admin/board")
-public class BoardController {
+public class AdminBoardController {
 
     // 게시판 목록
     @GetMapping
