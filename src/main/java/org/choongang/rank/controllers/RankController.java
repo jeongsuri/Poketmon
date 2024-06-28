@@ -18,8 +18,6 @@ public class RankController {
     private final HttpServletRequest request;
     private final RankMapper rankMapper;
 
-    private final RankMapper rankMapper;
-
     @GetMapping
     public String rank() {
         List<Rank> rankingList = rankMapper.getRanking();
@@ -28,4 +26,14 @@ public class RankController {
 
         return "rank/rank";
     }
+
+    @GetMapping("/search")
+    public String search(String userId) {
+        Rank userRank = rankMapper.getUserRank(userId);
+        request.setAttribute("userRank", userRank);
+        request.setAttribute("addCss", List.of("rank"));
+
+        return "rank/searchResult";
+    }
 }
+

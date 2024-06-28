@@ -4,7 +4,7 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.choongang.mypage.mapper.MyPageMapper">
 
-    <!-- 1. 로그인된 내 아이디로 맴버 테이블에서 유저 넘버를 찾음 -->
+    <!--  로그인된 내 아이디로 맴버 테이블에서 유저 넘버를 찾음 -->
     <select id="findUserNumberByUserId" resultType="int">
         <![CDATA[
         SELECT USER_NO
@@ -13,7 +13,7 @@
         ]]>
     </select>
 
-    <!-- 2. 찾은 유저 넘버로 마이 포켓몬 테이블에서 그룹 바이로 묶고 -->
+    <!--  찾은 유저 넘버로 마이 포켓몬 테이블에서 그룹 바이로 묶고 -->
     <select id="findCaughtPokemonNumbers" resultType="int">
         <![CDATA[
         SELECT DISTINCT POKEMON_NO

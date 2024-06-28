@@ -9,4 +9,5 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class RankService {
+    private final RankMapper rankMapper;
 }
