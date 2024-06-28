@@ -45,6 +45,7 @@
                     </c:forEach>
                 </nav>
             </c:if>
+
             <jsp:doBody />
         </section>
     </jsp:body>

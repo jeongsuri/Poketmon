@@ -7,12 +7,10 @@
 <c:url var="actionUrl" value="/mypage"/>
 <c:url var="cssUrl" value="/css/"/>
 
+
 <layout:main title="${pageTitle}">
 
-    <%--  상단  --%>
-    <div class="mypage">
-        <div class="mypage-top">
-            <h1>나의포켓몬</h1>
-            </div>
-            </div>
- </layout:main>
+    <h1>Welcome to My Page</h1>
+
+
+</layout:main>
