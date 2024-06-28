@@ -31,4 +31,4 @@
         </div>
         --%>
     </div>
-</layout:main>
+<layout:main title="${pageTitle}">

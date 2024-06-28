@@ -5,7 +5,7 @@
 <fmt:setBundle basename="messages.commons" />
 <fmt:message var="pageTitle" key='로그인' />
 <c:url var="actionUrl" value="/member/login" />
-<c:url var="actionUrl" value="/member/join" />
+<%--<c:url var="actionUrl2" value="/member/join" />--%>
 
 <layout:memberMain title="${pageTitle}">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
