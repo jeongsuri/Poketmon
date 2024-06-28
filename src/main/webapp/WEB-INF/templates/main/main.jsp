@@ -8,9 +8,14 @@
 
 <layout:main title="${pageTitle}">
     <section class="layout-width">
-        <div class="pokemon-title-container"> <!-- Wrapper for title -->
+        <div class="pokemon-title-container"> <!-- 도감 목록 제목 -->
             <h1 class="pokemon-title">도감 목록 보기</h1>
         </div>
+        <form name="frmSearch" method="get" action="${searchUrl}" autocomplete="off" class="search-form"> <!-- 포켓몬 검색창 -->
+            <label for="skey">포켓몬 검색 : </label>
+            <input type="text" name="skey" value="${param.skey}" placeholder="포켓몬 이름을 입력하세요!">
+            <button type="submit">검색</button>
+        </form>
         <ul class="pokemon-list">
             <c:if test="${items == null || items.isEmpty()}">
                 <li class="no-data">조회된 포켓몬이 없습니다!</li>
@@ -29,17 +34,4 @@
             </c:if>
         </ul>
     </section>
-
-    <!-- Pagination Section -->
-    <div class="pagination">
-        <c:if test="${page > 1}">
-            <a href="<c:url value='?page=${page - 1}' />">&laquo; 이전</a>
-        </c:if>
-        <c:forEach var="i" begin="1" end="${totalPages}">
-            <a href="<c:url value='?page=${i}' />" class="${page == i ? 'active' : ''}">${i}</a>
-        </c:forEach>
-        <c:if test="${page < totalPages}">
-            <a href="<c:url value='?page=${page + 1}' />">다음 &raquo;</a>
-        </c:if>
-    </div>
 </layout:main>
