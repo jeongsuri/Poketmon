@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.choongang.rank.mapper.RankMapper">
+
+    <select id="getRanking" resultType="org.choongang.rank.entities.Rank">
+        <![CDATA[
+        SELECT RANKING, USER_ID, POKEMON_COUNT
+        FROM (
+            SELECT RANK() OVER (ORDER BY POKEMON_COUNT DESC) AS RANKING, USER_ID, POKEMON_COUNT
+            FROM (
+                SELECT M.USER_ID, COUNT(MP.POKEMON_NO) AS POKEMON_COUNT
+                FROM MEMBER M
+                LEFT JOIN MYPOKEMON MP ON M.USER_NO = MP.USER_NO
+                GROUP BY M.USER_ID
+            ) AS USER_POKEMON_COUNT
+        ) AS RANKINGS
+        WHERE RANKING IN (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+        ]]>
+    </select>
+</mapper>
