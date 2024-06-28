@@ -1,8 +1,4 @@
-.layout-width {
-    min-width: 1100px;
-    max-width: 1300px;
-    margin: 0 auto;
-}
+
 
 /* 사이트 헤더 영역 S */
 header .site-top {
@@ -10,11 +6,7 @@ header .site-top {
     border-bottom: 1px solid #000;
 }
 
-.form{
-    padding-bottom: 30px;
-    margin-bottom: 30px;
-    padding-top: 10px;
-}
+
 
 nav {
     background: #000;
@@ -25,14 +17,25 @@ nav {
     height: 45px;
 }
 
-nav > .inner a {
-    font-size: 1.35rem;
-    color: #fff;
-    padding: 0 25px;
-    line-height: 45px;
-    text-decoration-line: none;
-
+/* 메인 레이아웃 공통 S */
+.layout-width {
+    min-width: 1100px;
+    max-width: 1300px;
+    margin: 0 auto;
 }
+
+.content-box {
+    min-width: 600px;
+    max-width: 700px;
+    min-height: 650px;
+    margin: 50px auto;
+    border-radius: 20px;
+    padding-top: 200px; /* 위쪽 패딩 */
+    padding-right: 100px; /* 오른쪽 패딩 */
+    padding-bottom: 200px; /* 아래쪽 패딩 */
+    padding-left: 100px; /* 왼쪽 패딩 */
+}
+
 * {
     box-sizing: border-box;
     font-family: "Nanum Gothic", sans-serif;     /*폰트글씨체*/
@@ -47,17 +50,4 @@ input.search{
 }
 
 
-.button-push {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100px;
-    height: 80px;
-    color: #ffffff;
-    background: #000000;
-    border: none;
-    cursor: pointer;
-    text-align: center;
-    line-height: 35px;
-}
 
