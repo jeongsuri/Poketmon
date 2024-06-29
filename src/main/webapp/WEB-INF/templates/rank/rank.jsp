@@ -33,4 +33,4 @@
             </c:forEach>
         </div>
     </div>
-<layout:main title="${pageTitle}">
+</layout:main>
