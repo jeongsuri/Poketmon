@@ -26,7 +26,7 @@
                     <li>
                         <a href="<c:url value='/pokemon/${item.seq}' />">
                                 <div class="p-number">
-                                        No ${item.seq}
+                                        No. ${item.seq}
                                 </div>
                             <img src="${item.frontDefault}" alt="${item.name}">
                             <div class="p-name">
