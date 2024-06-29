@@ -8,6 +8,6 @@ import lombok.Data;
 
 public class Rank {
     private int ranking;
-    private String userId;
     private int pokemonCount;
+    private String userId;
 }

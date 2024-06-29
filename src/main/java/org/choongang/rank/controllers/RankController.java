@@ -20,10 +20,20 @@ public class RankController {
 
     @GetMapping
     public String rank() {
-       List<Rank> rankingList = rankMapper.getRanking();
+        List<Rank> rankingList = rankMapper.getRanking();
         request.setAttribute("rankingList", rankingList);
         request.setAttribute("addCss", List.of("rank"));
 
         return "rank/rank";
     }
+
+    @GetMapping("/search")
+    public String search(String userId) {
+        Rank userRank = rankMapper.getUserRank(userId);
+        request.setAttribute("userRank", userRank);
+        request.setAttribute("addCss", List.of("rank"));
+
+        return "rank/searchResult";
+    }
 }
+
