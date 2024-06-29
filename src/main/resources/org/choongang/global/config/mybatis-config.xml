@@ -40,5 +40,6 @@
         <mapper resource="org/choongang/pokemon/mapper/PokemonMapper.xml"/>
         <mapper resource="org/choongang/rank/mapper/RankMapper.xml"/>
         <mapper resource="org/choongang/board/mapper/BoardMapper.xml" />
+        <mapper resource="org/choongang/board/mapper/BoardDataMapper.xml" />
     </mappers>
 </configuration>
