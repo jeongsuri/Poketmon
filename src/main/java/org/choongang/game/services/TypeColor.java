@@ -40,7 +40,7 @@ public class TypeColor {
             case "페어리":
                 return "fairy";
             default:
-                return "normal";
+                return "X";
         }
     }
 }
