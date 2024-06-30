@@ -1,17 +1,19 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layouts" %>
+<c:url var="cssUrl" value="/css/"/>
+
 <layout:admin title="회원 목록">
     <h1>회원 목록</h1>
 
     <table class="table-rows">
         <thead>
         <tr>
-            <th width="50">회원번호</th>
-            <th>회원 ID</th>
-            <th>유형</th>
-            <th>닉네임</th>
-            <th>작업</th>
+            <th width=70>회원번호</th>
+            <th width=200>회원 ID</th>
+            <th width=100>유형</th>
+            <th width=200>닉네임</th>
+            <th width=200">작업</th>
         </tr>
         </thead>
         <tbody>
