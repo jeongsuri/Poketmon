@@ -23,6 +23,7 @@
                 </button>
             </form>
         </div>
+
         <div class="rankings">
             <c:forEach var="item" items="${rankingList}">
                 <div class="ranking">
