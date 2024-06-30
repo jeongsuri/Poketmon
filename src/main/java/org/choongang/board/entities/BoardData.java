@@ -23,6 +23,5 @@ public class BoardData {
     private String ip; // 글 작성자 IP 주소
     private LocalDateTime regDt; // 작성일시
     private LocalDateTime modDt; // 수정일시
-    private String email; // 회원 이메일
-    private String userName; // 회원명
+    private String nickName; // 회원명
 }

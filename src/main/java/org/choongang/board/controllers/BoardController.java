@@ -22,6 +22,17 @@ public class BoardController {
     private final BoardConfigInfoService configInfoService;
     private final HttpServletRequest request;
 
+
+    //게시판 리스트보기
+    @GetMapping
+    public String boardList() {
+        List<Board> items = configInfoService.getList();
+        request.setAttribute("items", items);
+        request.setAttribute("addCss", List.of("board"));
+        return "/board/boardList";
+    }
+
+    //게시글 리스트보기
     @GetMapping("/list/{bId}")
     public String list(@PathVariable("bId") String bId) {
         commonProcess(bId, "list");
@@ -29,12 +40,14 @@ public class BoardController {
         return "board/list";
     }
 
+    //게시글보기
     @GetMapping("/view/{seq}")
     public String view(@PathVariable("seq") long seq) {
 
         return "board/view";
     }
 
+    //게시글 작성
     @GetMapping("/write/{bId}")
     public String write(@PathVariable("bId") String bId) {
         commonProcess(bId, "write");
@@ -43,6 +56,7 @@ public class BoardController {
         return "board/write";
     }
 
+    //게시글 수정
     @GetMapping("/update/{seq}")
     public String update(@PathVariable("seq") long seq) {
 

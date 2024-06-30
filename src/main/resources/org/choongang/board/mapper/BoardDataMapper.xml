@@ -17,10 +17,7 @@
         <result column="CONTENT" property="content" />
         <result column="UA" property="ua" />
         <result column="IP" property="ip" />
-        <result column="REG_DT" property="regDt" />
-        <result column="MOD_DT" property="modDt" />
-        <result column="EMAIL" property="email" />
-        <result column="USER_NAME" property="userName" />
+        <result column="NICKNAME" property="nikName" />
     </resultMap>
 
     <insert id="register">
@@ -65,7 +62,7 @@
     </delete>
 
     <select id="get" resultMap="boardDataMap">
-        SELECT ROWNUM NUM, B.*, M.EMAIL, M.USER_NAME FROM BOARD_DATA B
+        SELECT ROWNUM NUM, B.*, M.NICKNAME FROM BOARD_DATA B
         LEFT JOIN MEMBER M ON M.USER_NO = B.MEMBER_SEQ
         WHERE B.SEQ = #{seq}
     </select>
@@ -74,7 +71,7 @@
 
 
         SELECT * FROM (
-        SELECT ROWNUM NUM, B.*, M.EMAIL, M.USER_NAME FROM BOARD_DATA B
+        SELECT ROWNUM NUM, B.*, M.NICKNAME FROM BOARD_DATA B
         LEFT JOIN MEMBER M ON M.USER_NO = B.MEMBER_SEQ
         <where>
             <if test="bId != null and !bId.equals('')">
@@ -84,7 +81,7 @@
                 <bind name="keyword" value="'%' + _parameter.getSkey() + '%'" />
 
                 <if test="sopt != null and sopt.equals('ALL')">
-                    AND B.SUBJECT || B.CONTENT || B.POSTER || M.EMAIL || M.USER_NAME
+                    AND B.SUBJECT || B.CONTENT || B.POSTER || M.NICKNAME
                     LIKE #{keyword}
                 </if>
                 <if test="sopt != null and sopt.equals('SUBJECT_CONTENT')">
@@ -97,7 +94,7 @@
                     AND B.CONTENT LIKE #{keyword}
                 </if>
                 <if test="sopt != null and sopt.equals('NAME')">
-                    AND B.POSTER || M.EMAIL || M.USER_NAME LIKE #{keyword}
+                    AND B.POSTER || M.NICKNAME LIKE #{keyword}
                 </if>
             </if>
         </where>
