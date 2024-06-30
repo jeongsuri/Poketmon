@@ -10,7 +10,7 @@ import org.choongang.member.services.LoginService;
 import java.util.List;
 
 @Controller
-@RequestMapping("/member")
+@RequestMapping("/")
 @RequiredArgsConstructor
 public class MemberController {
 
@@ -18,7 +18,7 @@ public class MemberController {
     private final LoginService loginService;
 
     // 회원 가입 양식
-    @GetMapping("/join")
+    @GetMapping("/member/join")
     public String join(HttpServletRequest request) {
         request.setAttribute("addCss", List.of("member/joinStyle"));
 
@@ -26,7 +26,7 @@ public class MemberController {
     }
 
     // 회원 가입 처리
-    @PostMapping("/join")
+    @PostMapping("/member/join")
     public String joinPs(RequestJoin form, HttpServletRequest request) {
 
         joinService.process(form);
@@ -40,30 +40,39 @@ public class MemberController {
     }
 
     // 로그인 양식
-    @GetMapping("/login")
+    @GetMapping("/member/login")
     public String login(HttpServletRequest request) {
         request.setAttribute("addCss", List.of("member/loginStyle"));
 
         return "member/login";
     }
 
+    // 처음 사이트 접근 시 로그인 화면
+    // 로그인 양식
+    @GetMapping
+    public String initLogin(HttpServletRequest request) {
+        request.setAttribute("addCss", List.of("member/loginStyle"));
+
+        return "member/login";
+    }
+
     // 로그인 처리
-    @PostMapping("/login")
+    @PostMapping("/member/login")
     public String loginPs(RequestLogin form, HttpServletRequest request) {
 
         loginService.process(form);
 
         String redirectUrl = form.getRedirectUrl();
-        redirectUrl = redirectUrl == null || redirectUrl.isBlank() ? "/" : redirectUrl;
+        redirectUrl = redirectUrl == null || redirectUrl.isBlank() ? "/main" : redirectUrl;
 
-        String script = String.format("parent.location.replace('%s');", request.getContextPath() + redirectUrl + "main");
+        String script = String.format("parent.location.replace('%s');", request.getContextPath() + redirectUrl);
 
         request.setAttribute("script", script);
 
         return "commons/execute_script";
     }
 
-    @RequestMapping("/logout")
+    @RequestMapping("/member/logout")
     public String logout(HttpSession session) {
         session.invalidate(); // 세션 비우기 : 로그 아웃
 
