@@ -5,7 +5,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.choongang.game.services.GameService;
 import org.choongang.game.services.PokeNumberService;
-import org.choongang.game.services.TypeColor;
+import org.choongang.game.services.TypeColorService;
 import org.choongang.global.config.annotations.Controller;
 import org.choongang.global.config.annotations.PostMapping;
 import org.choongang.global.config.annotations.RequestMapping;
@@ -24,7 +24,7 @@ public class GameController implements RequiredValidator {
     private final HttpServletRequest request;
     private final PokemonInfoService infoService;
     private final GameService gameService;
-    private final TypeColor typecolor;
+    private final TypeColorService typeColorService;
     private final PokeNumberService pokeNumberService;
 
     @RequestMapping
@@ -48,8 +48,8 @@ public class GameController implements RequiredValidator {
         PokemonDetail data = infoService.get(randomNum).orElseThrow(PokemonNotFoundException::new);
 
         request.setAttribute("data", data);
-        String typeColor1 = typecolor.getTypeColor(data.getType1());
-        String typeColor2 = typecolor.getTypeColor(data.getType2());
+        String typeColor1 = typeColorService.getTypeColor(data.getType1());
+        String typeColor2 = typeColorService.getTypeColor(data.getType2());
 
         request.setAttribute("typeColor1", typeColor1);
         request.setAttribute("typeColor2", typeColor2);
