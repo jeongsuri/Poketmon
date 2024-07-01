@@ -1,21 +1,27 @@
 package org.choongang.member.tests;
 
-import lombok.RequiredArgsConstructor;
-import org.choongang.global.config.annotations.Service;
+import org.choongang.global.config.DBConn;
 import org.choongang.member.entities.Member;
 import org.choongang.member.mapper.MemberMapper;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@Service
-@RequiredArgsConstructor
+@ExtendWith(MockitoExtension.class)
 @DisplayName("회원가입 기능 테스트")
 public class JoinServiceTest {
 
     private Member member;
     private MemberMapper memberMapper;
+
+    @BeforeEach
+    void init() {
+        memberMapper = DBConn.getSession().getMapper(MemberMapper.class);
+    }
 
     @Test
     @DisplayName("회원가입 성공 시 예외 발생하지 않음")

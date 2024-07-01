@@ -20,16 +20,25 @@ public class MemberMapperTest {
     }
 
     @Test
-    @DisplayName("회원 등록, 조회 테스트")
+    @DisplayName("회원 등록")
     void registerTest() {
         MemberMapper mapper = sqlSession.getMapper(MemberMapper.class);
         Member member = Member.builder()
                 .userNo(1)
                 .userId("test100100")
                 .password("test100100")
-                //.userType(new UserType("USER"))
+                .userType(UserType.USER) // 자료형 USERTYPE인데 어떻게 바꾸징
                 .nickName("test100100")
                 .build();
         mapper.register(member);
+    }
+
+    @Test
+    @DisplayName("회원 조회")
+    void getTest() {
+        MemberMapper mapper = sqlSession.getMapper(MemberMapper.class);
+        Member userId = mapper.get("test01010101");
+        System.out.println(userId);
+
     }
 }
