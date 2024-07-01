@@ -89,3 +89,38 @@
     background-color: #AAD1E7; /* #47B7DC #71B5D1 */
     border-radius: 6px;
 }
+
+.pokemon-list > li .p-types {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.pokemon-list > li .p-type1, .p-type2 {
+    text-align: center;
+    font-size: 0.9rem;
+    font-family: "Jua", sans-serif;
+    font-weight: normal;
+    margin: 0 5px; /* 타입 사이 간격 추가 */
+}
+
+.p-type1 {
+    width: 45%;
+    border-radius: 5px;
+    border: 1px solid #fff;
+    padding: 1px;
+    color: #000;
+    background-color: #90B19D;
+    font-weight: lighter;
+}
+
+.p-type2 {
+    width: 45%;
+    border-radius: 5px;
+    border: 1px solid #fff;
+    padding: 1px;
+    color: #000;
+    background-color: #90B19D;
+    font-weight: lighter;
+}

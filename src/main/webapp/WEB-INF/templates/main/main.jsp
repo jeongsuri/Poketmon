@@ -32,6 +32,14 @@
                             <div class="p-name">
                                     ${item.name}
                             </div>
+                            <div class="p-types">
+                                <div class="p-type1">
+                                    Type1 : ${item.type1}
+                                </div>
+                                <div class="p-type2">
+                                    Type2 : ${item.type2}
+                                </div>
+                            </div>
                         </a>
                     </li>
                 </c:forEach>
