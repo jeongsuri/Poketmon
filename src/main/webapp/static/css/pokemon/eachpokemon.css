@@ -28,6 +28,7 @@
     border: 2px solid #DADADA;
     border-radius: 15px;
     box-shadow: 2px 2px 10px #B1B6B7; /* box-shadow 색상 : #B2BEB5*/
+    cursor: pointer;
 }
 
 .pokemon-info { /* 포켓몬 정보 설정 */
