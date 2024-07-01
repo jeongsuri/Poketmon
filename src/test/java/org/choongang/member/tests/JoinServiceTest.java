@@ -3,6 +3,7 @@ package org.choongang.member.tests;
 import org.choongang.global.config.DBConn;
 import org.choongang.member.entities.Member;
 import org.choongang.member.mapper.MemberMapper;
+import org.choongang.member.services.JoinService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -15,12 +16,13 @@ import static org.junit.jupiter.api.Assertions.*;
 @DisplayName("회원가입 기능 테스트")
 public class JoinServiceTest {
 
-    private Member member;
+    private JoinService joinService;
     private MemberMapper memberMapper;
 
     @BeforeEach
     void init() {
-        memberMapper = DBConn.getSession().getMapper(MemberMapper.class);
+        joinService = MemberServiceProvider_temp.getInstance().joinService();
+        //mapper = DBConn.getSession().getMapper(MemberMapper.class)
     }
 
     @Test
