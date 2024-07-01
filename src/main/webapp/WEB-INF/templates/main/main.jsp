@@ -26,11 +26,19 @@
                     <li>
                         <a href="<c:url value='/pokemon/${item.seq}' />">
                                 <div class="p-number">
-                                        No ${item.seq}
+                                        No. ${item.seq}
                                 </div>
                             <img src="${item.frontDefault}" alt="${item.name}">
                             <div class="p-name">
                                     ${item.name}
+                            </div>
+                            <div class="p-types">
+                                <div class="p-type1">
+                                    Type1 : ${item.type1}
+                                </div>
+                                <div class="p-type2">
+                                    Type2 : ${item.type2}
+                                </div>
                             </div>
                         </a>
                     </li>
