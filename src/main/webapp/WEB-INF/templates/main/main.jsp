@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layouts" %>
+<%@ taglib prefix="util" tagdir="/WEB-INF/tags/utils" %>
 <fmt:setBundle basename="messages.commons" />
 <fmt:message var="pageTitle" key='포켓몬_도감' />
 <c:url var="actionUrl" value="/main" />
@@ -33,10 +34,10 @@
                                     ${item.name}
                             </div>
                             <div class="p-types">
-                                <div class="p-type1">
+                                <div class="p-type1 p-type <util:typeColor value="${item.type1}" />">
                                     Type1 : ${item.type1}
                                 </div>
-                                <div class="p-type2">
+                                <div class="p-type2 p-type <util:typeColor value="${item.type2}" />">
                                     Type2 : ${item.type2}
                                 </div>
                             </div>
