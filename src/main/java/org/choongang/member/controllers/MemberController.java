@@ -18,7 +18,7 @@ public class MemberController {
     private final LoginService loginService;
 
     // 회원 가입 양식
-    @GetMapping("/member/join")
+    @GetMapping("member/join")
     public String join(HttpServletRequest request) {
         request.setAttribute("addCss", List.of("member/joinStyle"));
 
@@ -26,7 +26,7 @@ public class MemberController {
     }
 
     // 회원 가입 처리
-    @PostMapping("/member/join")
+    @PostMapping("member/join")
     public String joinPs(RequestJoin form, HttpServletRequest request) {
 
         joinService.process(form);
@@ -40,7 +40,7 @@ public class MemberController {
     }
 
     // 로그인 양식
-    @GetMapping("/member/login")
+    @GetMapping("member/login")
     public String login(HttpServletRequest request) {
         request.setAttribute("addCss", List.of("member/loginStyle"));
 
@@ -57,7 +57,7 @@ public class MemberController {
     }
 
     // 로그인 처리
-    @PostMapping("/member/login")
+    @PostMapping("member/login")
     public String loginPs(RequestLogin form, HttpServletRequest request) {
 
         loginService.process(form);
@@ -72,10 +72,10 @@ public class MemberController {
         return "commons/execute_script";
     }
 
-    @RequestMapping("/member/logout")
+    @RequestMapping("member/logout")
     public String logout(HttpSession session) {
         session.invalidate(); // 세션 비우기 : 로그 아웃
 
-        return "redirect:/member/login"; // 페이지 이동 response.sendRedirect(...)
+        return "redirect:member/login"; // 페이지 이동 response.sendRedirect(...)
     }
 }
