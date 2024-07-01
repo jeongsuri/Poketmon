@@ -52,7 +52,6 @@ public class BoardController {
     public String write(@PathVariable("bId") String bId) {
         commonProcess(bId, "write");
 
-
         return "board/write";
     }
 
