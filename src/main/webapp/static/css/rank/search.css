@@ -1,0 +1,109 @@
+main {
+    font-family: "Jua", sans-serif;
+    margin: 0;
+    background: url(https://lh3.googleusercontent.com/6LjkWcXFt4Ef2E_BnLIrmQNWUpdiBnG6LYpbwlDt0h36hcBRYyK4VwE-y70ruPWyDDNlVcsPZiXB44cxiOGc=s0) center center;
+    background-size: cover;
+    padding: 50px 0;
+}
+
+
+
+.searchResult {
+    min-width: 550px;
+    max-width: 590px;
+    height: 780px;
+    margin: 0 auto;
+    border-style: solid #31445a;
+    border-radius: 20px;
+    padding: 30px;
+    background: #31445a;
+}
+
+.title {
+    font-size: 2rem;
+    margin: 0;
+    color: #fff;
+}
+
+.subTitle {
+    font-size: 1.17rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.search {
+    margin: 0 auto;
+    height: 40px;
+    width: 400px;
+    border: 2px solid #1d2837;
+    background: #ffffff;
+    margin-bottom: 30px;
+}
+
+.trainer_search {
+    font-size: 16px;
+    width: 300px;
+    padding: 10px;
+    border: 0px;
+    outline: none;
+    float: left;
+}
+
+.search_btn {
+    width: 50px;
+    height: 41px;
+    border: 0px;
+    background: #1d2837;
+    outline: none;
+    float: right;
+    color: #ffffff;
+    font-family: "Jua", sans-serif;
+    cursor: pointer;
+}
+
+.image {
+    width: 270px;
+    height: 100%;
+}
+
+.goRankBtn {
+    margin: 20px;
+    width: 70px;
+    height: 70px;
+    border: 0px;
+    border-radius: 15px;
+    background: #1d2837;
+    outline: none;
+    float: center;
+    color: #ffffff;
+    font-family: "Jua", sans-serif;
+    cursor: pointer;
+}
+
+.result1, .result2 {
+    font-size: 1.17rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background-color: #1d2837;
+    width: 500px;
+    border: 1px solid #1d2837;
+    padding: 11px;
+    border-radius: 15px;
+    margin: 20px auto;
+}
+
+p {
+    text-align: center;
+}
+
+.site-bottom div {
+    display:none;
+}
+
+.site-bottom {
+    display: none;
+}
