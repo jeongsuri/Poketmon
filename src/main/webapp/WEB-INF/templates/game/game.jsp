@@ -15,8 +15,8 @@
             <img src="${data.frontDefault}" class="pokemon">
             <div>
                 <div class="pokemonType">
-                    <b class="type1">${data.type1}</b>
-                    <b class="type2">${data.type2}</b><br>
+                    <b class="type1 ${typeColor1}" id="type1">${data.type1}</b>
+                    <b class="type2 ${typeColor2}" id="type2">${data.type2}</b><br>
                 </div>
                     <span class="content">${fn:replace(data.flavorText, '\\n', '<br>')}</span><br>
                     <span class="weight">무게 : ${data.weight/10} kg</span><br>
