@@ -37,6 +37,7 @@
     </environments>
     <mappers>
         <mapper resource="org/choongang/member/mapper/MemberMapper.xml"/>
+        <mapper resource="org/choongang/member/mapper/MemberDataMapper.xml"/>
         <mapper resource="org/choongang/pokemon/mapper/PokemonMapper.xml"/>
         <mapper resource="org/choongang/game/mapper/GameMapper.xml"/>
         <mapper resource="org/choongang/rank/mapper/RankMapper.xml"/>

@@ -1,14 +1,17 @@
 package org.choongang.board.controllers;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.choongang.board.entities.Board;
+import org.choongang.board.entities.BoardData;
 import org.choongang.board.exceptions.BoardConfigNotFoundException;
+import org.choongang.board.exceptions.BoardNotFoundException;
+import org.choongang.board.services.BoardInfoService;
+import org.choongang.board.services.BoardSaveService;
 import org.choongang.board.services.config.BoardConfigInfoService;
-import org.choongang.global.config.annotations.Controller;
-import org.choongang.global.config.annotations.GetMapping;
-import org.choongang.global.config.annotations.PathVariable;
-import org.choongang.global.config.annotations.RequestMapping;
+import org.choongang.global.config.annotations.*;
+import org.choongang.global.exceptions.AlertException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +24,9 @@ public class BoardController {
 
     private final BoardConfigInfoService configInfoService;
     private final HttpServletRequest request;
+    private final BoardSaveService saveService;
+    private final BoardInfoService infoService;
+    private BoardData boardData;
 
 
     //게시판 리스트보기
@@ -29,7 +35,7 @@ public class BoardController {
         List<Board> items = configInfoService.getList();
         request.setAttribute("items", items);
         request.setAttribute("addCss", List.of("board"));
-        return "/board/boardList";
+        return "board/boardList";
     }
 
     //게시글 리스트보기
@@ -43,7 +49,7 @@ public class BoardController {
     //게시글보기
     @GetMapping("/view/{seq}")
     public String view(@PathVariable("seq") long seq) {
-
+        commonProcess(seq, "view");
         return "board/view";
     }
 
@@ -51,16 +57,36 @@ public class BoardController {
     @GetMapping("/write/{bId}")
     public String write(@PathVariable("bId") String bId) {
         commonProcess(bId, "write");
+        RequestBoardData data = new RequestBoardData();
+        data.setBId(bId);
 
-
+        request.setAttribute("data",data);
         return "board/write";
     }
 
     //게시글 수정
     @GetMapping("/update/{seq}")
     public String update(@PathVariable("seq") long seq) {
-
+        commonProcess(seq, "update");
+        RequestBoardData data = infoService.getForm(boardData);
+        request.setAttribute("data",data);
         return "board/update";
+    }
+
+    @PostMapping("/save")
+    public String save(RequestBoardData form) {
+        String mode = form.getMode();
+        String modeStr = mode.equals("update") ? "수정":"등록";
+        String message = "게시글 " + modeStr + "에 실패하였습니다";
+
+        BoardData data = saveService.save(form).orElseThrow(() -> new AlertException(message, HttpServletResponse.SC_BAD_REQUEST));
+
+        // 게시글 등록, 수정이 완료 되면 - 게시글 보기로 이동
+        String url = request.getContextPath() + "/board/view/" + data.getSeq();
+        String script = String.format("parent.location.replace('%s');", url);
+        request.setAttribute("script", script);
+
+        return "commons/execute_script";
     }
 
     /**
@@ -96,5 +122,20 @@ public class BoardController {
         request.setAttribute("board", board);
         request.setAttribute("addCss", addCss);
         request.setAttribute("addScript", addScript);
+    }
+
+    /**
+     * 게시글 번호가 있는 페이지 URL
+     * 게시글 보기. 게시글 수정
+     * @param seq
+     * @param mode
+     */
+    private void commonProcess(long seq, String mode){
+        boardData = infoService.get(seq).orElseThrow(BoardNotFoundException::new);
+        String bId = boardData.getBId();
+        commonProcess(bId, mode);
+
+        request.setAttribute("data", boardData);
+
     }
 }

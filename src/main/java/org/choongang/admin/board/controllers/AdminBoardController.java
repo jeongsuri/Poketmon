@@ -30,9 +30,7 @@ public class AdminBoardController {
     // 게시판 등록
     @GetMapping("/register")
     public String register() {
-
         request.setAttribute("data", new RequestBoard());
-
         return "admin/board/register";
     }
 
