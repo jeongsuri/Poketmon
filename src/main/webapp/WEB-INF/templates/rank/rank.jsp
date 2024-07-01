@@ -8,27 +8,30 @@
 <c:url var="cssUrl" value="/css/" />
 
 
+
+
 <layout:main title="${pageTitle}">
     <div class=rank>
         <div class=title>${pageTitle}</div>
         <div class=subTitle>포켓몬 척척박사 트레이너들을 아래에서 확인해 보세요.</div>
         <div class="search">
-        <input class="trainer_search" type="text" placeholder="아이디 검색">
-        <button class="search_btn" type="submit">
-            <fmt:message key="검색"/>
-        </button>
+            <form name="frmSearch" method="get" action="${pageContext.request.contextPath}/rank/search" autocomplete="off" class="search-form">
+                <label for="userId"></label>
+                <input type="text" name="userId" value="${param.userId}" class="trainer_search" placeholder="아이디 검색">
+                <button class="search_btn" type="submit">
+                    <fmt:message key="검색"/>
+                </button>
+            </form>
         </div>
 
-        <%--
         <div class="rankings">
-            <c:forEach var="rank" items="${rankingList}">
-                <div="ranking">
-                    <p>${rank.ranking}</p>
-                    <p>${rank.userId}</p>
-                    <p>${rank.pokemonCount}</p>
+            <c:forEach var="item" items="${rankingList}">
+                <div class="ranking">
+                    ${item.ranking}
+                    ${item.userId}
+                    ${item.pokemonCount}
                 </div>
             </c:forEach>
         </div>
-        --%>
     </div>
-<layout:main title="${pageTitle}">
+</layout:main>
