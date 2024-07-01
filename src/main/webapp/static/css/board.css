@@ -1,5 +1,6 @@
 main {
     margin: 0;
+    height: 90vh;
     background: url(https://lh3.googleusercontent.com/6LjkWcXFt4Ef2E_BnLIrmQNWUpdiBnG6LYpbwlDt0h36hcBRYyK4VwE-y70ruPWyDDNlVcsPZiXB44cxiOGc=s0) center center;
     background-size: cover;
     padding: 50px 0;
@@ -9,115 +10,44 @@ main {
     font-family: "Jua", sans-serif;
 }
 
-/* 게시판 헤더영역 S */
-div.board-top{
-    display: flex;
-    flex-direction:column;
-    justify-content: center;
-    padding: 20px; /* 컨테이너 패딩 */
-}
-
-
-
-.button-write button {
-    justify-content: center; /* 버튼을 중앙 정렬합니다 */
-    align-items: center; /* 버튼 내의 텍스트를 수직으로 중앙 정렬합니다 */
-    width: 100px;  /* 원하는 너비 설정 */
-    font-family: "Jua", sans-serif;
-    height: 35px;  /* 원하는 높이 설정 */
-    color: #ffffff;  /* 텍스트 색상 설정 */
-    background: #000000;
-    border: none;  /* 테두리 제거 */
-    cursor: pointer;  /* 마우스 커서 설정 */
-    text-align: center;  /* 텍스트 중앙 정렬 */
-    line-height: 35px;  /* 버튼 높이와 동일하게 설정하여 텍스트 수직 중앙 정렬 */
-}
-/* 게시판 헤더영역 E */
-
-/* 게시판 바디영역 S */
-.border-body{
-    line-height: 45px;
-    margin : 0;
+.board-container {
     display: flex;
     justify-content: center;
-}
-table{
-    border-collapse: collapse;
-    background: #ffffff;
-}
-
-th, td{
-    border: 1px solid #000;
-    padding: 0;
-
-}
-
-th.no{
-    width: 40px;
-}
-th.title{
-    width: 500px;
-}
-th.name{
-    width: 150px;
-}
-th.date{
-    width: 120px;
-}
-
-
-td.title{
-    text-align: left;
-}
-
-td.title a{
-    padding: 10px; /* 원하는 만큼 패딩 설정 */
-    text-decoration: none; /* 기본 링크 밑줄 제거 */
-    color: inherit; /* 기본 텍스트 색상 사용 */
-}
-
-/*게시판 하단*/
-
-form.search{
-    margin-top: 40px;
-    display: flex;
-    justify-content: center;
-}
-
-search.keyword{
-    align-content: center;
     align-items: center;
-}
-input.keyword{
-    width: 400px;
-    height: 30px;
+    width: 100%; /* 전체 너비 사용 */
 }
 
-.button-search {
-    display: flex; /* 버튼을 flex 컨테이너로 만듭니다 */
-    justify-content: center; /* 버튼을 중앙 정렬합니다 */
-    align-items: center; /* 버튼 내의 텍스트를 수직으로 중앙 정렬합니다 */
-    width: 40px;  /* 원하는 너비 설정 */
-    height: 35px;  /* 원하는 높이 설정 */
-    color: #ffffff;  /* 텍스트 색상 설정 */
-    background: #000000;
-    border: none;  /* 테두리 제거 */
-    cursor: pointer;  /* 마우스 커서 설정 */
-    text-align: center;  /* 텍스트 중앙 정렬 */
-    line-height: 35px;  /* 버튼 높이와 동일하게 설정하여 텍스트 수직 중앙 정렬 */
+.board {
+    width: 80%; /* 필요한 경우 너비 조정 */
+    max-width: 800px; /* 최대 너비 설정 */
 }
 
-.button-search button {
-    width: 100%;  /* 부모 요소의 너비를 상속 */
-    height: 100%;  /* 부모 요소의 높이를 상속 */
-    background: inherit;  /* 부모 요소의 배경색 상속 */
-    color: inherit;  /* 부모 요소의 텍스트 색상 상속 */
-    border: none;  /* 테두리 제거 */
-    padding: 0;  /* 패딩 제거 */
-    margin: 0;  /* 마진 제거 */
-    cursor: inherit;  /* 부모 요소의 커서 스타일 상속 */
-    line-height: inherit;  /* 부모 요소의 line-height 상속 */
-    font-family: "Jua", sans-serif;
+.table-rows {
+    font-size:1.15rem;
+    display: flex;
+    flex-direction: column; /* 수직 방향으로 정렬 */
+    align-items: center; /* 수평 방향으로 가운데 정렬 */
+    width: 100%; /* 전체 너비 사용 */
+    padding: 20px 0; /* 상하단 여백 */
+    width: 100%; /* 항목이 부모 요소 너비를 채우도록 설정 */
+    margin: 10px 0; /* 상하단 여백 */
+    padding: 10px; /* 내부 여백 */
+    border: 1px solid #ddd; /* 경계선 설정 */
+    text-align: center; /* 텍스트 가운데 정렬 */
+    background-color: #31445a; /* 배경색 설정 */
+    border-radius: 20px; /* 모서리 둥글게 설정 */
 }
 
 
+
+.table-rows a {
+    color:#fff;
+    text-decoration: none; /* 링크 밑줄 제거 */
+    font-weight: bold; /* 글꼴 굵게 설정 */
+}
+
+.no-data {
+    text-align: center; /* '등록된 게시판이 없습니다' 메시지 가운데 정렬 */
+    color: red; /* 메시지 색상 설정 */
+    padding: 20px; /* 여백 설정 */
+}
