@@ -71,6 +71,8 @@ nav.sub-menu a{
     line-height: 50px;
     padding: 0 30px;
     font-size: 1.35rem;
+    text-decoration: none;
+    color:#222222;
 }
 
 nav.sub-menu a:hover{
