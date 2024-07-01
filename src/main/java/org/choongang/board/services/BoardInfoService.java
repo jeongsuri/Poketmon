@@ -2,10 +2,13 @@ package org.choongang.board.services;
 
 import lombok.RequiredArgsConstructor;
 import org.choongang.board.controllers.BoardSearch;
+import org.choongang.board.controllers.RequestBoardData;
 import org.choongang.board.entities.BoardData;
+import org.choongang.board.exceptions.BoardNotFoundException;
 import org.choongang.board.mapper.BoardDataMapper;
 import org.choongang.global.ListData;
 import org.choongang.global.config.annotations.Service;
+import org.modelmapper.ModelMapper;
 
 import java.util.Optional;
 
@@ -31,6 +34,13 @@ public class BoardInfoService {
     public ListData<BoardData> getList(BoardSearch search){ //ListData는 페이지를 위한 인터페이스임
 
         return null;
+    }
+
+    public RequestBoardData getForm(long seq){
+        BoardData data = get(seq).orElseThrow(BoardNotFoundException::new);
+        RequestBoardData form = new ModelMapper().map(data,RequestBoardData.class);
+
+        return form;
     }
 
     public ListData<BoardData> getList(String bId, BoardSearch search){
