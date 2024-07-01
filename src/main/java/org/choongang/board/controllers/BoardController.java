@@ -4,6 +4,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.choongang.board.entities.Board;
 import org.choongang.board.exceptions.BoardConfigNotFoundException;
+import org.choongang.board.services.BoardSaveService;
 import org.choongang.board.services.config.BoardConfigInfoService;
 import org.choongang.global.config.annotations.Controller;
 import org.choongang.global.config.annotations.GetMapping;
@@ -21,6 +22,7 @@ public class BoardController {
 
     private final BoardConfigInfoService configInfoService;
     private final HttpServletRequest request;
+    private final BoardSaveService saveService;
 
 
     //게시판 리스트보기
@@ -63,6 +65,16 @@ public class BoardController {
     public String update(@PathVariable("seq") long seq) {
 
         return "board/update";
+    }
+
+    public String save(RequestBoardData form) {
+        saveService.save(form);
+
+        //게시글 등록, 수정이 완료 되면 - 게시글 보기로 이동
+        String url = request.getContextPath() + "/board/view" + form.getSeq();
+        String script = String.format("parent.location.replace('%s');", url);
+        request.setAttribute("script", script);
+        return "commons/execute_script";
     }
 
     /**
