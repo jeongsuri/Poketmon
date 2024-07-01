@@ -23,12 +23,13 @@ public class GameService {
         if (nickName == null)
             nickName = "X";
 
-        Member member = memberUtil.getMember();
-        if (!memberUtil.isLogin())
-            return false;
+//        Member member = memberUtil.getMember();
+//        if (!memberUtil.isLogin())
+//            return false;
 
         CatchPokemon catchPokemon = CatchPokemon.builder()
-                .userNo(member.getUserNo())
+//                .userNo(member.getUserNo())
+                .userNo(2)
                 .pokemonNo(answerNumber)
                 .nickName(nickName)
                 .build();
