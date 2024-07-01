@@ -14,4 +14,8 @@
         INSERT INTO MYPOKEMON (USER_NO, POKEMON_NO, NICKNAME) VALUES (#{userNo}, #{pokemonNo}, #{nickName})
     </insert>
 
+    <select id="get">
+        SELECT POKEMON_NO FROM MYPOKEMON WHERE (USER_NO = #{userNo})
+    </select>
+
 </mapper>

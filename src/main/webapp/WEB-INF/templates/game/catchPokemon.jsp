@@ -12,6 +12,7 @@
                 <img src="${param.image}" class="pokemon">
                 <form method="POST" name="frmCatch" autocomplete="off" action="${actionUrl}" target="ifrmProcess">
                         <input type="hidden" name="pokemonNo" value="${param.seq}">
+                        <input type="hidden" name="pokemonName" value="${param.pokemonName}">
                         <input type="hidden" name="userNo" value="0">
                           <span class="nick">별명을 지어주세요.</span>
 
