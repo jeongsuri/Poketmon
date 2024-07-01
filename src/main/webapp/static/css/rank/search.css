@@ -38,7 +38,7 @@ main {
     width: 400px;
     border: 2px solid #1d2837;
     background: #ffffff;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
 .trainer_search {
@@ -62,15 +62,21 @@ main {
     cursor: pointer;
 }
 
-.image {
+.image1 {
     width: 270px;
     height: 100%;
 }
 
+.image2 {
+    width: 100%;
+    height: 400px;
+}
+
 .goRankBtn {
-    margin: 20px;
-    width: 70px;
-    height: 70px;
+    font-size: 1.11rem;
+    margin: 32px 20px 20px 20px;
+    width: 120px;
+    height: 50px;
     border: 0px;
     border-radius: 15px;
     background: #1d2837;
