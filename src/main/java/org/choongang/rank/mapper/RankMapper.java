@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface RankMapper {
     List<Rank> getRanking();
+    Rank getUserRank(String userId);
 }

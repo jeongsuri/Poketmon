@@ -12,6 +12,7 @@
             <h1 class="pokemon-title">도감 목록 보기</h1>
         </div>
         <form name="frmSearch" method="get" action="${searchUrl}" autocomplete="off" class="search-form"> <!-- 포켓몬 검색창 -->
+            <img src="<c:url value='/images/pikachoo.png' />" class="image">
             <label for="skey">포켓몬 검색 : </label>
             <input type="text" name="skey" value="${param.skey}" placeholder="포켓몬 이름을 입력하세요!">
             <button type="submit">검색</button>
@@ -24,6 +25,9 @@
                 <c:forEach var="item" items="${items}">
                     <li>
                         <a href="<c:url value='/pokemon/${item.seq}' />">
+                                <div class="p-number">
+                                        No ${item.seq}
+                                </div>
                             <img src="${item.frontDefault}" alt="${item.name}">
                             <div class="p-name">
                                     ${item.name}
