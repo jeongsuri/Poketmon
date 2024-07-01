@@ -2,18 +2,17 @@ package org.choongang.game.controllers;
 
 
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.choongang.game.services.GameService;
 import org.choongang.game.services.TypeColor;
-import org.choongang.global.config.annotations.*;
-import org.choongang.global.exceptions.AlertException;
+import org.choongang.global.config.annotations.Controller;
+import org.choongang.global.config.annotations.PostMapping;
+import org.choongang.global.config.annotations.RequestMapping;
+import org.choongang.global.config.annotations.RequestParam;
 import org.choongang.global.validators.RequiredValidator;
 import org.choongang.pokemon.PokemonDetail;
 import org.choongang.pokemon.exceptions.PokemonNotFoundException;
 import org.choongang.pokemon.services.PokemonInfoService;
-import org.mindrot.jbcrypt.BCrypt;
-
 
 import java.util.List;
 import java.util.Random;
@@ -34,15 +33,14 @@ public class GameController implements RequiredValidator {
         if (seq > 0L && !pokemonName.isBlank()) {
             PokemonDetail detail = infoService.get(seq).orElse(null);
 
-            if (pokemonName != null) {
-                checkTrue(detail.getName().equals(pokemonName) ,  new AlertException("오답입니다.", HttpServletResponse.SC_BAD_REQUEST));
-                if (detail.getName().equals(pokemonName)) {
+                if (detail != null && detail.getName().equals(pokemonName)) {
                     request.setAttribute("addCss", List.of("catch"));
 
-
                     return "game/catchPokemon";
+                } else {
+                    request.setAttribute("errMessage", "아쉽지만... 오답입니다.");
+                    randomNum = seq;
                 }
-            }
         }
         request.setAttribute("addCss", List.of("game"));
 

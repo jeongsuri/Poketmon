@@ -20,16 +20,13 @@ public class GameService {
     public boolean process(long answerNumber) {
         HttpServletRequest request = BeanContainer.getInstance().getBean(HttpServletRequest.class);
         String nickName = request.getParameter("nickName");
-        if (nickName == null)
-            nickName = "X";
 
-//        Member member = memberUtil.getMember();
-//        if (!memberUtil.isLogin())
-//            return false;
+        Member member = memberUtil.getMember();
+        if (!memberUtil.isLogin())
+            return false;
 
         CatchPokemon catchPokemon = CatchPokemon.builder()
-//                .userNo(member.getUserNo())
-                .userNo(2)
+                .userNo(member.getUserNo())
                 .pokemonNo(answerNumber)
                 .nickName(nickName)
                 .build();

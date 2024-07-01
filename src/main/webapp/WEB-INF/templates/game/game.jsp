@@ -20,10 +20,14 @@
                 </div>
                     <span class="content">${fn:replace(data.flavorText, '\\n', '<br>')}</span><br>
                     <span class="weight">무게 : ${data.weight/10} kg</span><br>
-                <form method="POST" autocomplete="off">
+                <form method="POST" autocomplete="off" autocomplete="off">
                     <input type="hidden" name="seq" value="${data.seq}">
                     <input type="hidden" name="image" value="${data.frontDefault}">
                     <input type="text" name="pokemonName" autofocus placeholder="정답 입력" class="pokemonName" >
+                    <c:if test="${! empty errMessage}">
+                        <div class="message">${errMessage}</div>
+                    </c:if>
+
                     <button type="submit" class="submitBtn">포획!</button>
                 </form>
             </div>
