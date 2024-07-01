@@ -29,7 +29,7 @@
                             ${userRank.pokemonCount}입니다.
                         </p>
                         <div>
-                            <img src="<c:url value='/images/pikachoo.png' />" class="image">
+                            <img src="<c:url value='/images/pikachoo.png' />" class="image1">
                         </div>
                     </div>
                 </div>
@@ -39,7 +39,7 @@
                     <div>
                         <p>해당하는 사용자가 없습니다.</p>
                         <div>
-                             <img src="<c:url value='/images/psyduck.png' />" class="image">
+                             <img src="<c:url value='/images/psyduck.png' />" class="image2">
                         </div>
                     </div>
                 </div>
@@ -47,7 +47,7 @@
 
         <div class="buttons">
             <a href="${actionUrl}">
-                <button type="button" class="goRankBtn">순위표로<br>이동</button>
+                <button type="button" class="goRankBtn">순위표로 이동</button>
             </a>
         </div>
     </div>
