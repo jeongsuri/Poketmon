@@ -1,20 +1,28 @@
 .pokemon-title-container, .search-form { /* 도감 목록 보기 */
     display: flex;
     justify-content: center;
-    padding: 0 30px;
+    padding: 0 30px 15px;
     font-family: "Jua", sans-serif;
     font-size: 1.8rem;
 }
 
-.search-form input[type="text"] { /* 포켓몬 검색 창 내부 글자 */
-    padding: 10px;
-    font-size: 1rem;
-    margin-right: 10px;
+.search-form button { /* 포켓몬 검색 버튼 */
+    padding: 15px 10px;
+    font-size: 1.2rem;
+    font-family: "Jua", sans-serif;
+    background-color: #000; /* 버튼의 배경색을 파란색으로 설정 */
+    color: white; /* 버튼의 텍스트 색상을 흰색으로 설정 */
+    border: none; /* 버튼의 테두리를 없앰 */
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-.search-form button { /* 포켓몬 검색 버튼 */
-    padding: 5px 10px;
-    font-size: 1rem;
+.pokemonName {
+    font-family: "Jua", sans-serif;
+    font-size: 1.3rem;
+    padding-left: 350px;
+    padding-right: 350px;
+    border-radius: 5px;
 }
 
 .search-form {
