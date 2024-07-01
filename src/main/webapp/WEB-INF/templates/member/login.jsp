@@ -5,6 +5,7 @@
 <fmt:setBundle basename="messages.commons" />
 <fmt:message var="pageTitle" key='로그인' />
 <c:url var="actionUrl" value="/member/login" />
+<%--<c:url var="actionUrl2" value="/member/join" />--%>
 
 <layout:memberMain title="${pageTitle}">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
@@ -28,12 +29,13 @@
             <button type="submit" class="button">
                 <fmt:message key="로그인" />
             </button>
-
+            </div>
+        </form>
+        <form action="http://localhost:3000/project/member/join" method="get">
             <button type="submit" class="button2">
                 <fmt:message key="아직_회원이_아니신가요?" />
                 <i class="xi-angle-right"></i>
             </button>
-            </div>
         </form>
     </div>
 </layout:memberMain>

@@ -47,6 +47,17 @@ public class MemberController {
         return "member/login";
     }
 
+    // 처음 사이트 접근 시 로그인 화면
+    // 로그인 양식
+    /*
+    @GetMapping
+    public String initLogin(HttpServletRequest request) {
+        request.setAttribute("addCss", List.of("member/loginStyle"));
+
+        return "member/login";
+    }
+    */
+
     // 로그인 처리
     @PostMapping("/login")
     public String loginPs(RequestLogin form, HttpServletRequest request) {
@@ -54,7 +65,7 @@ public class MemberController {
         loginService.process(form);
 
         String redirectUrl = form.getRedirectUrl();
-        redirectUrl = redirectUrl == null || redirectUrl.isBlank() ? "/" : redirectUrl;
+        redirectUrl = redirectUrl == null || redirectUrl.isBlank() ? "/main" : redirectUrl;
 
         String script = String.format("parent.location.replace('%s');", request.getContextPath() + redirectUrl);
 

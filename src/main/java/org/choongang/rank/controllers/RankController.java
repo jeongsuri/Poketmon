@@ -3,9 +3,9 @@ package org.choongang.rank.controllers;
 
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
-import org.choongang.global.config.annotations.Controller;
-import org.choongang.global.config.annotations.GetMapping;
-import org.choongang.global.config.annotations.RequestMapping;
+import org.choongang.global.config.annotations.*;
+import org.choongang.rank.entities.Rank;
+import org.choongang.rank.services.RankService;
 
 import java.util.List;
 
@@ -14,12 +14,25 @@ import java.util.List;
 @RequiredArgsConstructor
 public class RankController {
     private final HttpServletRequest request;
+    private final RankService rankService;
 
     @GetMapping
-    public String ranking() {
-        String url = request.getRequestURI();
+    public String rank() {
+        List<Rank> rankingList = rankService.getRanking();
+
+        request.setAttribute("rankingList", rankingList);
         request.setAttribute("addCss", List.of("rank"));
 
-        return "rank/ranking";
+        return "rank/rank";
+    }
+    // /search?userId=user01
+    @GetMapping("/search")
+    public String search(@RequestParam("userId") String userId) {
+        Rank userRank = rankService.getUserRank(userId);
+        request.setAttribute("userRank", userRank);
+        request.setAttribute("addCss", List.of("rank"));
+
+        return "rank/search";
     }
 }
+

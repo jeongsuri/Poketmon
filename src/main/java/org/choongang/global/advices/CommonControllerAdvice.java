@@ -3,15 +3,20 @@ package org.choongang.global.advices;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+import org.choongang.global.Interceptor;
 import org.choongang.global.config.annotations.ControllerAdvice;
 import org.choongang.global.config.annotations.ModelAttribute;
+import org.choongang.global.config.containers.BeanContainer;
 import org.choongang.global.exceptions.*;
 import org.choongang.member.MemberUtil;
 import org.choongang.member.entities.Member;
 
+import java.io.IOException;
+import java.util.List;
+
 @RequiredArgsConstructor
 @ControllerAdvice("org.choongang")
-public class CommonControllerAdvice {
+public class CommonControllerAdvice implements Interceptor {
 
     private final MemberUtil memberUtil;
 
@@ -74,5 +79,36 @@ public class CommonControllerAdvice {
 
 
         return "errors/error";
+    }
+
+    @Override
+    public boolean preHandle() {
+        HttpServletResponse response = BeanContainer.getInstance().getBean(HttpServletResponse.class);
+        HttpServletRequest request = BeanContainer.getInstance().getBean(HttpServletRequest.class);
+        if (!memberUtil.isLogin()) {
+            List<String> excludeUrls = List.of(
+              "/member/login",
+              "/member/join",
+                    "/mypage"
+            );
+
+            boolean isMatch = false;
+            for (String url : excludeUrls) {
+                if (request.getRequestURI().contains(url)) {
+                    isMatch = true;
+                    break;
+                }
+            }
+
+            if (!isMatch) {
+                String url = request.getContextPath() + "/member/login";
+                try {
+                    response.sendRedirect(url);
+                } catch (IOException e) {}
+                return false; // /member/login만 제외하고 로그인 하지 않은 경우
+            }
+        }
+
+        return true;
     }
 }
