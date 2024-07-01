@@ -4,6 +4,7 @@ package org.choongang.game.controllers;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.choongang.game.services.GameService;
+import org.choongang.game.services.PokeNumberService;
 import org.choongang.game.services.TypeColor;
 import org.choongang.global.config.annotations.Controller;
 import org.choongang.global.config.annotations.PostMapping;
@@ -15,7 +16,6 @@ import org.choongang.pokemon.exceptions.PokemonNotFoundException;
 import org.choongang.pokemon.services.PokemonInfoService;
 
 import java.util.List;
-import java.util.Random;
 
 @Controller
 @RequestMapping("/game")
@@ -25,10 +25,11 @@ public class GameController implements RequiredValidator {
     private final PokemonInfoService infoService;
     private final GameService gameService;
     private final TypeColor typecolor;
+    private final PokeNumberService pokeNumberService;
 
     @RequestMapping
     public String game(@RequestParam("pokemonName") String pokemonName, @RequestParam("seq") long seq, @RequestParam("image") String image) {
-        long randomNum = (new Random()).nextLong(1, 151);
+        long randomNum = pokeNumberService.randomPokeNumber();
 
         if (seq > 0L && !pokemonName.isBlank()) {
             PokemonDetail detail = infoService.get(seq).orElse(null);
@@ -59,8 +60,8 @@ public class GameController implements RequiredValidator {
 
 
     @PostMapping("/catch")
-    public String CatchPs(@RequestParam("pokemonNo") long pokemonNo) {
-        gameService.process(pokemonNo);
+    public String CatchPs(@RequestParam("pokemonNo") long pokemonNo, @RequestParam("pokemonName") String pokemonName) {
+        gameService.process(pokemonNo, pokemonName);
 
         String script = String.format("parent.location.replace('%s');", request.getContextPath() + "/mypage");
         request.setAttribute("script", script);
