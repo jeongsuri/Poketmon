@@ -25,7 +25,7 @@ public class RankController {
 
         return "rank/rank";
     }
-
+    // /search?userId=user01
     @GetMapping("/search")
     public String search(@RequestParam("userId") String userId) {
         Rank userRank = rankService.getUserRank(userId);
