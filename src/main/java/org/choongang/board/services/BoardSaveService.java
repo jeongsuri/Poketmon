@@ -14,6 +14,7 @@ import org.choongang.member.MemberUtil;
 import org.mindrot.jbcrypt.BCrypt;
 import org.modelmapper.ModelMapper;
 
+import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -60,7 +61,12 @@ public class BoardSaveService {
         if(!memberUtil.isAdmin()){
             String hash = BCrypt.hashpw(form.getGuestPassword(), BCrypt.gensalt(12));
             data.setGuestPassword(hash);
+        }else{
+            data.setGuestPassword("");
         }
+
+        String category = form.getCategory();
+        data.setCategory(Objects.requireNonNullElse(category,""));
 
         if(mode.equals("update")){
             mapper.modify(data);

@@ -14,6 +14,10 @@
     <select id="getList" resultMap="memberMap">
         SELECT * FROM MEMBER ORDER BY USER_NO
     </select>
+
+    <delete id="delete" parameterType="String">
+        DELETE FROM MEMBER WHERE USER_ID = #{userId}
+    </delete>
 </mapper>
 
 
