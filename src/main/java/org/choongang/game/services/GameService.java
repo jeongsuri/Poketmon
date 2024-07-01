@@ -20,8 +20,6 @@ public class GameService {
     public boolean process(long answerNumber) {
         HttpServletRequest request = BeanContainer.getInstance().getBean(HttpServletRequest.class);
         String nickName = request.getParameter("nickName");
-        if (nickName == null)
-            nickName = "X";
 
         Member member = memberUtil.getMember();
         if (!memberUtil.isLogin())
