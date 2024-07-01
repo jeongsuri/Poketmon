@@ -20,7 +20,12 @@
 <dl>
     <dt>작성자</dt>
     <dd>
-        <input type="text" name="poster" value="${isLogin ? loggedMember.userName : ''}">
+        <c:if test="${data.mode == 'update'}">
+            <input type="text" name="poster" value="${isLogin ? data.poster : ''}">
+        </c:if>
+        <c:if test="${data.mode != 'update'}">
+            <input type="text" name="poster" value="${isLogin ? loggedMember.userName : ''}">
+        </c:if>
         <c:if test="${isAdmin}">
             <input type="checkbox" name="notice" value="true" id="notice"${data.notice == 1 ? ' checked':''}>
             <label for="notice">
