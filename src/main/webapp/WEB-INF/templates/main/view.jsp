@@ -16,7 +16,7 @@
             </div>
 
             <div class="p-item p-weight">
-                <몸무게> ${data.weight}kg
+                <몸무게> ${data.weight/10}kg
             </div>
 
             <div class="p-item p-type">
@@ -24,7 +24,7 @@
             </div>
 
             <div class="p-item p-desc">
-                <특징> ${fn:replace(data.flavorText, '\\n', ' ')} <!--, '<br>' -->
+                <특징> ${fn:replace(data.flavorText, '\\n', ' ')}
             </div>
         </div>
         </div>
