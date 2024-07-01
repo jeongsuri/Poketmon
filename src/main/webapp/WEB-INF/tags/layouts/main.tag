@@ -34,7 +34,7 @@
                         <fmt:message key="사이트_관리" />
                     </a>
                 </c:if>
-                <a href="http://localhost:3000/project/member/login">로그아웃</a>
+                <a href="<c:url value="/member/logout" />">로그아웃</a>
 <%--                <c:if test="${isLogin}">--%>
 <%--                    <a href="<c:url value='/member/login' />" target="_blank">--%>
 <%--                        <fmt:message key="로그아웃" />--%>
