@@ -10,7 +10,7 @@
 
 <layout:main title="${pageTitle}">
 
-    <h1>Welcome to My Page</h1>
+    <h1>마이페이지</h1>
 
 
 </layout:main>
