@@ -1,0 +1,37 @@
+.table-rows {
+    width: 50%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.table-rows th, .table-rows td {
+    padding: 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.table-rows th {
+    color: white;
+    font-weight: bold;
+}
+
+.table-rows tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.no-data {
+    text-align: center;
+    color: red;
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+    color: #4CAF50;
+    margin: 0 5px;
+}
+
+a:hover {
+    color: #007BFF;
+}
