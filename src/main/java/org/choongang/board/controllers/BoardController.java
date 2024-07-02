@@ -10,6 +10,7 @@ import org.choongang.board.exceptions.BoardNotFoundException;
 import org.choongang.board.services.BoardInfoService;
 import org.choongang.board.services.BoardSaveService;
 import org.choongang.board.services.config.BoardConfigInfoService;
+import org.choongang.global.ListData;
 import org.choongang.global.config.annotations.*;
 import org.choongang.global.exceptions.AlertException;
 
@@ -42,6 +43,7 @@ public class BoardController {
     @GetMapping("/list/{bId}")
     public String list(@PathVariable("bId") String bId) {
         commonProcess(bId, "list");
+
 
         return "board/list";
     }
@@ -97,6 +99,7 @@ public class BoardController {
      */
     private void commonProcess(String bId, String mode) {
         Board board = configInfoService.get(bId).orElseThrow(BoardConfigNotFoundException::new);
+        infoService.setBoard(board);
 
         // mode가 null이면 write로 기본값 설정
         mode = Objects.requireNonNullElse(mode, "write");
