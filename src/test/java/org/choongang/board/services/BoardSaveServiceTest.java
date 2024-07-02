@@ -34,7 +34,7 @@ public class BoardSaveServiceTest {
         bc.addBean(HttpSession.class.getName(), session);
         bc.addBean(HttpServletRequest.class.getName(), request);
 
-        MemberUtil memberUtil = new MemberUtil();
+        MemberUtil memberUtil = new MemberUtil(null);
 
         BoardDataMapper mapper = DBConn.getSession().getMapper(BoardDataMapper.class);
         BoardInfoService infoService = new BoardInfoService(mapper);

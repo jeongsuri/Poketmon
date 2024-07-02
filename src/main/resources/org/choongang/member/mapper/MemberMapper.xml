@@ -9,6 +9,7 @@
         <result column="PASSWORD" property="password" />
         <result column="USER_TYPE" property="userType" />
         <result column="NICKNAME" property="nickName" />
+        <result column="MY_POKEMON_SEQ" property="myPokemonSeq" />
     </resultMap>
 
     <select id="get" resultMap="memberMap">
@@ -23,4 +24,18 @@
         INSERT INTO MEMBER (USER_NO, USER_ID, PASSWORD, USER_TYPE, NICKNAME)
         VALUES (SEQ_MEMBER.NEXTVAL, #{userId}, #{password}, #{userType}, #{nickName})
     </insert>
+
+    <update id="modify">
+        UPDATE MEMBER
+        <set>
+            <if test="nickName != null and !nickName.equals('')">
+                NICKNAME=#{nickName},
+            </if>
+            <if test="password != null and !password.equals('')">
+                PASSWORD=#{password},
+            </if>
+            MY_POKEMON_SEQ=#{myPokemonSeq}
+        </set>
+        WHERE USER_ID=#{userId}
+    </update>
 </mapper>

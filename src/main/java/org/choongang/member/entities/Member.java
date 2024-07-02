@@ -14,4 +14,5 @@ public class Member {
     private String password;
     private UserType userType = UserType.USER;
     private String nickName;
+    private long myPokemonSeq;
 }
