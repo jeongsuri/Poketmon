@@ -58,7 +58,7 @@ public class BoardSaveService {
         }
 
         //비회원 비밀번호 해시화
-        if(!memberUtil.isAdmin()){
+        if(!memberUtil.isLogin()){
             String hash = BCrypt.hashpw(form.getGuestPassword(), BCrypt.gensalt(12));
             data.setGuestPassword(hash);
         }else{
@@ -68,11 +68,11 @@ public class BoardSaveService {
         String category = form.getCategory();
         data.setCategory(Objects.requireNonNullElse(category,""));
 
-        if(mode.equals("update")){
+        if (mode.equals("update")) {
             mapper.modify(data);
-        }else{
+        } else {
             int result = mapper.register(data);
-            if(result < 1){
+            if (result < 1) {
                 throw new AlertException("게시글 등록에 실패하였습니다.", HttpServletResponse.SC_BAD_REQUEST);
             }
         }

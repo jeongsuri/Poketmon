@@ -1,7 +1,10 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layouts" %>
-<layout:main>
-    <h1>${status} 없는 페이지 입니다.</h1>
-    <h2>${method} ${requestUrl}</h2>
+<fmt:setBundle basename="messages.commons" />
+<fmt:message var="pageTitle" key='404error' />
 
-</layout:main>
+<layout:common title="${pageTitle}">
+    <div class="error-container e404"></div>
+</layout:common>

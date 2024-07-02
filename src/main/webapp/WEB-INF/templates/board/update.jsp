@@ -9,13 +9,14 @@
         <jsp:include page="_header.jsp" />
 
         <form name="frmSave" method="POST" action="${actionUrl}" target="ifrmProcess" autocomplete="off">
-            <input type="hidden" name="mode" value="write">
+            <input type="hidden" name="mode" value="update">
             <input type="hidden" name="seq" value="${data.seq}">
+
             <jsp:include page="_form.jsp" />
 
             <div class="button-group">
                 <button type="reset">다시입력</button>
-                <button type="submit">글작성</button>
+                <button type="submit">글수정</button>
             </div>
         </form>
 
