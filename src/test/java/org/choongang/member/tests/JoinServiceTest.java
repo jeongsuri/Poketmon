@@ -110,7 +110,7 @@ public class JoinServiceTest {
     }
 
     @Test
-    @DisplayName("비밀번화와 확인이 일치하지 않으면 AllertException 발생")
+    @DisplayName("비밀번호와 확인이 일치하지 않으면 AllertException 발생")
     void passwordMismatchTest() {
         AlertException thrown = assertThrows(AlertException.class, () -> {
             RequestJoin form = getData();
