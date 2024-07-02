@@ -13,6 +13,9 @@ public class MemberConfigInfoService {
 
     private final MemberDataMapper mapper;
 
+    public Member getMember(String userId){
+        return mapper.getMember(userId);
+    }
 
     //회원리스트 조회
     public List<Member> getList(){

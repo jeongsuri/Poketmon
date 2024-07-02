@@ -1,20 +1,28 @@
 .pokemon-title-container, .search-form { /* 도감 목록 보기 */
     display: flex;
     justify-content: center;
-    padding: 0 30px;
+    padding: 0 30px 15px;
     font-family: "Jua", sans-serif;
     font-size: 1.8rem;
 }
 
-.search-form input[type="text"] { /* 포켓몬 검색 창 내부 글자 */
-    padding: 10px;
-    font-size: 1rem;
-    margin-right: 10px;
+.search-form button { /* 포켓몬 검색 버튼 */
+    padding: 15px 10px;
+    font-size: 1.2rem;
+    font-family: "Jua", sans-serif;
+    background-color: #000; /* 버튼의 배경색을 파란색으로 설정 */
+    color: white; /* 버튼의 텍스트 색상을 흰색으로 설정 */
+    border: none; /* 버튼의 테두리를 없앰 */
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-.search-form button { /* 포켓몬 검색 버튼 */
-    padding: 5px 10px;
-    font-size: 1rem;
+.pokemonName {
+    font-family: "Jua", sans-serif;
+    font-size: 1.5rem;
+    padding-left: 350px;
+    padding-right: 300px;
+    border-radius: 5px;
 }
 
 .search-form {
@@ -48,7 +56,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding-bottom: 100px;
 }
 
 .pokemon-list > li { /* 포켓몬 목록 1줄 당 수 */
@@ -97,30 +104,117 @@
     margin-top: 10px;
 }
 
+.pokemon-list > li .p-type {
+    flex-grow: 1;
+    width: 0;
+    letter-spacing: -1px;
+    line-height: 22px;
+    height: 20px;
+}
+
+.pokemon-list > li .p-type + .p-type {
+    margin-left: 5px;
+}
+
 .pokemon-list > li .p-type1, .p-type2 {
     text-align: center;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-family: "Jua", sans-serif;
     font-weight: normal;
-    margin: 0 5px; /* 타입 사이 간격 추가 */
 }
 
 .p-type1 {
-    width: 45%;
     border-radius: 5px;
     border: 1px solid #fff;
     padding: 1px;
-    color: #000;
+    color: #fff;
     background-color: #90B19D;
     font-weight: lighter;
 }
 
 .p-type2 {
-    width: 45%;
     border-radius: 5px;
     border: 1px solid #fff;
     padding: 1px;
-    color: #000;
+    color: #fff;
     background-color: #90B19D;
     font-weight: lighter;
 }
+
+/* 포켓몬 속성 별 색상 설정 S */
+.pokemon-list > li .p-type.normal {
+    background: #949495;
+}
+
+.pokemon-list > li .p-type.fire {
+    background: #e56c3e;
+}
+
+.pokemon-list > li .p-type.water {
+    background: #5185c5;
+}
+
+.pokemon-list > li .p-type.grass {
+    background: #66a945;
+}
+
+.pokemon-list > li .p-type.electric {
+    background: #f6d851;
+}
+
+.pokemon-list > li .p-type.ice {
+    background: #6dc8eb;
+}
+
+.pokemon-list > li .p-type.fighting {
+    background: #e09c40;
+}
+
+.pokemon-list > li .p-type.poison {
+    background: #735198;
+}
+
+.pokemon-list > li .p-type.ground {
+    background: #9c7743;
+}
+
+.pokemon-list > li .p-type.flying {
+    background: #a2c3e7;
+}
+
+.pokemon-list > li .p-type.psychic {
+    background: #dd6b7b;
+}
+
+.pokemon-list > li .p-type.bug {
+    background: #9fa244;
+}
+
+.pokemon-list > li .p-type.rock {
+    background: #bfb889;
+}
+
+.pokemon-list > li .p-type.ghost {
+    background: #684870;
+}
+
+.pokemon-list > li .p-type.dragon {
+    background: #535ca8;
+}
+
+.pokemon-list > li .p-type.dark {
+    background: #4c4948;
+}
+
+.pokemon-list > li .p-type.steel {
+    background: #69a9c7;
+}
+
+.pokemon-list > li .p-type.fairy {
+    background: #dab4d4;
+}
+
+.pokemon-list > li .p-type.X {
+    background: #000;
+}
+/* 포켓몬 속성 별 색상 설정 E */
