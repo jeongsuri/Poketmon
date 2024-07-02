@@ -3,7 +3,8 @@
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layouts" %>
 <%@ taglib prefix="util" tagdir="/WEB-INF/tags/utils" %>
 <layout:main>
-    <section class="layout-width">
+    <section class="layout-width view-page">
+        <jsp:include page="_header.jsp"/>
         <div class='subject'>
             <c:if test="${! empty data.category}">
                 [${data.category}]

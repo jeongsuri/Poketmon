@@ -1,30 +1,17 @@
 package org.choongang.member.tests;
 
 import com.github.javafaker.Faker;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
-import org.apache.ibatis.session.SqlSession;
-import org.choongang.member.MemberUtil;
+
+import org.choongang.global.exceptions.AlertException;
 import org.choongang.member.controllers.RequestJoin;
 import org.choongang.member.controllers.RequestLogin;
-import org.choongang.member.entities.Member;
 import org.choongang.member.services.JoinService;
 import org.choongang.member.services.LoginService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
-import org.mockito.junit.jupiter.MockitoSettings;
-import org.mockito.quality.Strictness;
-
 import java.util.Locale;
-
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
-import static org.mockito.ArgumentMatchers.matches;
-import static org.mockito.BDDMockito.given;
+import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("로그인 기능 테스트")
 public class LoginServiceTest {
@@ -32,14 +19,7 @@ public class LoginServiceTest {
     private LoginService loginService;
     private JoinService joinService;
     private Faker faker;
-    private RequestLogin form = new RequestLogin();
-
-    
-
-    MemberUtil util = new MemberUtil();
-    Member member = util.getMember();
-
-
+    private RequestLogin loginform;
 
 //    @Mock
 //    HttpServletRequest request;
@@ -47,36 +27,33 @@ public class LoginServiceTest {
 //    @Mock
 //    private HttpSession session;
 
-    @BeforeEach
+    @BeforeEach // 로그인 시 회원가입때 쓰여진 가짜데이터와 동일한 가짜데이터 넣어주게끔 구현함
     void init() {
          joinService = MemberServiceProvider_temp.getInstance().joinService();
 
         faker = new Faker(Locale.ENGLISH);
 
-        RequestJoin form = new RequestJoin();
-        form.setUserId(faker.regexify("[a-zA-Z0-9]{10}").toLowerCase());
-        form.setPassword(faker.regexify("[a-zA-Z0-9]{10}").toLowerCase());
-        form.setNickName(String.valueOf(faker.name()));
+        RequestJoin joinForm = getData();
 
-        form.setConfirmPassword(form.getPassword());
+        loginform = new RequestLogin();
+        loginform.setUserId(joinForm.getUserId());
+        loginform.setPassword(joinForm.getPassword());
 
-        joinService.process(form);
-
-    }
-
-    @BeforeEach
-    void init2() {
         loginService = MemberServiceProvider_temp.getInstance().loginService();
-        form = new RequestLogin();
-        form.setUserId(form.getUserId());
-        form.setPassword(form.getPassword());
+        joinService.process(joinForm);
     }
 
+    RequestJoin getData() {
+        RequestJoin joinform = new RequestJoin();
+        joinform.setUserId(faker.regexify("[a-zA-Z0-9]{10}").toLowerCase());
+        joinform.setPassword(faker.regexify("[a-zA-Z0-9]{10}").toLowerCase());
+        joinform.setNickName(faker.name().fullName() + System.currentTimeMillis());
+        //joinform.setNickName(String.valueOf(faker.name())); // 유니크 무결성 제약조건에 걸림
+        joinform.setConfirmPassword(joinform.getPassword());
 
+        return joinform;
 
-
-
-
+    }
         //setData();
 
         //given(request.getSession()).willReturn(session);
@@ -96,8 +73,67 @@ public class LoginServiceTest {
     @DisplayName("로그인 성공 시 예외가 발생하지 않음")
     void successTest() {
         assertDoesNotThrow(() -> {
-            loginService.process(form);
+            loginService.process(loginform);
         });
+    }
+
+    @Test
+    @DisplayName("아이디 또는 비밀번호에 값을 넣지않거나 공백을 넣었을 시 AlertException 발생")
+    void requiredFieldTest() {
+        assertAll(
+                () -> requiredEachFieldTest("userId", true, "아이디"),
+                () -> requiredEachFieldTest("userId", false, "아이디"),
+                () -> requiredEachFieldTest("password", true, "비밀번호"),
+                () -> requiredEachFieldTest("password", false, "비밀번호")
+        );
+    }
+
+    void requiredEachFieldTest(String name, boolean isNull, String message) {
+
+        RequestJoin form = getData();
+        loginform.setUserId(form.getUserId());
+        loginform.setPassword(form.getPassword());
+        AlertException thrown = assertThrows(AlertException.class, () -> {
+            if(name.equals("userId")) {
+                loginform.setUserId(isNull?null:"   ");
+            } else if(name.equals("password")) {
+               loginform.setPassword(isNull?null:"   ");
+            }
+
+            loginService.process(loginform);
+        }, name + "테스트");
+
+
+
+        String msg = thrown.getMessage();
+        assertTrue(msg.contains(message), name + ", 키워드" + message + "테스트");
+        assertEquals(400, thrown.getStatus()); // 에러 응답코드 맞는지 쳌
+    }
+
+    @Test
+    @DisplayName("가입된 회원인지 검증, 가입된 회원이 아닐 시 AlertException 발생")
+    void memberExistTest() {
+        loginform.setUserId(getData().getUserId() + "123");
+        AlertException thrown = assertThrows(AlertException.class, () -> {
+            loginService.process(loginform);
+        });
+
+        String msg = thrown.getMessage();
+        assertTrue(msg.contains("아이디 또는 비밀번호"));
+        assertEquals(400, thrown.getStatus()); // 에러 응답코드 맞는지 쳌
+    }
+
+    @Test
+    @DisplayName("가입된 회원이지만 비밀번호가 틀렸을 시 AlertException 발생")
+    void passwordCheckTest() {
+        loginform.setPassword(getData().getPassword() + "123");
+        AlertException thrown = assertThrows(AlertException.class, () -> {
+            loginService.process(loginform);
+        });
+
+        String msg = thrown.getMessage();
+        assertTrue(msg.contains("아이디 또는 비밀번호가"));
+        assertEquals(400, thrown.getStatus()); // 에러 응답코드 맞는지 쳌
     }
 }
 
