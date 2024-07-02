@@ -8,8 +8,23 @@
         <div class="btns">
             <a href="<c:url value="/board/write/${board.BId}"/>"/>글쓰기</a>
         </div>
-
-        </div>
         <jsp:include page="_list.jsp"/>
+
+        <div class="search-box">
+            <form name="frmSearch" method="get" autocomplete="off">
+                <c:if test="${! empty param.category}">
+                    <input type="hidden" name="category" value="${param.category}">
+                </c:if>
+                <select name="sopt">
+                    <option value="ALL"${param.spot == 'ALL' || empty param.sopt ? ' selected':''}>통합검색</option>
+                    <option value="SUBJECT${param.spot == 'SUBJECT' ? ' selected':''}">제목</option>
+                    <option value="CONTENT"${param.spot == 'CONTENT' ? ' selected':''}>내용</option>
+                    <option value="SUBJECT_CONTENT"${param.spot == 'SUBJECT_CONTENT' ? ' selected':''}>제목+내용</option>
+                    <option value="NAME"${param.spot == 'NAME' ? ' selected':''}>이름</option>
+                </select>
+                <input type="text" name="skey" value="${param.skey}" placeholder="검색어를 입력하세요.">
+                <button type="submit">검색하기</button>
+            </form>
+        </div>
     </section>
 </layout:main>

@@ -28,11 +28,15 @@ public class BoardSaveService {
     private final BoardSaveValidator validator;
     private final MemberUtil memberUtil;
     private final BoardInfoService infoService;
+    private final BoardAuthService authService;
 
     public Optional<BoardData> save(RequestBoardData form){ //글 작성,수정후 글보기 페이지로 이동하기 위해 게시판번호를 알아야한다. 그렇기 때문에 BoardData로 반환
         validator.check(form);
         String mode = form.getMode();
         mode = mode == null || mode.isBlank() ? "write" : mode;
+
+        //글 쓰기, 글 수정 권한 체크
+        authService.check(form.getBId(), form.getSeq(), mode);
 
         BoardData data = new ModelMapper().map(form, BoardData.class);
 
