@@ -90,3 +90,27 @@ ul, ol { list-style: none; }
     color: #fff;
 }
 /* 페이징 공통 E */
+
+/* 에러 페이지 S */
+.error-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.error-container.e401 {
+    background: #000 url("../images/401ErrorPage.png") no-repeat center top;
+    background-size: cover;
+}
+
+.error-container.e404 {
+    background:#000 url("../images/404ErrorPage.png") no-repeat center top;
+    background-size: cover;
+}
+
+.error-container.e500 {
+    background:#000 url("../images/500ErrorPage.png") no-repeat center top;
+    background-size: contain;
+}
+/* 에러 페이지 E */
