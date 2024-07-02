@@ -8,10 +8,11 @@
 <c:url var="actionUrl" value="/game/catch" />
 <layout:main title="${pageTitle}">
         <section class="content-box">
-                <b class="headText">${param.pokemonName}을(를) 잡았다 !</b>
+                <b class="headText">야호! ${param.pokemonName}을(를) 잡았다 !</b>
                 <img src="${param.image}" class="pokemon">
                 <form method="POST" name="frmCatch" autocomplete="off" action="${actionUrl}" target="ifrmProcess">
                         <input type="hidden" name="pokemonNo" value="${param.seq}">
+                        <input type="hidden" name="pokemonName" value="${param.pokemonName}">
                         <input type="hidden" name="userNo" value="0">
                           <span class="nick">별명을 지어주세요.</span>
 

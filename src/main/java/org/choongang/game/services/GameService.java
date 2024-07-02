@@ -17,12 +17,11 @@ public class GameService {
     private final MemberUtil memberUtil;
     private final GameMapper mapper;
 
-    public boolean process(long answerNumber) {
+    public boolean process(long answerNumber, String pokemonName) {
         HttpServletRequest request = BeanContainer.getInstance().getBean(HttpServletRequest.class);
-        String nickName = request.getParameter("nickName");
-        if (nickName == null)
-            nickName = "X";
 
+        pokemonName = request.getParameter("pokemonName");
+        String nickName = request.getParameter("nickName") == "" ?  pokemonName : request.getParameter("nickName");
         Member member = memberUtil.getMember();
         if (!memberUtil.isLogin())
             return false;

@@ -43,4 +43,14 @@
             P2.SEQ >= #{offset} AND P2.SEQ < #{endRows}
         ]]>
     </select>
+
+    <select id="getTotal" resultType="int">
+        SELECT COUNT(*) FROM POKEMON
+        <where>
+            <if test="skey != null and !skey.equals('')">
+                <bind name="keyword" value="'%' + _parameter.getSkey() + '%'" />
+                AND NAME || NAME_KR || DESCRIPTION LIKE #{keyword}
+            </if>
+        </where>
+    </select>
 </mapper>
