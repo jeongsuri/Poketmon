@@ -46,5 +46,6 @@
                 </c:forEach>
             </c:if>
         </ul>
+        <util:pagination />
     </section>
 </layout:main>
