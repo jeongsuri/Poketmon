@@ -41,7 +41,7 @@ public class PokemonController {
 
         PokemonDetail data = infoService.get(seq).orElseThrow(PokemonNotFoundException::new);
         request.setAttribute("data", data);
-
+        request.setAttribute("addCss", List.of("pokemon/eachpokemon"));
         return "main/view";
     }
 
