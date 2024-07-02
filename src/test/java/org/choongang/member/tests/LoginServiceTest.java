@@ -5,6 +5,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import org.apache.ibatis.session.SqlSession;
+import org.choongang.member.MemberUtil;
 import org.choongang.member.controllers.RequestJoin;
 import org.choongang.member.controllers.RequestLogin;
 import org.choongang.member.services.JoinService;
@@ -18,6 +19,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
 
+import java.util.Locale;
+
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.mockito.BDDMockito.given;
 
@@ -27,8 +30,9 @@ public class LoginServiceTest {
     private LoginService loginService;
     private JoinService joinService;
     private Faker faker;
-    private RequestJoin form;
+    private RequestLogin form;
     private SqlSession dbSession;
+    private MemberUtil memberUtil;
 
 
 //    @Mock
@@ -39,12 +43,11 @@ public class LoginServiceTest {
 
     @BeforeEach
     void init() {
-         loginService = MemberServiceProvider_temp.getInstance().loginService();
          joinService = MemberServiceProvider_temp.getInstance().joinService();
-         dbSession = MemberServiceProvider_temp.getInstance().getSession();
-        faker = new Faker();
 
-         form = new RequestJoin();
+        faker = new Faker(Locale.ENGLISH);
+
+        RequestJoin form = new RequestJoin();
         form.setUserId(faker.regexify("[a-zA-Z0-9]{10}").toLowerCase());
         form.setPassword(faker.regexify("[a-zA-Z0-9]{10}").toLowerCase());
         form.setNickName(String.valueOf(faker.name()));
@@ -53,12 +56,29 @@ public class LoginServiceTest {
 
         joinService.process(form);
 
+    }
+
+    @BeforeEach
+    void init2() {
+        loginService = MemberServiceProvider_temp.getInstance().loginService();
+
+        form = new RequestLogin();
+        String fakeUserId = form.getUserId();
+        System.out.println(fakeUserId);
+        String fakePassword = form.getPassword();
+        System.out.println(fakePassword);
+    }
+
+
+
+
+
 
         //setData();
 
         //given(request.getSession()).willReturn(session);
         // 모의객체로 만든 request.getSession() 요청세션이 들어오면 모의객체 세션을 반환
-    }
+
 //    void setData() {
 //        setParam("userId", form.getUserId());
 //        setParam("password", form.getPassword());
@@ -73,7 +93,7 @@ public class LoginServiceTest {
     @DisplayName("로그인 성공 시 예외가 발생하지 않음")
     void successTest() {
         assertDoesNotThrow(() -> {
-            loginService.process(new RequestLogin());
+            loginService.process(form);
         });
     }
 }
