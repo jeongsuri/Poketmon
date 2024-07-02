@@ -6,4 +6,6 @@ public interface MemberMapper {
     Member get(String userId);
     int exists(String userId);
     int register(Member member);
+    int modify(Member member);
+
 }

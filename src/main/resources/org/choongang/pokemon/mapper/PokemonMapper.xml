@@ -24,12 +24,12 @@
     </insert>
 
     <select id="get" resultMap="pokemonMap">
-        SELECT ROWNUM NUM, P.* FROM POKEMON P WHERE P.seq=#{seq}
+        SELECT POKEMON_NUM, P.* FROM POKEMON P WHERE P.seq=#{seq}
     </select>
 
     <select id="getList" resultMap="pokemonMap">
 
-        SELECT * FROM (SELECT ROWNUM NUM, P.* FROM POKEMON P
+        SELECT * FROM (SELECT POKEMON_NUM, P.* FROM POKEMON P
         <where>
             <if test="skey != null and !skey.equals('')">
                 <bind name="keyword" value="'%' + _parameter.getSkey() + '%'" />
@@ -42,5 +42,26 @@
         <![CDATA[
             P2.SEQ >= #{offset} AND P2.SEQ < #{endRows}
         ]]>
+
     </select>
+    <!-- 마이 포켓몬 목록 조회 -->
+    <select id="getMyPokemons" resultMap="pokemonMap">
+        SELECT P.SEQ, USER_NO, P.* FROM MYPOKEMON M
+        INNER JOIN POKEMON P ON M.POKEMON_NO = P.SEQ
+        WHERE M.USER_NO=#{userNo}
+    </select>
+
+    <insert id="registerMyPokemon">
+        INSERT INTO MYPOKEMON (USER_NO, POKEMON_NO) VALUES (#{userNo},#{seq})
+    </insert>
+    <delete id="deleteMyPokemon">
+        DELETE FROM MYPOKEMON WHERE USER_NO=#{userNo} AND POKEMON_NO=#{seq}
+    </delete>
+
+    <delete id="deleteAllMyPokemon">
+        DELETE FROM MYPOKEMON WHERE USER_NO=#{userNo}
+    </delete>
+
 </mapper>
+
+

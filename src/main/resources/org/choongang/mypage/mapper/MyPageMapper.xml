@@ -4,23 +4,15 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.choongang.mypage.mapper.MyPageMapper">
 
-    <!--  로그인된 내 아이디로 맴버 테이블에서 유저 넘버를 찾음 -->
-    <select id="findUserNumberByUserId" resultType="int">
-        <![CDATA[
-        SELECT USER_NO
-        FROM MEMBER
-        WHERE USER_ID = #{userId}
-        ]]>
-    </select>
+    <resultMap id="myPageMap" type="org.choongang.mypage.entities.Mypage">
+        <result column="USER_NO" property="userNo" />
+        <result column="POKEMON_NO" property="pokemonNo" />
+        <result column="NICKNAME" property="nickName" />
+    </resultMap>
 
-    <!--  찾은 유저 넘버로 마이 포켓몬 테이블에서 그룹 바이로 묶고 -->
-    <select id="findCaughtPokemonNumbers" resultType="int">
-        <![CDATA[
-        SELECT DISTINCT POKEMON_NO
-        FROM MYPOKEMON
-        WHERE USER_NO = #{userNumber}
-        ]]>
-    </select>
+   <!--   로그인된 내 아이디로 맴버 테이블에서 유저 넘버를 찾음
+    <select id="mypokeList" resultMap="myPageMap">
+        SELECT * FROM MEMBER WHERE USER_NO = #{userNo}
+    </select> -->
 
-</mapper>
 

@@ -29,6 +29,7 @@
         </c:forEach>
     </c:if>
 
+    <script src="${jsUrl}layer.js"></script>
     <script src="${jsUrl}common.js"></script>
     <jsp:invoke fragment="commonJs" />
     <c:if test="${addScript != null}">
