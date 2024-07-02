@@ -32,7 +32,7 @@ public class JoinServiceTest {
     }
 
 
-    RequestJoin getData() {
+    RequestJoin getData() { // 밑에 필수검증 위해선 데이터값이 필요하니까 데이터 클래스에 임의로 값 넣어주기
         Faker faker = new Faker(Locale.ENGLISH);
 
         RequestJoin form = new RequestJoin();
@@ -119,8 +119,6 @@ public class JoinServiceTest {
         });
 
         String message = thrown.getMessage();
-
-        System.out.println(message);
         assertTrue(message.contains("비밀번호가 일치")); // 에러메세지 맞게 뜨는지 쳌
         assertEquals(400, thrown.getStatus()); // 에러 응답코드 맞는지 쳌
     }
@@ -135,7 +133,7 @@ public class JoinServiceTest {
         });
 
         String message = thrown.getMessage();
-        assertTrue(message.contains("아이디 형식이"));
+        assertTrue(message.contains("아이디 형식이")); // 에러메세지 맞게 뜨는지 쳌
         assertEquals(400, thrown.getStatus()); // 에러 응답코드 맞는지 쳌
     }
 
@@ -154,7 +152,7 @@ public class JoinServiceTest {
 
         String message = thrown.getMessage();
         System.out.println(message);
-        assertTrue(message.contains("비밀번호"));
+        assertTrue(message.contains("비밀번호")); // 에러메세지 맞게 뜨는지 쳌
         assertEquals(400, thrown.getStatus()); // 에러 응답코드 맞는지 쳌
     }
 
@@ -168,7 +166,7 @@ public class JoinServiceTest {
             joinService.process(form);
         });
         String message = thrown.getMessage();
-        assertTrue(message.contains("이미 가입된"));
+        assertTrue(message.contains("이미 가입된")); // 에러메세지 맞게 뜨는지 쳌
         assertEquals(400, thrown.getStatus()); // 에러 응답코드 맞는지 쳌
     }
 }
