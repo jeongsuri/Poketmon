@@ -3,11 +3,13 @@ package org.choongang.member.tests;
 
 import com.github.javafaker.Faker;
 import org.choongang.global.config.DBConn;
+import org.choongang.global.config.containers.BeanContainer;
 import org.choongang.global.exceptions.AlertException;
 import org.choongang.member.controllers.RequestJoin;
 import org.choongang.member.entities.Member;
 import org.choongang.member.mapper.MemberMapper;
 import org.choongang.member.services.JoinService;
+import org.choongang.member.validators.JoinValidator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -23,12 +25,22 @@ import static org.junit.jupiter.api.Assertions.*;
 public class JoinServiceTest {
 
     private JoinService joinService;
+    private BeanContainer beanContainer;
     private MemberMapper memberMapper;
+    private JoinValidator joinValidator;
 
     @BeforeEach
     void init() {
-        joinService = MemberServiceProvider_temp.getInstance().joinService();
-        memberMapper = DBConn.getSession().getMapper(MemberMapper.class);
+        beanContainer = BeanContainer.getInstance();
+
+        beanContainer.addBean("memberMapper", DBConn.getSession().getMapper(MemberMapper.class));
+        memberMapper = (MemberMapper) beanContainer.getBeans().get("memberMapper");
+
+        beanContainer.addBean("joinValidator", new JoinValidator(memberMapper));
+        joinValidator = (JoinValidator) beanContainer.getBeans().get("joinValidator");
+
+        beanContainer.addBean("joinService", new JoinService(joinValidator, memberMapper));
+        joinService = (JoinService) beanContainer.getBeans().get("joinService");
     }
 
 
@@ -67,7 +79,7 @@ public class JoinServiceTest {
             joinService.process(form);
         });
 
-        // 가입된 아이디로 회원이 조회되는지 체크
+//         가입된 아이디로 회원이 조회되는지 체크
         Member member = memberMapper.get(form.getUserId());
         assertEquals(form.getUserId(), member.getUserId());
     }
