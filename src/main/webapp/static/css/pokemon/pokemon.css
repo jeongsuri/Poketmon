@@ -19,9 +19,9 @@
 
 .pokemonName {
     font-family: "Jua", sans-serif;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     padding-left: 350px;
-    padding-right: 350px;
+    padding-right: 300px;
     border-radius: 5px;
 }
 
@@ -56,7 +56,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding-bottom: 100px;
 }
 
 .pokemon-list > li { /* 포켓몬 목록 1줄 당 수 */
@@ -143,7 +142,6 @@
 }
 
 /* 포켓몬 속성 별 색상 설정 S */
-
 .pokemon-list > li .p-type.normal {
     background: #949495;
 }
@@ -219,5 +217,4 @@
 .pokemon-list > li .p-type.X {
     background: #000;
 }
-
 /* 포켓몬 속성 별 색상 설정 E */
