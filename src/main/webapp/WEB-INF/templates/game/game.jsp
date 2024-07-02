@@ -10,7 +10,7 @@
 <layout:main title="${pageTitle}">
     <div class="content-wrapper">
         <img src="images/o.png" class="o" >
-
+        
         <section class="content-box">
             <img src="${data.frontDefault}" class="pokemon">
             <div>
