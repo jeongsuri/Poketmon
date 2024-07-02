@@ -1,3 +1,4 @@
+
 package org.choongang.global.config.containers;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -22,20 +23,12 @@ public class BeanContainer {
 
     private MapperProvider mapperProvider; // 마이바티스 매퍼 조회
 
-    private boolean loaded;
 
     public BeanContainer() {
         beans = new HashMap<>();
         mapperProvider = MapperProvider.getInstance();
     }
 
-    public void setLoaded(boolean loaded) {
-        this.loaded = loaded;
-    }
-
-    public boolean isLoaded() {
-        return loaded;
-    }
 
     public void loadBeans() {
         // 패키지 경로 기준으로 스캔 파일 경로 조회
@@ -96,6 +89,7 @@ public class BeanContainer {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
 
     public static BeanContainer getInstance() {
@@ -244,7 +238,7 @@ public class BeanContainer {
                 Object mapper = mapperProvider.getMapper(clz);
 
                 // 그외 서블릿 기본 객체(HttpServletRequest, HttpServletResponse, HttpSession)이라면 갱신
-                if (clz == HttpServletRequest.class || clz == HttpServletResponse.class || clz == HttpSession.class || mapper != null) {
+                if (clz == HttpServletRequest.class || clz == HttpServletResponse.class || clz == HttpSession.class ) {
                     field.setAccessible(true);
                 }
 
