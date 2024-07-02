@@ -10,6 +10,7 @@ import org.choongang.board.entities.Board;
 import org.choongang.board.entities.BoardData;
 import org.choongang.board.exceptions.BoardConfigNotFoundException;
 import org.choongang.board.exceptions.BoardNotFoundException;
+import org.choongang.board.exceptions.GuestPasswordCheckException;
 import org.choongang.board.services.config.BoardConfigInfoService;
 import org.choongang.global.config.annotations.Service;
 import org.choongang.global.config.containers.BeanContainer;
@@ -52,7 +53,6 @@ public class BoardAuthService {
         // 게시판 설정이 없는 경우 조회
         board = configInfoService.get(bId).orElseThrow(BoardConfigNotFoundException::new);
 
-
         if (List.of("update", "delete").contains(mode) && seq > 0L) { // 게시글이 없는 경우 조회
             boardData = infoService.get(seq).orElseThrow(BoardNotFoundException::new);
         }
@@ -93,13 +93,10 @@ public class BoardAuthService {
 
                 if (session.getAttribute(authKey) == null) { // 비회원 인증 X
                     request.setAttribute("seq", boardData.getSeq());
-                    throw null;
+                    throw new GuestPasswordCheckException();
                 }
             }
         }
-
-        boolean isEditable = false; //true -> 수정 삭제 가능
-        //if(memberUtil.isAdmin() || boardData != 0L) {}
     }
 
     /**

@@ -72,7 +72,7 @@
 
     <select id="getList" resultMap="boardDataMap">
         SELECT * FROM (
-        SELECT ROWNUM NUM, B.*, M.NICKNAME FROM BOARD_DATA B
+        SELECT ROWNUM NUM, B.*, M.USER_ID, M.NICKNAME FROM BOARD_DATA B
         LEFT JOIN MEMBER M ON M.USER_NO = B.MEMBER_SEQ
         <where>
             <if test="bId != null and !bId.equals('')">
@@ -109,6 +109,7 @@
         D.NUM >= #{offset} AND D.NUM < #{endRows}
         ]]>
     </select>
+
 
     <select id="getTotal">
         SELECT COUNT(*) FROM BOARD_DATA B

@@ -134,7 +134,7 @@ public class BoardController {
 
         //권한 체크
         long seq = boardData == null?0:boardData.getSeq();
-        authService.check(bId, mode); // list, write
+        authService.check(bId, seq, mode); // list, write, view, delete
 
         // mode가 null이면 write로 기본값 설정
         mode = Objects.requireNonNullElse(mode, "write");
