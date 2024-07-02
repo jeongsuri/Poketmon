@@ -1,5 +1,17 @@
 /* 게시판 공통 */
-/* 게시판 상단 */
-.board-top {
 
+/* 게시판 상단 S */
+.board-top .location {
+    border-bottom: 1px solid #000; /* 하단에 검은색 실선 추가 */
+    padding-bottom: 10px; /* 하단에 패딩 추가 */
+    margin-bottom: 20px; /* 다른 요소들과의 간격 추가 */
 }
+
+.board-top .location a {
+        color: blue;
+    background: #da343c;
+
+    }
+
+/* 게시판 상단 E */
+
