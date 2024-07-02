@@ -1,6 +1,9 @@
 package org.choongang.game.services;
 
-public class TypeColor {
+import org.choongang.global.config.annotations.Service;
+
+@Service
+public class TypeColorService {
     public String getTypeColor(String type) {
         switch(type.toLowerCase()) {
             case "노말":
