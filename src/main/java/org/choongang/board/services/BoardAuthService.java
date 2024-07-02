@@ -1,5 +1,6 @@
 package org.choongang.board.services;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
@@ -73,7 +74,6 @@ public class BoardAuthService {
         if (mode.equals("write") && !memberUtil.isAdmin() && authority == Authority.ADMIN) { // 관리자 전용 게시판
             throw new AlertRedirectException("관리자 전용 게시판 입니다.", redirectUrl, HttpServletResponse.SC_UNAUTHORIZED);
         }
-
         if (List.of("update", "delete").contains(mode)) {
             boolean isEditable = false; // true -> 수정, 삭제 가능 / 관리자는 전부 가능
             if (memberUtil.isAdmin() || boardData.getMemberSeq() == 0L // 비회원 게시글
