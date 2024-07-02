@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.choongang.member.MemberUtil;
 import org.choongang.member.controllers.RequestJoin;
 import org.choongang.member.controllers.RequestLogin;
+import org.choongang.member.entities.Member;
 import org.choongang.member.services.JoinService;
 import org.choongang.member.services.LoginService;
 import org.junit.jupiter.api.BeforeEach;
@@ -22,6 +23,7 @@ import org.mockito.quality.Strictness;
 import java.util.Locale;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.mockito.ArgumentMatchers.matches;
 import static org.mockito.BDDMockito.given;
 
 @DisplayName("로그인 기능 테스트")
@@ -30,9 +32,13 @@ public class LoginServiceTest {
     private LoginService loginService;
     private JoinService joinService;
     private Faker faker;
-    private RequestLogin form;
-    private SqlSession dbSession;
-    private MemberUtil memberUtil;
+    private RequestLogin form = new RequestLogin();
+
+    
+
+    MemberUtil util = new MemberUtil();
+    Member member = util.getMember();
+
 
 
 //    @Mock
@@ -61,12 +67,9 @@ public class LoginServiceTest {
     @BeforeEach
     void init2() {
         loginService = MemberServiceProvider_temp.getInstance().loginService();
-
         form = new RequestLogin();
-        String fakeUserId = form.getUserId();
-        System.out.println(fakeUserId);
-        String fakePassword = form.getPassword();
-        System.out.println(fakePassword);
+        form.setUserId(form.getUserId());
+        form.setPassword(form.getPassword());
     }
 
 
@@ -97,3 +100,5 @@ public class LoginServiceTest {
         });
     }
 }
+
+
