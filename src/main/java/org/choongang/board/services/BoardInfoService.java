@@ -86,9 +86,9 @@ public class BoardInfoService {
         // 페이징 처리
         int total = mapper.getTotal(search);
         HttpServletRequest request = BeanContainer.getInstance().getBean(HttpServletRequest.class);
-        //Pagination pagination = new Pagination(page, total, 10, limit, request);
+        Pagination pagination = new Pagination(page, total, 10, limit, request);
 
-        return null;
+        return new ListData<>(items, pagination);
     }
 
     public ListData<BoardData> getList(String bId, BoardSearch search) {

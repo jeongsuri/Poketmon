@@ -20,7 +20,7 @@
         <result column="REG_DT" property="regDt" />
         <result column="MOD_DT" property="modDt" />
         <result column="USER_ID" property="userId" />
-        <result column="NICKNAME" property="nikName" />
+        <result column="NICKNAME" property="nickName" />
     </resultMap>
 
     <insert id="register">

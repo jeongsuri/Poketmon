@@ -11,6 +11,6 @@ public interface BoardDataMapper {
     int delete(long seq);
     BoardData get(long seq);
     List<BoardData> getList(BoardSearch search);
-    int exist(long seq);
+    int exists(long seq);
     int getTotal(BoardSearch search);
 }

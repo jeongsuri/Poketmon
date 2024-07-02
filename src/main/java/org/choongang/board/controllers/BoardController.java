@@ -7,6 +7,7 @@ import org.choongang.board.entities.Board;
 import org.choongang.board.entities.BoardData;
 import org.choongang.board.exceptions.BoardConfigNotFoundException;
 import org.choongang.board.exceptions.BoardNotFoundException;
+import org.choongang.board.services.BoardDeleteService;
 import org.choongang.board.services.BoardInfoService;
 import org.choongang.board.services.BoardSaveService;
 import org.choongang.board.services.config.BoardConfigInfoService;
@@ -27,7 +28,9 @@ public class BoardController {
     private final HttpServletRequest request;
     private final BoardSaveService saveService;
     private final BoardInfoService infoService;
+    private final BoardDeleteService deleteService;
     private BoardData boardData;
+    private Board board;
 
 
     //게시판 리스트보기
@@ -41,9 +44,12 @@ public class BoardController {
 
     //게시글 리스트보기
     @GetMapping("/list/{bId}")
-    public String list(@PathVariable("bId") String bId) {
+    public String list(@PathVariable("bId") String bId, BoardSearch search) {
         commonProcess(bId, "list");
 
+        ListData<BoardData> data = infoService.getList(bId, search);
+        request.setAttribute("items", data.getItems());
+        request.setAttribute("pagination", data.getPagination());
 
         return "board/list";
     }
@@ -52,6 +58,12 @@ public class BoardController {
     @GetMapping("/view/{seq}")
     public String view(@PathVariable("seq") long seq) {
         commonProcess(seq, "view");
+
+        String bId = boardData.getBId();
+        ListData<BoardData> data = infoService.getList(bId);
+        request.setAttribute("items", data.getItems());
+        request.setAttribute("pagination", data.getPagination());
+
         return "board/view";
     }
 
@@ -59,10 +71,12 @@ public class BoardController {
     @GetMapping("/write/{bId}")
     public String write(@PathVariable("bId") String bId) {
         commonProcess(bId, "write");
+
         RequestBoardData data = new RequestBoardData();
         data.setBId(bId);
 
-        request.setAttribute("data",data);
+        request.setAttribute("data", data);
+
         return "board/write";
     }
 
@@ -70,11 +84,14 @@ public class BoardController {
     @GetMapping("/update/{seq}")
     public String update(@PathVariable("seq") long seq) {
         commonProcess(seq, "update");
+
         RequestBoardData data = infoService.getForm(boardData);
-        request.setAttribute("data",data);
+        request.setAttribute("data", data);
+
         return "board/update";
     }
 
+    //저장
     @PostMapping("/save")
     public String save(RequestBoardData form) {
         String mode = form.getMode();
@@ -91,6 +108,16 @@ public class BoardController {
         return "commons/execute_script";
     }
 
+    //삭제
+    @GetMapping("/delete/{seq}")
+    public String delete(@PathVariable("seq") long seq) {
+        commonProcess(seq, "delete");
+
+        deleteService.delete(seq);
+
+        return "redirect:/board/list/" + board.getBId();
+    }
+
     /**
      * 모든 요청 처리 메서드에 공통 처리 부분
      *
@@ -98,7 +125,7 @@ public class BoardController {
      * @param mode : 처리 모드 - write, update, list, view
      */
     private void commonProcess(String bId, String mode) {
-        Board board = configInfoService.get(bId).orElseThrow(BoardConfigNotFoundException::new);
+        board = configInfoService.get(bId).orElseThrow(BoardConfigNotFoundException::new);
         infoService.setBoard(board);
 
         // mode가 null이면 write로 기본값 설정
@@ -133,9 +160,10 @@ public class BoardController {
      * @param seq
      * @param mode
      */
-    private void commonProcess(long seq, String mode){
+    private void commonProcess(long seq, String mode) {
         boardData = infoService.get(seq).orElseThrow(BoardNotFoundException::new);
         String bId = boardData.getBId();
+
         commonProcess(bId, mode);
 
         request.setAttribute("data", boardData);
