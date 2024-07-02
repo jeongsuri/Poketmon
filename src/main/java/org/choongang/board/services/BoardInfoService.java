@@ -23,11 +23,12 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@Getter @Setter
+@Setter
 @RequiredArgsConstructor
 public class BoardInfoService {
     private final BoardDataMapper mapper;
     private final BoardConfigInfoService configInfoService;
+    //private final BoardAuthService authService;
 
     private Board board;
 
@@ -42,6 +43,9 @@ public class BoardInfoService {
      */
     public Optional<BoardData> get(long seq) {
         BoardData data = mapper.get(seq);
+        //authService.setBoardData(data);
+
+        //authService.check(seq,"view");
 
 
         return Optional.ofNullable(data);
@@ -71,6 +75,10 @@ public class BoardInfoService {
         if (board == null) {
             board = configInfoService.get(search.getBId()).orElseThrow(BoardConfigNotFoundException::new);
         }
+
+        //권한체크
+        // authService.setBoard(board);
+        //authService.check(search.getBId(), "list");
 
         int page = Math.max(search.getPage(), 1);
         int limit = search.getLimit();

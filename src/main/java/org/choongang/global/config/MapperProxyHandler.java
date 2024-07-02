@@ -1,5 +1,7 @@
 package org.choongang.global.config;
 
+import org.apache.ibatis.session.SqlSession;
+
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
@@ -10,18 +12,16 @@ public class MapperProxyHandler implements InvocationHandler {
         this.clz = clz;
     }
     private Object obj;
-
+    private SqlSession session = DBConn.getSession();
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 
-        // get으로 시작하는 메서드가 아닌 경우는 sqlSession 객체 갱신
-        if (!method.getName().startsWith("get")) {
-            //obj = null;
-        }
+        session.clearCache();
 
-        //if (obj == null) {
-            obj = DBConn.getSession().getMapper(clz);
-        //}
+        // 매 요청 1번만 객체 갱신
+        if (obj == null) {
+            obj = session.getMapper(clz);
+        }
 
         Object result = method.invoke(obj, args);
 
