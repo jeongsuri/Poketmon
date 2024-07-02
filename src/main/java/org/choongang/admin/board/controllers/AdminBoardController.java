@@ -1,7 +1,6 @@
 package org.choongang.admin.board.controllers;
 
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.choongang.board.entities.Board;
 import org.choongang.board.services.config.BoardConfigInfoService;
@@ -11,8 +10,8 @@ import org.choongang.global.config.annotations.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("/admin/board")
 @RequiredArgsConstructor
+@RequestMapping("/admin/board")
 public class AdminBoardController {
 
     private final BoardConfigSaveService saveService;
@@ -22,21 +21,26 @@ public class AdminBoardController {
     // 게시판 목록
     @GetMapping
     public String boardList() {
+
         List<Board> items = infoService.getList();
         request.setAttribute("items", items);
+
         return "admin/board/index";
     }
 
     // 게시판 등록
     @GetMapping("/register")
     public String register() {
+
         request.setAttribute("data", new RequestBoard());
+
         return "admin/board/register";
     }
 
     // 게시판 수정
     @GetMapping("/update/{bId}")
     public String update(@PathVariable("bId") String bId) {
+
         RequestBoard form = infoService.getForm(bId);
         request.setAttribute("data", form);
 
@@ -44,8 +48,10 @@ public class AdminBoardController {
     }
 
     @PostMapping("/save")
-    public String save(RequestBoard form){
+    public String save(RequestBoard form) {
+
         saveService.process(form);
+
         String url = request.getContextPath() + "/admin/board";
         String script = String.format("parent.location.replace('%s');", url);
 

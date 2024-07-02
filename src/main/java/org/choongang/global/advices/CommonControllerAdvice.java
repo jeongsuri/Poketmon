@@ -89,7 +89,7 @@ public class CommonControllerAdvice implements Interceptor {
     }
 
     @Override
-    public boolean preHandle() {
+    public boolean preHandle() { // 로그인한 상태에서만 게시판들 접근 가능
         HttpServletResponse response = BeanContainer.getInstance().getBean(HttpServletResponse.class);
         HttpServletRequest request = BeanContainer.getInstance().getBean(HttpServletRequest.class);
         if (!memberUtil.isLogin()) {

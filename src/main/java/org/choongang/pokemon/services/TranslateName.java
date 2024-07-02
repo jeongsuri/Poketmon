@@ -1,5 +1,8 @@
 package org.choongang.pokemon.services;
 
+import org.choongang.global.config.annotations.Service;
+
+@Service
 public class TranslateName {
     public String koreanName(String type) {
         switch (type) {
