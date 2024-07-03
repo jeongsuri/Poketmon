@@ -56,6 +56,5 @@ ul, ol { list-style: none; }
 
 .error-container.e500 {
     background:#000 url("../images/500ErrorPage.png") no-repeat center top;
-    background-size: contain;
+    background-size: cover;
 }
-
