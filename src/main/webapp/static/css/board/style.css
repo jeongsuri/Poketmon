@@ -41,7 +41,8 @@ footer {
 .board-top h1 {
     font-size: 30px;
     text-align: left; /* 왼쪽 정렬 설정 */
-    padding: 13px;
+    padding-bottom: 13px;
+    padding-top: 13px;
     margin: 0;
 }
 /* 게시판 상단 E */
