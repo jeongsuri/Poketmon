@@ -9,8 +9,10 @@ main {
 }
 
 .rank {
+
+    min-width: 550px;
     max-width: 590px;
-    min-height: 780px;
+    height: 780px;
     margin: 0 auto;
     border-radius: 20px;
     padding: 30px;
