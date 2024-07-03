@@ -1,4 +1,11 @@
 /* 게시판 공통 */
+main {
+    min-height: 750px;
+}
+
+footer {
+    margin-top: 100px;
+}
 
 /* 게시판 상단 S */
 .body {
@@ -9,11 +16,11 @@
 }
 
 .board-top {
-    background-color: #FFDE00;
+    margin-top: 15px;
     color: black;
-    padding: 10px;
+    padding: 15px;
     text-align: center;
-    //border-bottom: 2px solid #3e8e41;
+    border-bottom: 5px solid #FFDE00;
 }
 
 .board-top .location {
@@ -45,5 +52,5 @@
     .board-top h1 {
         font-size: 20px;
     }
-
+}
 /* 게시판 상단 E */
