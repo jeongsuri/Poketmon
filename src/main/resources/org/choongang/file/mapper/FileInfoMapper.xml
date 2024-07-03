@@ -68,8 +68,8 @@
 
     <update id="updateDone">
         UPDATE FILE_INFO
-            SET
-                DONE = 1
-            WHERE GID = #{gid}
+        SET
+        DONE=1
+        WHERE GID = #{gid}
     </update>
 </mapper>

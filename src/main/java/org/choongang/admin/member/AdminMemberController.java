@@ -34,6 +34,7 @@ public class AdminMemberController {
     public String deleteMember(@PathVariable("userId") String userId, HttpServletRequest request) {
         infoService.delete(userId);
         String script = String.format("parent.location.replace('%s');", request.getContextPath() + "/admin/member");
+        System.out.println(script);
         request.setAttribute("script", script);
         return "commons/execute_script";
     }
