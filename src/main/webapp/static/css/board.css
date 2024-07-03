@@ -1,10 +1,26 @@
 main {
     margin: 0;
     height: 90vh;
-    background: url(https://lh3.googleusercontent.com/6LjkWcXFt4Ef2E_BnLIrmQNWUpdiBnG6LYpbwlDt0h36hcBRYyK4VwE-y70ruPWyDDNlVcsPZiXB44cxiOGc=s0) center center;
+    background: url(https://c.wallhere.com/photos/1a/40/Pok_mon_pixel_art_Jigglypuff_Pikachu_Snorlax_Squirtle_Bulbasaur_Charizard-2290338.jpg!d) center center;
     background-size: cover;
     padding: 50px 0;
 }
+
+.board-top {
+    color: #fff;
+}
+
+.title {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.subTitle {
+    font-size: 1.17rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
 
 .board{
     font-family: "Jua", sans-serif;
@@ -23,6 +39,7 @@ main {
 }
 
 .table-rows {
+    color: #fff;
     font-size:1.15rem;
     display: flex;
     flex-direction: column; /* 수직 방향으로 정렬 */
@@ -32,16 +49,30 @@ main {
     width: 100%; /* 항목이 부모 요소 너비를 채우도록 설정 */
     margin: 10px 0; /* 상하단 여백 */
     padding: 10px; /* 내부 여백 */
-    border: 1px solid #ddd; /* 경계선 설정 */
+    border: 1px solid #46649B; /* 경계선 설정 */
     text-align: center; /* 텍스트 가운데 정렬 */
-    background-color: #31445a; /* 배경색 설정 */
+    background-color: #46649B; /* 배경색 설정 */
     border-radius: 20px; /* 모서리 둥글게 설정 */
 }
 
+.boardList {
+    display: flex;
+    background-color: #F0FFFF;
+    width: 500px;
+    border: 1px solid #F0FFFF;
+    padding: 11px;
+    border-radius: 15px;
+    margin: 20px auto;
+    justify-content: center;
+}
 
+.boardList a {
+    text-decoration: none;
+    color: #000 !important;
+}
 
 .table-rows a {
-    color:#fff;
+    color:#000;
     text-decoration: none; /* 링크 밑줄 제거 */
     font-weight: bold; /* 글꼴 굵게 설정 */
 }
