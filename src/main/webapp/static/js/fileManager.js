@@ -49,16 +49,3 @@ const fileManager = {
 
     }
 };
-
-/**
- * 파일 업로드 후 후속처리
- * @param files
- */
-function callbackFileUpload(files) {
-    if(files.length == 0) {
-        return ;
-    }
-    for(const file of files) {
-
-    }
-}
