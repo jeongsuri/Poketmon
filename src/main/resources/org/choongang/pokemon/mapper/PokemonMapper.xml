@@ -69,4 +69,6 @@
     <delete id="deleteAllMyPokemon">
         DELETE FROM MYPOKEMON WHERE USER_NO=#{userNo}
     </delete>
+
+
 </mapper>
