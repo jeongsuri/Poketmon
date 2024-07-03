@@ -20,7 +20,6 @@ public class PokeNumberService {
 
 
         for (Integer i : caughtPokemon) {
-            System.out.println(i + "," + randomNum);
             if ((long)i == randomNum) {
                 randomNum = (new Random()).nextLong(1, 151);
             }

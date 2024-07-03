@@ -11,6 +11,10 @@
         <result column="NICKNAME" property="nickName" />
     </resultMap>
 
+    <select id="getMember" resultMap="memberMap">
+        SELECT * FROM MEMBER WHERE USER_ID = #{userId}
+    </select>
+
     <select id="getList" resultMap="memberMap">
         SELECT * FROM MEMBER ORDER BY USER_NO
     </select>
