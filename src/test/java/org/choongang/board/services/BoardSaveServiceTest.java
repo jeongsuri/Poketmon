@@ -34,12 +34,12 @@ public class BoardSaveServiceTest {
         bc.addBean(HttpSession.class.getName(), session);
         bc.addBean(HttpServletRequest.class.getName(), request);
 
-        MemberUtil memberUtil = new MemberUtil();
+        MemberUtil memberUtil = new MemberUtil(null);
 
         BoardDataMapper mapper = DBConn.getSession().getMapper(BoardDataMapper.class);
-        BoardInfoService infoService = new BoardInfoService(mapper);
+        BoardInfoService infoService = new BoardInfoService(mapper,null);
         BoardSaveValidator validator = new BoardSaveValidator(memberUtil, mapper);
-        saveService = new BoardSaveService(mapper, validator, memberUtil, infoService);
+        saveService = new BoardSaveService(mapper, validator, memberUtil, infoService, null);
     }
 
     @Test

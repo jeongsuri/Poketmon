@@ -2,8 +2,8 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ taglib prefix="fn" uri="jakarta.tags.functions" %>
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layouts" %>
+<%@ taglib prefix="util" tagdir="/WEB-INF/tags/utils" %>
 <layout:main title="${data.name}">
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/pokemon/eachpokemon.css">
     <section class="pokemon-view">
         <div class="box">
         <div class="each-pokemon">

@@ -39,8 +39,11 @@ public class AdminMemberController {
 
 
     //회원정보수정
-    @GetMapping("/updata/{userId}")
+    @GetMapping("/update/{userId}")
     public String updateMember(@PathVariable("userId") String userId, HttpServletRequest request){
-        return null;
+        Member data = infoService.getMember(userId);
+        request.setAttribute("data", data);
+        request.setAttribute("addCss", List.of("admin/member/update"));
+        return "admin/member/update";
     }
 }

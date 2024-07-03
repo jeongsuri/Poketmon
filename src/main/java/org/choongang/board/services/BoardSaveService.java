@@ -28,11 +28,15 @@ public class BoardSaveService {
     private final BoardSaveValidator validator;
     private final MemberUtil memberUtil;
     private final BoardInfoService infoService;
+    private final BoardAuthService authService;
 
     public Optional<BoardData> save(RequestBoardData form){ //글 작성,수정후 글보기 페이지로 이동하기 위해 게시판번호를 알아야한다. 그렇기 때문에 BoardData로 반환
         validator.check(form);
         String mode = form.getMode();
         mode = mode == null || mode.isBlank() ? "write" : mode;
+
+        //글 쓰기, 글 수정 권한 체크
+        authService.check(form.getBId(), form.getSeq(), mode);
 
         BoardData data = new ModelMapper().map(form, BoardData.class);
 
@@ -58,7 +62,7 @@ public class BoardSaveService {
         }
 
         //비회원 비밀번호 해시화
-        if(!memberUtil.isAdmin()){
+        if(!memberUtil.isLogin()){
             String hash = BCrypt.hashpw(form.getGuestPassword(), BCrypt.gensalt(12));
             data.setGuestPassword(hash);
         }else{
@@ -68,11 +72,11 @@ public class BoardSaveService {
         String category = form.getCategory();
         data.setCategory(Objects.requireNonNullElse(category,""));
 
-        if(mode.equals("update")){
+        if (mode.equals("update")) {
             mapper.modify(data);
-        }else{
+        } else {
             int result = mapper.register(data);
-            if(result < 1){
+            if (result < 1) {
                 throw new AlertException("게시글 등록에 실패하였습니다.", HttpServletResponse.SC_BAD_REQUEST);
             }
         }

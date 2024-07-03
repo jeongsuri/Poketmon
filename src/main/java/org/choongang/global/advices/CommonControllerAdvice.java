@@ -10,6 +10,7 @@ import org.choongang.global.config.containers.BeanContainer;
 import org.choongang.global.exceptions.*;
 import org.choongang.member.MemberUtil;
 import org.choongang.member.entities.Member;
+import org.choongang.pokemon.PokemonDetail;
 
 import java.io.IOException;
 import java.util.List;
@@ -34,6 +35,12 @@ public class CommonControllerAdvice implements Interceptor {
     public Member loggedMember() {
         return memberUtil.getMember();
     }
+
+    @ModelAttribute
+    public PokemonDetail myProfile() {
+        return memberUtil.getMyProfile();
+    }
+
 
     /**
      * 공통 에러 페이지 처리
@@ -82,7 +89,7 @@ public class CommonControllerAdvice implements Interceptor {
     }
 
     @Override
-    public boolean preHandle() {
+    public boolean preHandle() { // 로그인한 상태에서만 게시판들 접근 가능
         HttpServletResponse response = BeanContainer.getInstance().getBean(HttpServletResponse.class);
         HttpServletRequest request = BeanContainer.getInstance().getBean(HttpServletRequest.class);
         if (!memberUtil.isLogin()) {
