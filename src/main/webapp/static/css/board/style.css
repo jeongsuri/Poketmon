@@ -16,11 +16,12 @@ footer {
 }
 
 .board-top {
-    margin-top: 15px;
+    margin-top: 50px;
     color: black;
     padding: 15px;
     text-align: center;
-    border-bottom: 5px solid #FFDE00;
+    border: 3px solid black;
+    border-radius: 10px; /* 원하는 둥근 정도 설정 */
 }
 
 .board-top .location {
