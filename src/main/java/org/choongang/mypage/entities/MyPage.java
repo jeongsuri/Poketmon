@@ -3,9 +3,6 @@ package org.choongang.mypage.entities;
 import lombok.Builder;
 import lombok.Data;
 import org.choongang.member.constants.UserType;
-import org.choongang.mypage.services.MyPokemonService;
-
-import java.util.List;
 
 @Data
 @Builder
