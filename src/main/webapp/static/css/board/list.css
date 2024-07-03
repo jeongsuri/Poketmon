@@ -74,7 +74,7 @@ body {
     color: #333;
     text-decoration: none;
     font-size: 18px;
-    padding-top: 50px;
+    margin-top: 10px;
 }
 
 .list-items li .post-info {
@@ -83,7 +83,7 @@ body {
     font-size: 14px;
     color: #666;
     white-space: nowrap;
-    padding-top: 50px;
+    margin-top: 10px;
 }
 
 .no-data {
