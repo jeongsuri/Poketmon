@@ -28,7 +28,7 @@
                     <c:forEach var="item" items="${items}">
                         <tr>
                             <td>
-                                <a href="<c:url value='/board/list/${item.BId}'/>" target="_blank">
+                                <a href="<c:url value='/board/list/${item.BId}'/>">
                                         ${item.BName}
                                 </a>
                             </td>
