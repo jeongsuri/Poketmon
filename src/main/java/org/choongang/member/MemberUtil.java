@@ -6,11 +6,8 @@ import org.choongang.global.config.annotations.Component;
 import org.choongang.global.config.containers.BeanContainer;
 import org.choongang.member.constants.UserType;
 import org.choongang.member.entities.Member;
-import org.choongang.pokemon.PokemonDetail;
+import org.choongang.pokemon.PokemonDetail2;
 import org.choongang.pokemon.services.PokemonInfoService;
-
-import java.util.Collections;
-import java.util.List;
 
 @Component
 @RequiredArgsConstructor
@@ -49,7 +46,7 @@ public class MemberUtil {
         return member;
     }
 
-    public PokemonDetail getMyProfile() {
+    public PokemonDetail2 getMyProfile() {
         if (isLogin()) {
             Member member = getMember();
             long seq = member.getMyPokemonSeq();

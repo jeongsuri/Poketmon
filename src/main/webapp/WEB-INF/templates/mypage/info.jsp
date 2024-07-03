@@ -34,12 +34,9 @@
                     <c:if test="${myProfile != null}">
                        <div class='profile'>
                             <img src="${myProfile.frontDefault}" alt="${myProfile.name}">
-                            <div>${myProfile.name}</div>
+                            <div>${empty myProfile.nickname ? myProfile.name : myProfile.nickname}</div>
                        </div>
                     </c:if>
-                    <button type='button' id="generate-profile-image">
-                    랜덤 프로필 이미지
-                    </button>
                 </dd>
             </dl>
             <div class='button-group'>
