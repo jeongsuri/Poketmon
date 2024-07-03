@@ -16,28 +16,26 @@
 
 /* 포스트 정보 스타일 */
 .post-info {
-    margin-bottom: 15px; /* 아래 여백 설정 */
+    display: flex;
+    justify-content: left;
 }
-
-.post-info .left {
-    float: left; /* 왼쪽 정렬 */
-    font-size: 14px; /* 글자 크기 설정 */
-    color: #666; /* 글자 색상 설정 */
-}
-
+.post-info .left,
 .post-info .right {
-    float: right; /* 오른쪽 정렬 */
     font-size: 14px; /* 글자 크기 설정 */
-    color: #666; /* 글자 색상 설정 */
+    color: black; /* 글자 색상 설정 */
+    font-weight: bolder; /* 글자 두께 설정 */
+    display: block; /* 블럭 요소로 설정 */
 }
 
 /* 내용 스타일 */
 .content {
+    padding-top: 15px;
+    padding-bottom: 15px;
     margin-bottom: 20px; /* 아래 여백 설정 */
     line-height: 1.6; /* 줄간격 설정 */
     border-radius: 3px;
-    border: #828282	 2px solid;
-
+    border: white 2px solid;
+    text-align: left;
 }
 
 /* 링크 스타일 */
