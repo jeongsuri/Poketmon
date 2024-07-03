@@ -8,7 +8,7 @@ import org.choongang.global.config.annotations.GetMapping;
 import org.choongang.global.config.annotations.PostMapping;
 import org.choongang.global.config.annotations.RequestMapping;
 import org.choongang.mypage.services.ProfileService;
-import org.choongang.pokemon.PokemonDetail;
+import org.choongang.pokemon.PokemonDetail2;
 import org.choongang.pokemon.services.MyPokemonService;
 
 import java.util.List;
@@ -43,7 +43,7 @@ public class MyPageController {
     public String info() {
         commonProcess();
 
-        List<PokemonDetail> items = pokemonService.getList();
+        List<PokemonDetail2> items = pokemonService.getList();
 
         request.setAttribute("addScript", List.of("mypage/profile", "mypage/info"));
         request.setAttribute("items", items);

@@ -10,7 +10,7 @@ import org.choongang.global.config.containers.BeanContainer;
 import org.choongang.global.exceptions.*;
 import org.choongang.member.MemberUtil;
 import org.choongang.member.entities.Member;
-import org.choongang.pokemon.PokemonDetail;
+import org.choongang.pokemon.PokemonDetail2;
 
 import java.io.IOException;
 import java.util.List;
@@ -37,7 +37,7 @@ public class CommonControllerAdvice implements Interceptor {
     }
 
     @ModelAttribute
-    public PokemonDetail myProfile() {
+    public PokemonDetail2 myProfile() {
         return memberUtil.getMyProfile();
     }
 
