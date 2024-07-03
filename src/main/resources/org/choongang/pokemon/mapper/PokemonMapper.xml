@@ -15,6 +15,19 @@
         <result column="RAW_DATA" property="rawData" />
     </resultMap>
 
+    <resultMap id="pokemonMap2" type="org.choongang.pokemon.PokemonDetail2">
+        <result column="SEQ" property="seq" />
+        <result column="NUM" property="rowNum" />
+        <result column="NAME" property="name" />
+        <result column="WEIGHT" property="weight" />
+        <result column="TYPE1" property="type1" />
+        <result column="TYPE2" property="type2" />
+        <result column="FLAVOR_TEXT" property="flavorText" />
+        <result column="FRONT_DEFAULT" property="frontDefault" />
+        <result column="RAW_DATA" property="rawData" />
+        <result column="NICKNAME" property="nickname" />
+    </resultMap>
+
     <insert id="register">
         INSERT INTO POKEMON VALUES (#{seq}, #{name}, #{weight}, #{type1}, #{type2}, #{flavorText}, #{frontDefault}, #{rawData})
     </insert>
@@ -23,8 +36,10 @@
         INSERT INTO MYPOKEMON VALUES (#{userNo}, #{pokemonNo}, #{nickName})
     </insert>
 
-    <select id="get" resultMap="pokemonMap">
-        SELECT ROWNUM NUM, P.* FROM POKEMON P WHERE P.seq=#{seq}
+    <select id="get" resultMap="pokemonMap2">
+        SELECT ROWNUM NUM, P.*, M.NICKNAME FROM POKEMON P
+            LEFT JOIN MYPOKEMON M ON P.SEQ = M.POKEMON_NO
+        WHERE P.seq=#{seq}
     </select>
 
     <select id="getList" resultMap="pokemonMap">
@@ -52,8 +67,8 @@
     </select>
 
     <!-- 마이 포켓몬 목록 조회 -->
-    <select id="getMyPokemons" resultMap="pokemonMap">
-        SELECT ROWNUM NUM, P.* FROM MYPOKEMON M
+    <select id="getMyPokemons" resultMap="pokemonMap2">
+        SELECT ROWNUM NUM, P.*, M.NICKNAME FROM MYPOKEMON M
         INNER JOIN POKEMON P ON M.POKEMON_NO = P.SEQ
         WHERE M.USER_NO=#{userNo} ORDER BY P.SEQ
     </select>
@@ -75,8 +90,9 @@
         <where>
             <if test="skey != null and !skey.equals('')">
                 <bind name="keyword" value="'%' + _parameter.getSkey() + '%'" />
-                AND NAME || NAME_KR || DESCRIPTION LIKE #{keyword}
+                AND NAME || FLAVOR_TEXT LIKE #{keyword}
             </if>
         </where>
     </select>
+
 </mapper>

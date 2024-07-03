@@ -13,6 +13,7 @@ import org.choongang.global.config.containers.BeanContainer;
 import org.choongang.global.services.ApiRequestService;
 import org.choongang.global.services.ObjectMapperService;
 import org.choongang.pokemon.PokemonDetail;
+import org.choongang.pokemon.PokemonDetail2;
 import org.choongang.pokemon.PokemonSearch;
 import org.choongang.pokemon.entities.ApiResult;
 import org.choongang.pokemon.entities.Item;
@@ -212,8 +213,8 @@ public class PokemonInfoService {
         return new ListData<>(items, pagination);
     }
 
-    public Optional<PokemonDetail> get(long seq) {
-        PokemonDetail data = mapper.get(seq);
+    public Optional<PokemonDetail2> get(long seq) {
+        PokemonDetail2 data = mapper.get(seq);
         if (data != null) {
             convertRawData(data);
         }
@@ -236,10 +237,13 @@ public class PokemonInfoService {
      *
      * @return
      */
-    public Optional<PokemonDetail> getRandom() {
-        PokemonDetail data = mapper.getRandom();
-        convertRawData(data);
+//    public Optional<PokemonDetail> getRandom() {
+//        PokemonDetail data = mapper.getRandom();
+//        convertRawData(data);
+//
+//        return Optional.ofNullable(data);
+//    }
+//
 
-        return Optional.ofNullable(data);
     }
-}
+

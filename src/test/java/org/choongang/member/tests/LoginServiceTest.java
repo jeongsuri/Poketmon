@@ -105,6 +105,7 @@ public class LoginServiceTest {
 
 
 
+
         String msg = thrown.getMessage();
         assertTrue(msg.contains(message), name + ", 키워드" + message + "테스트");
         assertEquals(400, thrown.getStatus()); // 에러 응답코드 맞는지 쳌

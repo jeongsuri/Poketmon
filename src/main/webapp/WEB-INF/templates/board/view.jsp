@@ -25,16 +25,16 @@
                 ${data.content}
         </div>
         <div class='links'>
-            <a href="<c:url value='/board/list/${data.BId}' />">글목록</a>
-            <a href="<c:url value='/board/write/${data.BId}' />">글쓰기</a>
-            <a href="<c:url value='/board/update/${data.seq}' />">글수정</a>
-            <a href="<c:url value='/board/delete/${data.seq}' />" onclick="return confirm('정말 삭제하시겠습니까?');">글삭제</a>
+            <a href="<c:url value='/board/list/${data.BId}' />">글 목록</a>
+            <a href="<c:url value='/board/write/${data.BId}' />">글 쓰기</a>
+            <a href="<c:url value='/board/update/${data.seq}' />">글 수정</a>
+            <a href="<c:url value='/board/delete/${data.seq}' />" onclick="return confirm('정말 삭제하시겠습니까?');">글 삭제</a>
         </div>
     </section>
 
-    <c:if test="${items != null && !items.isEmpty()}">
-        <section class="layout-width">
-            <jsp:include page="_list.jsp" />
-        </section>
-    </c:if>
+<%--    <c:if test="${items != null && !items.isEmpty()}">--%>
+<%--        <section class="layout-width">--%>
+<%--            <jsp:include page="_list.jsp" />--%>
+<%--        </section>--%>
+<%--    </c:if>--%>
 </layout:main>

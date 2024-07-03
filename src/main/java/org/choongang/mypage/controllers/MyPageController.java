@@ -8,7 +8,7 @@ import org.choongang.global.config.annotations.GetMapping;
 import org.choongang.global.config.annotations.PostMapping;
 import org.choongang.global.config.annotations.RequestMapping;
 import org.choongang.mypage.services.ProfileService;
-import org.choongang.pokemon.PokemonDetail;
+import org.choongang.pokemon.PokemonDetail2;
 import org.choongang.pokemon.services.MyPokemonService;
 
 import java.util.List;
@@ -31,7 +31,6 @@ public class MyPageController {
     @GetMapping
     public String index() {
 
-
         return "redirect:/mypage/info";
     }
 
@@ -42,7 +41,9 @@ public class MyPageController {
      */
     @GetMapping("/info")
     public String info() {
-        List<PokemonDetail> items = pokemonService.getList();
+        commonProcess();
+
+        List<PokemonDetail2> items = pokemonService.getList();
 
         request.setAttribute("addScript", List.of("mypage/profile", "mypage/info"));
         request.setAttribute("items", items);
@@ -65,6 +66,9 @@ public class MyPageController {
         request.setAttribute("script", script);
 
         return "commons/execute_script";
+    }
+    private void commonProcess() {
+        request.setAttribute("addCss", List.of("mypage/style"));
     }
 }
 

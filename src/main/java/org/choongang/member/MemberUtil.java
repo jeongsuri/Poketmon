@@ -6,7 +6,7 @@ import org.choongang.global.config.annotations.Component;
 import org.choongang.global.config.containers.BeanContainer;
 import org.choongang.member.constants.UserType;
 import org.choongang.member.entities.Member;
-import org.choongang.pokemon.PokemonDetail;
+import org.choongang.pokemon.PokemonDetail2;
 import org.choongang.pokemon.services.PokemonInfoService;
 
 @Component
@@ -38,15 +38,15 @@ public class MemberUtil {
      */
     public Member getMember() {
         HttpSession session = BeanContainer.getInstance().getBean(HttpSession.class);
-        if(session == null) {
+        if (session == null) {
             return null;
         }
-        Member member = (Member)session.getAttribute("member");
+        Member member = (Member) session.getAttribute("member");
 
         return member;
     }
 
-    public PokemonDetail getMyProfile() {
+    public PokemonDetail2 getMyProfile() {
         if (isLogin()) {
             Member member = getMember();
             long seq = member.getMyPokemonSeq();
@@ -56,5 +56,7 @@ public class MemberUtil {
         }
 
         return null;
+
+
     }
 }

@@ -1,0 +1,137 @@
+/* _my_pokemon.jsp S */
+.pokemon-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
+}
+
+.pokemon-items .item {
+    width: calc(100% / 4);
+    padding: 15px;
+}
+
+.pokemon-items input[type='radio'] {
+    display: none;
+}
+
+.pokemon-items label {
+    padding: 15px;
+    box-shadow: 2px 2px 5px #333;
+    border-radius: 10px;
+    cursor: pointer;
+    display: block;
+}
+
+.pokemon-name {
+    font-family: "Jua", sans-serif;
+    font-size: 1.2rem;
+    background-color: #AAD1E7;
+    border-radius: 5px;
+}
+
+.pokemon-items input[type='radio']:checked + label {
+    background: #333;
+    color: #fff;
+}
+
+.pokemon-items input[type='radio']:checked + label * {
+    color: #fff;
+}
+
+.pokemon-items label img {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+.button-action {
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    border: none;
+    background-color: #000;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-family: "Jua", sans-serif;
+    font-size: 1rem;
+}
+.button-action:hover {
+    background-color: #000;
+}
+/* _my_pokemon.jsp E */
+
+/* info.jsp S */
+.layout-width {
+    font-family: "Jua", sans-serif;
+    font-size: 1.1rem;
+}
+
+.form-row {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.form-row label {
+    width: 120px; /* 라벨 너비 설정 */
+    text-align: right; /* 라벨을 오른쪽으로 정렬 */
+    margin-right: 10px; /* 라벨과 입력창 사이 간격 설정 */
+}
+
+.form-row input[type="text"], .form-row input[type="password"] {
+    font-family: "Jua", sans-serif;
+    width: 80%; /* 입력창 너비 100%로 설정 */
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.profile {
+    position: relative; /* 부모 요소로 설정하여 자식 요소를 상대 위치로 정렬할 수 있게 함 */
+    width: fit-content; /* 내용에 맞게 너비 설정 */
+    margin: 0 auto; /* 가로 중앙 정렬 */
+}
+
+.profile img {
+    display: block;
+    margin: 0 auto;
+}
+
+.profile-name {
+    margin-top: 5px;
+    text-align: center;
+}
+
+.profile-button {
+    margin-top: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    background-color: #000;
+    color: white;
+    font-family: "Jua", sans-serif;
+    font-size: 1rem;
+}
+
+.button-group {
+    text-align: center; /* 내부 버튼을 가로 중앙 정렬 */
+    margin-top: 20px; /* 버튼 그룹 위 여백 설정 */
+}
+.button-group button {
+    margin: 10px 10px; /* 버튼 사이의 간격 설정 */
+    border-radius: 5px;
+    background-color: #000;
+    color: white;
+    font-family: "Jua", sans-serif;
+    font-size: 1rem;
+}
+/* info.jsp E */
