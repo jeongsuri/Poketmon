@@ -3,7 +3,7 @@
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layouts" %>
 <c:url var="searchUrl" value='/board/list/${board.BId}' />
 <layout:main title="${board.BName}">
-    <section class="layout-width">
+    <section class="layout-width list-page">
         <jsp:include page="_header.jsp"/>
         <div class="btns">
             <a href="<c:url value="/board/write/${board.BId}"/>"/>글쓰기</a>
