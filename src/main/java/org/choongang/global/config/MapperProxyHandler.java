@@ -22,9 +22,7 @@ public class MapperProxyHandler implements InvocationHandler {
         if (obj == null) {
             obj = session.getMapper(clz);
         }
-
         Object result = null;
-
         try {
             result = method.invoke(obj, args);
         } catch (Exception e) {
@@ -32,7 +30,6 @@ public class MapperProxyHandler implements InvocationHandler {
             obj = session.getMapper(clz);
             result = method.invoke(obj, args);
         }
-
         return result;
     }
 }

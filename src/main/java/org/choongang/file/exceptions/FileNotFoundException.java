@@ -5,6 +5,6 @@ import org.choongang.global.exceptions.AlertBackException;
 
 public class FileNotFoundException extends AlertBackException {
     public FileNotFoundException() {
-        super("파일을 찾을 수 업습니다.", HttpServletResponse.SC_NOT_FOUND);
+        super("파일을 찾을수 없습니다.", HttpServletResponse.SC_NOT_FOUND);
     }
 }

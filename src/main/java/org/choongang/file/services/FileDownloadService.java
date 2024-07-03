@@ -22,33 +22,30 @@ public class FileDownloadService {
      * 4. 응답 바디 : 파일 데이터 출력
      * @param seq
      */
-    public void download(long seq){
+    public void download(long seq) {
         FileInfo data = infoService.get(seq).orElseThrow(FileNotFoundException::new);
         String filePath = data.getFilePath();
         File file = new File(filePath);
 
-        if(!file.exists()){
+        if (!file.exists()) { // 파일을 찾을 수 없다면
             throw new FileNotFoundException();
         }
 
         HttpServletResponse response = BeanContainer.getInstance().getBean(HttpServletResponse.class);
 
-        try(BufferedInputStream bis = new BufferedInputStream(new FileInputStream(file)))
-        {
-            String fileName = new String(data.getFileName().getBytes(), "ISO8859-1");
+        try (BufferedInputStream bis = new BufferedInputStream(new FileInputStream(file))) {
+            String fileName = new String(data.getFileName().getBytes(), "ISO8859_1"); // 윈도우즈 한글 파일명 깨짐 방지
             response.setHeader("Content-Disposition", "attachment; filename=" + fileName);
-            response.setIntHeader("Expires", 0); //세션 만료시간 제거
-            response.setHeader("Cache-Control", "no-cache");
+            response.setContentType(data.getContentType());
+            response.setIntHeader("Expires", 0);
+            response.setHeader("Cache-Control", "must-revalidate");
             response.setContentLengthLong(file.length());
 
             OutputStream out = response.getOutputStream();
             out.write(bis.readAllBytes());
 
-
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
 }
