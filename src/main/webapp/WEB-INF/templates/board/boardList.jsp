@@ -20,7 +20,7 @@
                     <c:if test="${items != null && !items.isEmpty()}">
                         <c:forEach var="item" items="${items}">
                             <div class="boardList">
-                                <a href="<c:url value='/board/list/${item.BId}'/>" target="_blank">
+                                <a href="<c:url value='/board/list/${item.BId}'/>">
                                         ${item.BName}
                                 </a>
                             </div>
