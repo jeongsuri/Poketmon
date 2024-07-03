@@ -9,6 +9,9 @@ import org.choongang.member.entities.Member;
 import org.choongang.pokemon.PokemonDetail;
 import org.choongang.pokemon.services.PokemonInfoService;
 
+import java.util.Collections;
+import java.util.List;
+
 @Component
 @RequiredArgsConstructor
 public class MemberUtil {
@@ -38,10 +41,10 @@ public class MemberUtil {
      */
     public Member getMember() {
         HttpSession session = BeanContainer.getInstance().getBean(HttpSession.class);
-        if(session == null) {
+        if (session == null) {
             return null;
         }
-        Member member = (Member)session.getAttribute("member");
+        Member member = (Member) session.getAttribute("member");
 
         return member;
     }
@@ -56,5 +59,7 @@ public class MemberUtil {
         }
 
         return null;
+
+
     }
 }
