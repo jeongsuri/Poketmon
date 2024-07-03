@@ -21,6 +21,8 @@ public interface PokemonMapper {
     int registerMyPokemon(@Param("userNo") long userNo, @Param("seq") long seq, @Param("nickName") String nickName);
     int deleteMyPokemon(@Param("userNo") long userNo, @Param("seq") long seq);
     int deleteAllMyPokemon(long userNo);
+
+
 }
 
 
