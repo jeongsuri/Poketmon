@@ -2,11 +2,13 @@ package org.choongang.board.controllers;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.choongang.board.entities.Board;
 import org.choongang.board.entities.BoardData;
 import org.choongang.board.exceptions.BoardConfigNotFoundException;
 import org.choongang.board.exceptions.BoardNotFoundException;
+import org.choongang.board.exceptions.GuestPasswordCheckException;
 import org.choongang.board.services.BoardAuthService;
 import org.choongang.board.services.BoardDeleteService;
 import org.choongang.board.services.BoardInfoService;
@@ -15,6 +17,7 @@ import org.choongang.board.services.config.BoardConfigInfoService;
 import org.choongang.global.ListData;
 import org.choongang.global.config.annotations.*;
 import org.choongang.global.exceptions.AlertException;
+import org.choongang.global.exceptions.ExceptionHandler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -122,6 +125,26 @@ public class BoardController {
         return "redirect:/board/list/" + board.getBId();
     }
 
+    @PostMapping("/password")
+    public String password(@RequestParam("seq") long seq, @RequestParam("password") String password, HttpSession session) {
+
+        if (password == null || password.isBlank()) {
+            throw new AlertException("비밀번호를 입력하세요.", HttpServletResponse.SC_BAD_REQUEST);
+        }
+
+        if (!authService.passwordCheck(seq, password)) { // 비회원 비밀번호가 일치하지 않는 경우
+            throw new AlertException("비밀번호가 일치하지 않습니다.", HttpServletResponse.SC_BAD_REQUEST);
+        }
+
+        // 비밀번호가 일치한다면 인증 처리
+        String authKey = "board_" + seq;
+        session.setAttribute(authKey, true);
+
+        String script = "parent.location.reload();";
+        request.setAttribute("script", script);
+        return "commons/execute_script";
+    }
+
     /**
      * 모든 요청 처리 메서드에 공통 처리 부분
      *
@@ -134,7 +157,7 @@ public class BoardController {
 
         //권한 체크
         long seq = boardData == null?0:boardData.getSeq();
-        authService.check(bId, mode); // list, write
+        authService.check(bId, seq, mode); // list, write, view, delete
 
         // mode가 null이면 write로 기본값 설정
         mode = Objects.requireNonNullElse(mode, "write");
@@ -175,6 +198,10 @@ public class BoardController {
         commonProcess(bId, mode);
 
         request.setAttribute("data", boardData);
+    }
 
+    @ExceptionHandler(GuestPasswordCheckException.class)
+    public String guestPassword(){
+        return "board/password";
     }
 }

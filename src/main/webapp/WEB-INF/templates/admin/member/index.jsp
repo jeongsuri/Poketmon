@@ -35,13 +35,11 @@
                         <a href="<c:url value="/admin/member/update/${item.userId}"/>">
                             정보수정
                         </a>
-                        <a href="<c:url value="/admin/member/delete/${item.userId}"/>">
-                            회원탈퇴
-                        </a>
+                        <a href="<c:url value='/admin/member/delete/${item.userId}' />" onclick="return confirm('정말 탈퇴하시겠습니까?');">회원탈퇴</a>
                     </td>
                 </tr>
             </c:forEach>
         </c:if>
         </tbody>
     </table>
-</layout:admin>
+</layout:admin> ㅊ
