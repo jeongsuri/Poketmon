@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+
+.list-page {
+
+    /*태그 기본 스타일 초기화 S */
+    * {
+        box-sizing: border-box;
+        font-family: "Nanum Gothic", sans-serif;     /*폰트글씨체*/
+        color: #000;     /*폰트색상*/
+        font-size: large;
+    }
+
+    html {
+        font-size: 23px; /*1rem - 13px*/
+        margin: 4px 0 19px;
+    }
+
+    body {
+        margin: 0;
+    }
+
+    a {
+        /*스타일 제거*/
+        test-decoration: none;
+    }
+
+    ul, ol {
+        /*스타일제거*/
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    dl, dt, dd {
+        /*스타일제거*/ /*들여쓰기 제거*/
+        margin: 0;
+        padding: 0;
+    }
+
+    img {
+        /*스타일제거*/
+        border: 0;
+    }
+    /*태그 기본 스타일 초기화 E */
+
+
+}
+
+/* 기본 링크 스타일 */
+.subject {
+    color: #007bff; /* 링크 색상 */
+    text-decoration: none; /* 밑줄 제거 */
+    font-weight: bold; /* 글씨 굵게 */
+    transition: color 0.2s ease-in-out; /* 색상 전환 효과 */
+}
+
+/* 링크에 마우스를 올렸을 때의 스타일 */
+.subject:hover {
+    color: #0056b3; /* 호버 시 색상 변경 */
+    text-decoration: underline; /* 호버 시 밑줄 추가 */
+}
+
+/* .list-items 클래스와 함께 사용하여 스타일의 특정성을 높임 */
+.list-items .subject {
+    padding: 5px; /* 패딩 추가 */
+    display: block; /* 블록 디스플레이 */
+}
+
+/* .list-items 내의 링크 스타일 */
+.list-items .subject:hover {
+    background-color: #f0f0f0; /* 호버 시 배경색 변경 */
+}
+
+.post-info{
+
+}
+
+.list-items

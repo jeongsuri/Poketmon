@@ -24,6 +24,8 @@ public class LoginService {
 
         // 세션에 회원 정보 유지
         HttpSession session = BeanContainer.getInstance().getBean(HttpSession.class);
-        session.setAttribute("member", member);
+        if (session != null) {
+            session.setAttribute("member", member);
+        }
     }
 }
