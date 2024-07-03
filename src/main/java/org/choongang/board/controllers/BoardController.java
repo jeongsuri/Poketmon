@@ -39,7 +39,6 @@ public class BoardController {
     private BoardData boardData;
     private Board board;
 
-
     //게시판 리스트보기
     @GetMapping
     public String boardList() {
@@ -49,7 +48,6 @@ public class BoardController {
         return "board/boardList";
     }
 
-    //게시글 리스트보기
     @GetMapping("/list/{bId}")
     public String list(@PathVariable("bId") String bId, BoardSearch search) {
         commonProcess(bId, "list");
@@ -61,7 +59,6 @@ public class BoardController {
         return "board/list";
     }
 
-    //게시글보기
     @GetMapping("/view/{seq}")
     public String view(@PathVariable("seq") long seq) {
         commonProcess(seq, "view");
@@ -74,7 +71,6 @@ public class BoardController {
         return "board/view";
     }
 
-    //게시글 작성
     @GetMapping("/write/{bId}")
     public String write(@PathVariable("bId") String bId) {
         commonProcess(bId, "write");
@@ -87,7 +83,6 @@ public class BoardController {
         return "board/write";
     }
 
-    //게시글 수정
     @GetMapping("/update/{seq}")
     public String update(@PathVariable("seq") long seq) {
         commonProcess(seq, "update");
@@ -98,7 +93,6 @@ public class BoardController {
         return "board/update";
     }
 
-    //저장
     @PostMapping("/save")
     public String save(RequestBoardData form) {
         String mode = form.getMode();
@@ -115,7 +109,6 @@ public class BoardController {
         return "commons/execute_script";
     }
 
-    //삭제
     @GetMapping("/delete/{seq}")
     public String delete(@PathVariable("seq") long seq) {
         commonProcess(seq, "delete");
@@ -155,9 +148,9 @@ public class BoardController {
         board = configInfoService.get(bId).orElseThrow(BoardConfigNotFoundException::new);
         infoService.setBoard(board);
 
-        //권한 체크
-        long seq = boardData == null?0:boardData.getSeq();
-        authService.check(bId, seq, mode); // list, write, view, delete
+        // 권한 체크
+        long seq = boardData == null ? 0L : boardData.getSeq();
+        authService.check(bId, seq, mode);
 
         // mode가 null이면 write로 기본값 설정
         mode = Objects.requireNonNullElse(mode, "write");
@@ -170,6 +163,7 @@ public class BoardController {
         if (mode.equals("write") || mode.equals("update")) { // 쓰기, 수정
             addCss.add("board/form");
             addScript.add("ckeditor5/ckeditor");
+            addScript.add("fileManager");
             addScript.add("board/form");
 
         } else if (mode.equals("list")) { // 목록
@@ -187,7 +181,8 @@ public class BoardController {
 
     /**
      * 게시글 번호가 있는 페이지 URL
-     * 게시글 보기. 게시글 수정
+     *  - 게시글 보기, 게시글 수정
+     *
      * @param seq
      * @param mode
      */
@@ -198,10 +193,12 @@ public class BoardController {
         commonProcess(bId, mode);
 
         request.setAttribute("data", boardData);
+
     }
 
     @ExceptionHandler(GuestPasswordCheckException.class)
-    public String guestPassword(){
+    public String guestPassword() {
+
         return "board/password";
     }
 }

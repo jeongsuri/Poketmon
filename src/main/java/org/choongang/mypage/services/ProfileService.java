@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.choongang.global.config.annotations.Service;
 import org.choongang.global.config.containers.BeanContainer;
 import org.choongang.member.MemberUtil;
+import org.choongang.member.constants.UserType;
 import org.choongang.member.entities.Member;
 import org.choongang.member.mapper.MemberMapper;
 import org.choongang.mypage.controllers.RequestProfile;
@@ -42,5 +43,33 @@ public class ProfileService {
         HttpSession session = BeanContainer.getInstance().getBean(HttpSession.class);
         Member _member = mapper.get(member.getUserId());
         session.setAttribute("member", _member);
+    }
+
+    //관리자 페이지 회원정보수정
+    public void update(RequestProfile form, boolean isAdmin){
+        validator.check(form, isAdmin);
+
+        String userId = form.getUserId();
+        String nickname = form.getNickName();
+        String password = form.getPassword();
+        String userType = form.getUserType();
+
+        if (password != null && !password.isBlank()) {
+            String hash = BCrypt.hashpw(password, BCrypt.gensalt(12));
+            password = hash;
+        }
+
+        Member member = Member.builder()
+                .userId(userId)
+                .nickName(nickname)
+                .password(password)
+                .build();
+        if(userType.equals("admin")){
+            member.setUserType(UserType.ADMIN);
+        }else {
+            member.setUserType(UserType.USER);
+        }
+
+        mapper.adminModify(member);
     }
 }

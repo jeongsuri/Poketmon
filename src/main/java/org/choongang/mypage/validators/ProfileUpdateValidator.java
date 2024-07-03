@@ -39,4 +39,26 @@ public class ProfileUpdateValidator implements Validator<RequestProfile>, Requir
             checkTrue(password.equals(confirmPassword), new AlertException("비밀번호가 일치하지 않습니다.", status));
         }
     }
+
+    public void check(RequestProfile form, boolean isAdmin){
+        checkTrue(memberUtil.isLogin(), new UnAuthorizedException());
+        checkTrue(memberUtil.isAdmin(), new UnAuthorizedException());
+
+        String nickname = form.getNickName();
+        String password = form.getPassword();
+        String confirmPassword = form.getConfirmPassword();
+        int status = HttpServletResponse.SC_BAD_REQUEST;
+
+        checkRequired(nickname, new AlertException("닉네임을 입력하세요.", status));
+
+        if (password != null && !password.isBlank()) {
+            checkRequired(confirmPassword, new AlertException("비밀번호를 확인하세요.", status));
+
+            /* 비밀번호 자리수 체크 */
+            checkTrue(password.length() >= 8, new AlertException("비밀번호는 8자리 이상 입력하세요.", status));
+
+            /* 비밀번호 및 비밀번호 확인 일치 여부 */
+            checkTrue(password.equals(confirmPassword), new AlertException("비밀번호가 일치하지 않습니다.", status));
+        }
+    }
 }
