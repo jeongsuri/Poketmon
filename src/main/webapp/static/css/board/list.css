@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+/*글쓰기 부분*/
+.btns {
+    display: flex;
+    justify-content: flex-end; /* 오른쪽 정렬 */
+    gap: 10px; /* 버튼 사이 간격 설정 */
+    padding-top: 20px;
+}
+
+.btns a {
+    font-family: 'Noto Sans', sans-serif; /* 원하는 글씨체로 변경 */
+    font-size: 16px; /* 글씨 크기 설정 */
+    color: #333; /* 글씨 색상 설정 */
+    text-decoration: none; /* 링크의 밑줄 제거 */
+    padding: 10px 20px; /* 내부 여백 설정 */
+    border: 1px solid wheat; /* 테두리 설정 */
+    border-radius: 5px; /* 테두리 모서리 둥글게 설정 */
+    background-color: #f9f9f9; /* 배경 색상 설정 */
+}
+
+
+/*.board-top .location a {*/
+/*    color: white;*/
+/*    text-decoration: none;*/
+/*    margin: 0 5px;*/
+/*}*/
+
+.tab-category {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+/*전체, asdasd 부분*/
+.tab-category .tab {
+    padding: 10px 20px;
+    margin: 0 5px;
+    text-decoration: none;
+    color: black;
+    border: 1px solid wheat;
+    border-radius: 5px;
+}
+
+.tab-category .tab.on {
+    background-color: #FFDE00;
+    color: black;
+}
+
+.list-items {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.list-items li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.list-items li .subject {
+    flex-grow: 1;
+    color: #333;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.list-items li .post-info {
+    flex-shrink: 0;
+    margin-left: 20px;
+    font-size: 14px;
+    color: #666;
+    white-space: nowrap;
+}
+
+.no-data {
+    text-align: center;
+    padding: 20px;
+    color: #999;
+}
+
+@media (max-width: 600px) {
+    .board-top {
+        padding: 15px;
+    }
+
+    .board-top h1 {
+        font-size: 20px;
+    }
+
+    .board-top .location {
+        font-size: 12px;
+    }
+
+    .tab-category .tab {
+        padding: 8px 15px;
+        margin: 0 3px;
+    }
+
+    .list-items li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .list-items li .post-info {
+        margin-left: 0;
+        margin-top: 5px;
+    }
+
+    .search-box select {
+        font-family: 'Noto Sans', sans-serif;
+        font-size: 14px;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        background-color: #fff;
+    }
+
+    .search-box select option:checked {
+        background-color: #f0f0f0; /* 선택된 옵션의 배경색 변경 */
+    }
+
+
+    .search-box select {
+        font-family: 'Noto Sans', sans-serif;
+        font-size: 14px;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        background-color: #fff;
+    }
+
+}
