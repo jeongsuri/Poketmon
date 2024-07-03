@@ -72,7 +72,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #a0a0a0	;
 }
 
 .list-items li .subject {
@@ -104,7 +104,7 @@ body {
     margin: 0 auto;
     width: 550px;
     height: 45px;
-    border: 3px solid #000;
+    border: 2px solid #000;
     border-radius: 3px;
 }
 
@@ -112,19 +112,23 @@ body {
 .search-box form select {
     width: 120px;
     border: 0;
-    border-right: 3px solid #000;
+    border-right: 2px solid #000;
+    font-size: 14px;
+    padding-left: 5px;
 }
 .search-box form button {
     width: 100px;
     border: 0;
     background: #000;
     color: #fff;
+    font-size: 16px;
 }
 
 .search-box form input[type='text'] {
     flex-grow: 1;
     border: 0;
     padding: 0 15px;
+    font-size: 14px;
 }
 
 @media (max-width: 600px) {
