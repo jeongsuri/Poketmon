@@ -106,6 +106,7 @@ body {
     height: 45px;
     border: 2px solid #000;
     border-radius: 3px;
+    cursor: pointer;
 }
 
 
@@ -115,6 +116,7 @@ body {
     border-right: 2px solid #000;
     font-size: 14px;
     padding-left: 5px;
+    cursor: pointer;
 }
 .search-box form button {
     width: 100px;
@@ -122,6 +124,7 @@ body {
     background: #000;
     color: #fff;
     font-size: 16px;
+    cursor: pointer;
 }
 
 .search-box form input[type='text'] {
