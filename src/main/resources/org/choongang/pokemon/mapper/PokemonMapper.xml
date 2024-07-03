@@ -70,6 +70,8 @@
         DELETE FROM MYPOKEMON WHERE USER_NO=#{userNo}
     </delete>
 
+
+
     <select id="getTotal" resultType="int">
         SELECT COUNT(*) FROM POKEMON
         <where>
@@ -79,4 +81,5 @@
             </if>
         </where>
     </select>
+
 </mapper>
