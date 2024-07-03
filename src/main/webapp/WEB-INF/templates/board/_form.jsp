@@ -1,6 +1,10 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ taglib prefix="util" tagdir="/WEB-INF/tags/utils" %>
+<%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
+<fmt:setBundle basename="messages.commons" />
+<fmt:message var="pageTitle" key='게시글_작성' />
+<c:url var="actionUrl" value="/board" />
 
 <input type="hidden" name="bId" value="${data.BId}">
 <input type="hidden" name="gId" value="${data.GId}">
