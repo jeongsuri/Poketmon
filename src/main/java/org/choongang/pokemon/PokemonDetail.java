@@ -1,12 +1,14 @@
 package org.choongang.pokemon;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.choongang.pokemon.entities.AbstractPokemonDetail;
-import org.choongang.pokemon.entities.Pokemon;
 
 @Data
 @Builder
+@NoArgsConstructor @AllArgsConstructor
 public class PokemonDetail extends AbstractPokemonDetail {
     private long seq;
     private long rowNum;
