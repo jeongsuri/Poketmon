@@ -17,6 +17,7 @@ import org.choongang.pokemon.services.MyPokemonService;
 import org.choongang.pokemon.services.PokemonInfoService;
 
 import java.util.List;
+import java.util.Objects;
 
 @Controller
 @RequiredArgsConstructor
@@ -64,16 +65,23 @@ public class PokemonController {
     }
 
     @PostMapping("/pokemon/popup")
-    public String popupPs(@RequestParam("seq") long seq) {
+    public String popupPs(@RequestParam("mode") String mode, @RequestParam("seq") long seq) {
         if (!memberUtil.isLogin()) {
             throw new UnAuthorizedException();
         }
 
-        Member member = memberUtil.getMember();
-        RequestProfile form = new RequestProfile();
-        form.setMyPokemonSeq(seq);
-        form.setNickName(member.getNickName());
-        profileService.update(form);
+        mode = Objects.requireNonNullElse(mode,"update");
+        if (mode.equals("delete")){
+            pokemonService.delete(seq);
+        }else if (mode.equals("delete-all")){
+            pokemonService.deleteAll();
+        }else {
+            Member member = memberUtil.getMember();
+            RequestProfile form = new RequestProfile();
+            form.setMyPokemonSeq(seq);
+            form.setNickName(member.getNickName());
+            profileService.update(form);
+        }
 
         String script = "parent.parent.location.reload();";
         request.setAttribute("script", script);
