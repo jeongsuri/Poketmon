@@ -9,7 +9,6 @@
             <a href="<c:url value="/board/write/${board.BId}"/>"/>글쓰기</a>
         </div>
         <jsp:include page="_list.jsp"/>
-
         <div class="search-box">
             <form name="frmSearch" method="get" autocomplete="off">
                 <c:if test="${! empty param.category}">
