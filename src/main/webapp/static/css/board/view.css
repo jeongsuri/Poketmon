@@ -52,8 +52,9 @@
     color: #fff; /* 글자 색상 설정 */
     background-color: black; /* 배경색 설정 */
     border-radius: 5px; /* 모서리 둥글게 설정 */
+    font-weight: bolder;
 }
 
 .links a:hover {
-    background-color: #da343c ; /* 호버 시 배경색 변경 */
+    background-color: #6e6e6e ; /* 호버 시 배경색 변경 */
 }
