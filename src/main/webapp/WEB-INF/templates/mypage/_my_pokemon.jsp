@@ -7,14 +7,14 @@
         <c:forEach var="item" items="${items}">
             <li class="item">
 
-                <input type="radio" name="seq" value="${item.seq}" id="seq_${item.seq}">
-                <label for="seq_${item.seq}">
-                    <img src="${item.frontDefault}" alt="${item.name}">
-                    <div class="pokemon-name">${item.name}</div>
-                </label>
-            </li>
-        </c:forEach>
-    </ul>
+        <input type="radio" name="seq" value="${item.seq}" id="seq_${item.seq}">
+        <label for="seq_${item.seq}">
+            <img src="${item.frontDefault}" alt="${item.nickname}">
+            <div>${item.nickname}</div>
+        </label>
+    </li>
+</c:forEach>
+</ul>
 
     <div class="button-container">
         <button type="button" class="button-action" data-mode='update'>프로필 이미지 변경</button>
@@ -22,4 +22,4 @@
         <button type="button" class="button-action" data-mode="delete-all">전체 비우기</button>
     </div>
 </form>
-</c:if>
+</c:if> 

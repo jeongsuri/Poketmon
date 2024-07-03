@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.choongang.global.config.annotations.Service;
 import org.choongang.member.MemberUtil;
 import org.choongang.member.entities.Member;
-import org.choongang.pokemon.PokemonDetail;
+import org.choongang.pokemon.PokemonDetail2;
 import org.choongang.pokemon.mapper.PokemonMapper;
 
 import java.util.Collections;
@@ -48,9 +48,9 @@ public class MyPokemonService {
         mapper.deleteAllMyPokemon(member.getUserNo());
     }
 
-    public List<PokemonDetail> getList() {
+    public List<PokemonDetail2> getList() {
         if (memberUtil.isLogin()) {
-            List<PokemonDetail> items = mapper.getMyPokemons(memberUtil.getMember().getUserNo());
+            List<PokemonDetail2> items = mapper.getMyPokemons(memberUtil.getMember().getUserNo());
 
             return items;
         }

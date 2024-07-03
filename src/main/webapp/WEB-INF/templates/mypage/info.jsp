@@ -28,7 +28,7 @@
                     <c:if test="${myProfile != null}">
                         <div class='profile' style="cursor: pointer;">
                             <img src="${myProfile.frontDefault}" alt="${myProfile.name}">
-                            <div class="profile-name">${myProfile.name}</div>
+                            <div>${empty myProfile.nickname ? myProfile.name : myProfile.nickname}</div>
                         </div>
                     </c:if>
                     <button class="profile-button" type='button' id="generate-profile-image" style="cursor: pointer;">
