@@ -11,7 +11,8 @@ import java.util.Arrays;
         "org.choongang.pokemon.mapper",
         "org.choongang.game.mapper",
         "org.choongang.board.mapper",
-        "org.choongang.rank.mapper"
+        "org.choongang.rank.mapper",
+        "org.choongang.file.mapper"
 
 })
 public class MapperProvider {
