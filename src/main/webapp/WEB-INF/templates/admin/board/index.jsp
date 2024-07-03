@@ -29,7 +29,7 @@
                             <a href="<c:url value="/admin/board/update/${item.BId}"/>">
                             수정하기
                             </a>
-                            <a href="<c:url value="/board/list/${item.BId}"/>"target="_blacnk">
+                            <a href="<c:url value="/board/list/${item.BId}"/>"target="_blank">
                                 게시글 목록
                             </a>
                         </td>

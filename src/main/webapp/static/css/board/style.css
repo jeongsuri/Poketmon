@@ -1,17 +1,212 @@
 /* 게시판 공통 */
 
 /* 게시판 상단 S */
+.body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+.board-top {
+    background-color: #FFDE00;
+    color: black;
+    padding: 10px;
+    text-align: center;
+    //border-bottom: 2px solid #3e8e41;
+}
+
 .board-top .location {
-    border-bottom: 1px solid #000; /* 하단에 검은색 실선 추가 */
-    padding-bottom: 10px; /* 하단에 패딩 추가 */
-    margin-bottom: 20px; /* 다른 요소들과의 간격 추가 */
+    font-size: 14px;
+    margin-bottom: 10px;
 }
 
 .board-top .location a {
-        color: blue;
-    background: #da343c;
+    color: black;
+    text-decoration: none;
+    margin: 0 5px;
+    font-weight: bolder;
+}
 
+.board-top .location a:hover {
+    text-decoration: underline;
+}
+
+.board-top h1 {
+    font-size: 24px;
+    margin: 0;
+}
+
+@media (max-width: 600px) {
+    .board-top {
+        padding: 15px;
     }
+
+    .board-top h1 {
+        font-size: 20px;
+    }
+
+    .board-top .location {
+        font-size: 12px;
+    }
+}
 
 /* 게시판 상단 E */
 
+/* 게시글 /board/write 부분 */
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+/* 분류 선택 */
+.category-container {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.category-title {
+    font-weight: bold;
+    margin-right: 10px;
+    white-space: nowrap;
+    font-family: "Jua", sans-serif;
+}
+
+.category-options {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.category-options input[type="radio"] {
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.category-options label {
+    margin-right: 15px;
+    font-family: "Jua", sans-serif;
+}
+/* 작성자 */
+.form-group {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.form-label {
+    font-weight: bold;
+    margin-right: 10px;
+    white-space: nowrap;
+    font-family: "Jua", sans-serif;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.input-container input[type="text"] {
+    margin-right: 10px;
+    flex-grow: 1;
+    font-family: "Jua", sans-serif;
+}
+
+.input-container input[type="checkbox"] {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.input-container label {
+    margin-left: 5px;
+    font-family: "Jua", sans-serif;
+}
+/* 제목 */
+.form-group-title {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.form-label-title {
+    font-weight: bold;
+    margin-right: 10px;
+    white-space: nowrap;
+    font-family: "Jua", sans-serif;
+}
+
+.input-container-title {
+    flex-grow: 1;
+}
+
+.input-container-title input[type="text"] {
+    width: 100%;
+    box-sizing: border-box; /* padding, border 포함 전체 너비 */
+}
+/* 내용 */
+.form-group-content {
+    display: flex;
+    align-items: flex-start;
+    margin: 10px 0;
+}
+
+.form-label-content {
+    font-weight: bold;
+    margin-right: 10px;
+    white-space: nowrap;
+    font-family: "Jua", sans-serif;
+}
+
+.input-container-content {
+    flex-grow: 1;
+}
+
+.input-container-content textarea {
+    width: 100%;
+    height: 200px;
+    box-sizing: border-box; /* padding, border 포함한 전체 너비 */
+    resize: vertical;
+}
+/* 이미지 */
+.form-group-image {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.form-label-image {
+    font-weight: bold;
+    margin-right: 10px;
+    white-space: nowrap;
+    font-family: "Jua", sans-serif;
+}
+
+.input-container-image button {
+    width: auto;
+    font-size: 1rem;
+    font-family: "Jua", sans-serif;
+}
+
+/* 파일 */
+.form-group-file {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.form-label-file {
+    font-weight: bold;
+    margin-right: 10px;
+    white-space: nowrap;
+    font-family: "Jua", sans-serif;
+}
+
+.input-container-file button {
+    width: auto;
+    font-size: 1rem;
+    font-family: "Jua", sans-serif;
+}
+
+/* 하단 버튼 */
+.button-group button {
+    font-family: "Jua", sans-serif;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
