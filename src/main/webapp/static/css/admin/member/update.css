@@ -38,7 +38,7 @@ dt {
 }
 
 
-label, input[type="text"] {
+label, input[type="text"],input[type="password"] {
     display: block;
     width: 100%;
     padding: 10px;
@@ -47,7 +47,7 @@ label, input[type="text"] {
     border-radius: 4px;
 }
 
-dd label{
+.readOnly input{
     background-color: #e0e0e0;
 }
 
