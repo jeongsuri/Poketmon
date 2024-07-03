@@ -10,23 +10,21 @@ footer {
 /* 게시판 상단 S */
 .body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
     background-color: #f9f9f9;
 }
 
 .board-top {
     margin-top: 50px;
     color: black;
-    padding: 15px;
     text-align: center;
-    border: 3px solid black;
-    border-radius: 10px; /* 원하는 둥근 정도 설정 */
+    border-bottom: 3px solid #393939;
+    //border-radius: 10px; /* 원하는 둥근 정도 설정 */
 }
 
 .board-top .location {
     font-size: 14px;
     margin-bottom: 10px;
+    text-align: left; /* 왼쪽 정렬 설정 */
 }
 
 .board-top .location a {
@@ -37,21 +35,13 @@ footer {
 }
 
 .board-top .location a:hover {
-    text-decoration: underline;
+    text-decoration: none; /* HOME 링크의 밑줄 제거 */
 }
 
 .board-top h1 {
-    font-size: 24px;
+    font-size: 30px;
+    text-align: left; /* 왼쪽 정렬 설정 */
+    padding: 13px;
     margin: 0;
-}
-
-@media (max-width: 600px) {
-    .board-top {
-        padding: 15px;
-    }
-
-    .board-top h1 {
-        font-size: 20px;
-    }
 }
 /* 게시판 상단 E */
