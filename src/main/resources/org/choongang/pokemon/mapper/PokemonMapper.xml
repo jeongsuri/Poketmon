@@ -70,10 +70,9 @@
         DELETE FROM MYPOKEMON WHERE USER_NO=#{userNo}
     </delete>
 
-<<<<<<< HEAD
 
-=======
-    <select id="getTotal" resultType="int">
+
+    <!--<select id="getTotal" resultType="int">
         SELECT COUNT(*) FROM POKEMON
         <where>
             <if test="skey != null and !skey.equals('')">
@@ -81,6 +80,6 @@
                 AND NAME || NAME_KR || DESCRIPTION LIKE #{keyword}
             </if>
         </where>
-    </select>
->>>>>>> master
+    </select>   -->
+
 </mapper>
