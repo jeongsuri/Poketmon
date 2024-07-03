@@ -43,6 +43,7 @@ public class AdminMemberController {
     public String updateMember(@PathVariable("userId") String userId, HttpServletRequest request){
         Member data = infoService.getMember(userId);
         request.setAttribute("data", data);
+        request.setAttribute("addCss", List.of("admin/member/update"));
         return "admin/member/update";
     }
 }
