@@ -44,7 +44,7 @@
                 <label><input type="radio" name="role" value="user" <c:if test="${data.userType == 'USER'}">checked</c:if>> 회원</label>
             </dl>
             <div class="button-group">
-                <button type="reset">뒤로가기</button>
+                <a href="<c:url value="/admin/member"/>">뒤로가기</a>
                 <button type="submit">수정</button>
             </div>
         </form>
