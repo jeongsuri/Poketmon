@@ -59,12 +59,12 @@
 <div class="form-group-image">
     <span class="form-label-image">이미지 첨부</span>
     <span class="input-container-image">
-        <button type="button">이미지 선택</button>
+        <button type="button" class="file-upload editor">이미지 선택</button>
     </span>
 </div>
 <div class="form-group-file">
     <span class="form-label-file">파일 첨부</span>
     <span class="input-container-file">
-        <button type="button">파일 선택</button>
+        <button type="button" class="file-upload">파일 선택</button>
     </span>
 </div>
