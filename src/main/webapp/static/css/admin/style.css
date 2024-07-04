@@ -11,6 +11,7 @@ header{
 main{
     display: flex;
     min-height: 750px;
+    font-family: "Jua", sans-serif; /* 기본 폰트, 대체 폰트 */
 }
 
 /* 사이드 주메뉴 S */
