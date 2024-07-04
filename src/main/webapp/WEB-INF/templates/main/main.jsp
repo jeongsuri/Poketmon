@@ -42,7 +42,6 @@
                                 </div>
                             </div>
                         </a>
-
                     </li>
                 </c:forEach>
             </c:if>
