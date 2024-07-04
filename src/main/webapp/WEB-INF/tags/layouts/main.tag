@@ -18,9 +18,11 @@
                     text-align: center;
                 }
             </style>
+            <a href="<c:url value="/main" />">
             <div>
                 <img src="${logoUrl}" alt="<fmt:message key='로고' />">
             </div>
+            </a>
         </section>
         <nav>
             <div class="layout-width inner">
