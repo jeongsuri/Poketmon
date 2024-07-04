@@ -18,9 +18,11 @@
                     margin-top: 20px
                 }
             </style>
+            <a href="<c:url value="/member/login" />">
             <div>
                 <img src="${logoUrl}" alt="<fmt:message key='로고' />">
             </div>
+            </a>
         </section>
     </jsp:attribute>
     <jsp:attribute name="footer">
