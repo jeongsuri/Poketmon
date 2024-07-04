@@ -58,8 +58,7 @@
 ----------------------------------------------------------
 
 - 포켓몬 프로젝트 일정표 (6/25 ~ 7/4)
-
-[포켓몬 프로젝트.pdf](https://github.com/user-attachments/files/16092772/default.pdf)
+![프로젝트 일정표](https://github.com/jeongsuri/Poketmon/assets/163954005/bb4efdab-3fb5-4fe6-846c-10c4fda953f7)
 
 
 ## 6. DB 연동 테이블
