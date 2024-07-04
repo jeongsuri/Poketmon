@@ -91,6 +91,9 @@ public class PokemonController {
 
 
 
+
+
+
     private void commonProcess() {
         request.setAttribute("addCss", new String[] {"pokemon/pokemon"});
     }
