@@ -34,7 +34,118 @@
 ![img_12.png](README_Img/img_12.png)
 <br>
 
-<4. 기능 명세서>
+
+
+<4. 역할 분담>
+----------------------------------------------------------
+----------------------------------------------------------
+* 회원가입 및 로그인 : 박세현
+* 관리자 및 게시글 : 김정훈
+* 포켓몬 도감 및 개별 포켓몬 : 정채윤
+* 포켓몬 사냥 게임 : 김정현
+* 포켓몬 게임 랭킹 조회 : 김선규
+* 내 포켓몬 : 채연화
+<br>
+
+<5. 일정표>
+----------------------------------------------------------
+----------------------------------------------------------
+
+-> 한셀 이미지로 추가할 예정
+
+
+<6. DB 연동 테이블>
+----------------------------------------------------------
+----------------------------------------------------------
+
+- DB TABLE 전체 표
+
+![DB 모음](https://github.com/jeongsuri/Poketmon/assets/163954323/321b06ac-9a0f-4b88-a5d7-8f7573c3de31)
+
+- DB 개별 테이블
+
+(1) 게시판 테이블
+```sql
+CREATE TABLE BOARD ( <br>
+BID VARCHAR2(30) PRIMARY KEY, <br>
+BNAME VARCHAR2(60) NOT NULL, <br>
+ROWS_PER_PAGE NUMBER(4) DEFAULT 20, <br>
+ACTIVE NUMBER(1) DEFAULT 0, <br>
+ACTIVE_CATEGORY NUMBER(1) DEFAULT 0, <br>
+CATEGORY CLOB, <br>
+AUTHORITY VARCHAR2(10) DEFAULT 'ALL' CHECK(AUTHORITY IN ('ALL', 'USER', 'ADMIN')) <br>
+);
+```
+<br>
+
+-------------------------------------------------------------------------------- 
+
+(2) 게시판 설정 테이블
+```sql
+CREATE TABLE BOARD_DATA ( <br>
+SEQ NUMBER(10) PRIMARY KEY, <br>
+BID VARCHAR2(30), <br>
+GID VARCHAR2(45), <br>
+POSTER VARCHAR2(40) NOT NULL, <br>
+MEMBER_SEQ NUMBER(10) DEFAULT 0, <br>
+GUEST_PASSWORD VARCHAR2(65), <br>
+CATEGORY VARCHAR2(40), <br>
+NOTICE NUMBER(1) DEFAULT 0, <br>
+SUBJECT VARCHAR2(255) NOT NULL, <br>
+CONTENT CLOB NOT NULL, <br>
+UA VARCHAR2(150), <br>
+IP VARCHAR2(30), <br>
+REG_DT DATE DEFAULT SYSDATE, <br>
+MOD_DT DATE <br>
+);
+```
+<br>
+
+--------------------------------------------------------------------------------
+
+(3) 멤버 테이블
+```sql
+CREATE TABLE MEMBER( <br>
+USER_NO NUMBER(10) PRIMARY KEY, <br>
+USER_ID VARCHAR2(60) UNIQUE NOT NULL, <br>
+PASSWORD VARCHAR2(65) NOT NULL, <br>
+USER_TYPE VARCHAR2(20) DEFAULT 'USER' CHECK(USER_TYPE IN ('USER', 'ADMIN')), <br>
+NICKNAME VARCHAR2(50) UNIQUE NOT NULL, <br>
+MY_POKEMON_SEQ NUMBER(10) DEFAULT 0 <br>
+);
+```
+<br>
+
+--------------------------------------------------------------------------------
+
+(4) 내 포켓몬 테이블
+```sql
+CREATE TABLE MYPOKEMON ( <br>
+USER_NO NUMBER(10) REFERENCES MEMBER(USER_NO), <br>
+POKEMON_NO NUMBER(10) REFERENCES POKEMON(SEQ), <br>
+NICKNAME VARCHAR2(50) <br>
+);
+```
+<br>
+
+--------------------------------------------------------------------------------
+
+(5) 포켓몬 API 연동 테이블
+```sql
+CREATE TABLE POKEMON ( <br>
+SEQ NUMBER(10) PRIMARY KEY, <br>
+NAME VARCHAR2(60) NOT NULL, <br>
+WEIGHT NUMBER(7) DEFAULT 0, <br>
+TYPE1 VARCHAR2(60) NOT NULL, <br>
+TYPE2 VARCHAR2(60), <br>
+FLAVOR_TEXT VARCHAR2(1000), <br>
+FRONT_DEFAULT VARCHAR2(1000), <br>
+RAW_DATA CLOB <br>
+);
+```
+--------------------------------------------------------------
+
+<6. 기능 명세서>
 ----------------------------------------------------------
 ----------------------------------------------------------
 <br>
@@ -207,103 +318,4 @@
 
 <br>
 
-<5. DB 연동 테이블>
-----------------------------------------------------------
-----------------------------------------------------------
 
-- DB TABLE 전체 표
-
-![DB 모음](https://github.com/jeongsuri/Poketmon/assets/163954323/321b06ac-9a0f-4b88-a5d7-8f7573c3de31)
-
-- DB 개별 테이블
-
-(1) 게시판 테이블
-```
-CREATE TABLE BOARD ( <br>
-BID VARCHAR2(30) PRIMARY KEY, <br>
-BNAME VARCHAR2(60) NOT NULL, <br>
-ROWS_PER_PAGE NUMBER(4) DEFAULT 20, <br>
-ACTIVE NUMBER(1) DEFAULT 0, <br>
-ACTIVE_CATEGORY NUMBER(1) DEFAULT 0, <br>
-CATEGORY CLOB, <br>
-AUTHORITY VARCHAR2(10) DEFAULT 'ALL' CHECK(AUTHORITY IN ('ALL', 'USER', 'ADMIN')) <br>
-);
-```
-<br>
---------------------------------------------------------------------------------
-(2) 게시판 설정 테이블
-```
-CREATE TABLE BOARD_DATA ( <br>
-SEQ NUMBER(10) PRIMARY KEY, <br>
-BID VARCHAR2(30), <br>
-GID VARCHAR2(45), <br>
-POSTER VARCHAR2(40) NOT NULL, <br>
-MEMBER_SEQ NUMBER(10) DEFAULT 0, <br>
-GUEST_PASSWORD VARCHAR2(65), <br>
-CATEGORY VARCHAR2(40), <br>
-NOTICE NUMBER(1) DEFAULT 0, <br>
-SUBJECT VARCHAR2(255) NOT NULL, <br>
-CONTENT CLOB NOT NULL, <br>
-UA VARCHAR2(150), <br>
-IP VARCHAR2(30), <br>
-REG_DT DATE DEFAULT SYSDATE, <br>
-MOD_DT DATE <br>
-);
-```
-<br>
---------------------------------------------------------------------------------
-(3) 멤버 테이블
-```
-CREATE TABLE MEMBER( <br>
-USER_NO NUMBER(10) PRIMARY KEY, <br>
-USER_ID VARCHAR2(60) UNIQUE NOT NULL, <br>
-PASSWORD VARCHAR2(65) NOT NULL, <br>
-USER_TYPE VARCHAR2(20) DEFAULT 'USER' CHECK(USER_TYPE IN ('USER', 'ADMIN')), <br>
-NICKNAME VARCHAR2(50) UNIQUE NOT NULL, <br>
-MY_POKEMON_SEQ NUMBER(10) DEFAULT 0 <br>
-);
-```
-<br>
---------------------------------------------------------------------------------
-(4) 내 포켓몬 테이블
-```
-CREATE TABLE MYPOKEMON ( <br>
-USER_NO NUMBER(10) REFERENCES MEMBER(USER_NO), <br>
-POKEMON_NO NUMBER(10) REFERENCES POKEMON(SEQ), <br>
-NICKNAME VARCHAR2(50) <br>
-);
-```
-<br>
---------------------------------------------------------------------------------
-(5) 포켓몬 API 연동 테이블
-```
-CREATE TABLE POKEMON ( <br>
-SEQ NUMBER(10) PRIMARY KEY, <br>
-NAME VARCHAR2(60) NOT NULL, <br>
-WEIGHT NUMBER(7) DEFAULT 0, <br>
-TYPE1 VARCHAR2(60) NOT NULL, <br>
-TYPE2 VARCHAR2(60), <br>
-FLAVOR_TEXT VARCHAR2(1000), <br>
-FRONT_DEFAULT VARCHAR2(1000), <br>
-RAW_DATA CLOB <br>
-);
-```
---------------------------------------------------------------
-
-
-<6. 역할 분담>
-----------------------------------------------------------
-----------------------------------------------------------
-* 회원가입 및 로그인 : 박세현
-* 관리자 및 게시글 : 김정훈
-* 포켓몬 도감 및 개별 포켓몬 : 정채윤
-* 포켓몬 사냥 게임 : 김정현
-* 포켓몬 게임 랭킹 조회 : 김선규
-* 내 포켓몬 : 채연화
-<br>
-
-<7. 일정표>
-----------------------------------------------------------
-----------------------------------------------------------
-
--> 한셀 이미지로 추가할 예정
