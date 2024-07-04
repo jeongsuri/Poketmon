@@ -43,5 +43,6 @@
         <mapper resource="org/choongang/rank/mapper/RankMapper.xml"/>
         <mapper resource="org/choongang/board/mapper/BoardMapper.xml" />
         <mapper resource="org/choongang/board/mapper/BoardDataMapper.xml" />
+        <mapper resource="org/choongang/file/mapper/FileInfoMapper.xml" />
     </mappers>
 </configuration>

@@ -17,4 +17,5 @@
     <logger name="org.choongang.pokemon.mapper" level="DEBUG" />
     <logger name="org.choongang.game.mapper" level="DEBUG" />
     <logger name="org.choongang.rank.mapper" level="DEBUG" />
+    <logger name="org.choongang.file.mapper" level="DEBUG" />
 </configuration>
