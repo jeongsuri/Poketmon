@@ -315,7 +315,7 @@ RAW_DATA CLOB
 - 모든 검색이 끝나고 순위표로 이동 버튼 클릭 시 다시 TOP10 랭킹을 보여 주는 화면으로 이동
 <br>
 
-<<<<<<< HEAD
+
 
 
 < 내포켓몬 >   
@@ -331,8 +331,8 @@ RAW_DATA CLOB
 
 - 비밀번호 확인후 수정하기를 누르면 저장되어있는 API 로 이미지와 정보를 받아와서 랜덤으로 포켓몬을 뽑아서 프로필 사진 설정,변경 
 
-![mypokemon](README_Img\img_24.PNG)
-![mypokemon](README_Img\img_25.PNG)
+![img_24.png](README_Img\img_24.PNG)
+![img_25.png](README_Img\img_25.PNG)
 
 
 

@@ -16,13 +16,13 @@ public class ApiController {
 
     private final PokemonInfoService infoService;
 
-//    @GetMapping("/random")
-//    public PokemonDetail random() {
-//        PokemonDetail data = infoService.getRandom().orElseThrow(PokemonNotFoundException::new);
-//
-//
-//        return data;
-//    }
+   // @GetMapping("/random")
+   // public PokemonDetail random() {
+   //    PokemonDetail data = infoService.getRandom().orElseThrow(PokemonNotFoundException::new);
+
+
+  //        return data;
+ //   }
 
     @GetMapping("/get/{seq}")
     public PokemonDetail getOne(@PathVariable("seq") long seq) {
