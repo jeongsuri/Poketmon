@@ -24,7 +24,6 @@
 * Gradle (그래들)
 * JAVA (자바)
 * HTML, CSS, JAVA SCRIPT
-* Sourcetree (소스 트리)
 * GITHUB (깃허브)
 * Docker Desktop
 * dbeaver
