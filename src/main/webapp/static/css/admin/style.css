@@ -11,6 +11,7 @@ header{
 main{
     display: flex;
     min-height: 750px;
+    font-family: "Jua", sans-serif; /* 기본 폰트, 대체 폰트 */
 }
 
 /* 사이드 주메뉴 S */
@@ -148,4 +149,13 @@ nav.sub-menu a:hover{
     box-shadow: 2px 2px 5px #333;
     border: 3px;
 }
-/*
+
+td a{
+    text-decoration:none;
+    color: #333;
+}
+
+td a:hover{
+    text-decoration:underline;
+    color: #007BFF;
+}
