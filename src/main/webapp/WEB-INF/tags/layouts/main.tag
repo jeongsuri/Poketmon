@@ -26,11 +26,11 @@
         </section>
         <nav>
             <div class="layout-width inner">
-                <a href="http://localhost:3000/project/board">커뮤니티</a>
-                <a href="http://localhost:3000/project/main">도감 보기</a>
-                <a href="http://localhost:3000/project/mypage">내 포켓몬</a>
-                <a href="http://localhost:3000/project/game">포켓몬 잡기</a>
-                <a href="http://localhost:3000/project/rank">순위표</a>
+                <a href="<c:url value='/board' />">커뮤니티</a>
+                <a href="<c:url value='/main' />">도감 보기</a>
+                <a href="<c:url value='/mypage' />">내 포켓몬</a>
+                <a href="<c:url value='/game' />">포켓몬 잡기</a>
+                <a href="<c:url value='/rank' />">순위표</a>
                 <c:if test="${isAdmin}">
                     <a href="<c:url value='/admin' />" target="_blank">
                         <fmt:message key="사이트_관리" />
