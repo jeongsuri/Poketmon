@@ -44,18 +44,18 @@
 
     <select id="getList" resultMap="pokemonMap">
 
-        SELECT * FROM (SELECT ROWNUM NUM, P.* FROM POKEMON P
+        SELECT * FROM (SELECT ROWNUM NUM, P1.* FROM (SELECT P.* FROM POKEMON P
         <where>
             <if test="skey != null and !skey.equals('')">
                 <bind name="keyword" value="'%' + _parameter.getSkey() + '%'" />
-                AND P.NAME || P.FLAVOR_TEXT LIKE #{keyword}
+                AND P.NAME LIKE #{keyword}
             </if>
         </where>
         ORDER BY P.SEQ
-        ) P2
+        ) P1 )
         WHERE
         <![CDATA[
-            P2.SEQ >= #{offset} AND P2.SEQ < #{endRows}
+            NUM >= #{offset} AND NUM < #{endRows}
         ]]>
     </select>
 
