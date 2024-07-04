@@ -43,5 +43,8 @@ public class JoinValidator implements Validator<RequestJoin>, RequiredValidator,
 
         // 비밀번호와 비밀번호 확인의 일치 여부
         checkTrue(password.equals(confirmPassword), new AlertException("비밀번호가 일치하지 않습니다.", status));
+
+        // 닉네임 중복 여부 체크 - 이미 사용중인 닉네임인지 여부
+        checkTrue(mapper.existsNickName(nickName) == 0L, new AlertException("이미 사용중인 닉네임입니다.", status));
     }
 }
