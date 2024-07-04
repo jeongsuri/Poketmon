@@ -237,13 +237,11 @@ public class PokemonInfoService {
      *
      * @return
      */
-//    public Optional<PokemonDetail> getRandom() {
-//        PokemonDetail data = mapper.getRandom();
-//        convertRawData(data);
-//
-//        return Optional.ofNullable(data);
-//    }
-//
+  // public Optional<PokemonDetail> getRandom() {
+  //     PokemonDetail data = mapper.getRandom();
+  //    convertRawData(data);
+  //      return Optional.ofNullable(data);
+ //  }
 
     }
 

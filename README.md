@@ -7,7 +7,7 @@
 
 ## 1. 프로젝트 소개
 --------------------------------------------------------
---------------------------------------------------------
+
 * 프로젝트 명 : POKEMON GAME
 * 개발 기간 : 2024. 06. 25 ~ 2024. 07. 04
 * 개발 인원 : 6명
@@ -16,29 +16,36 @@
 
 ## 2. 개발 환경
 ---------------------------------------------------------
----------------------------------------------------------
-![개발 환경](https://github.com/jeongsuri/Poketmon/assets/163954005/a089c4ae-760c-4ec5-834d-69babeb10331)
 
-* IntelliJ IDEA 2024.1.3 (인텔리제이)
-* Gradle (그래들)
-* JAVA Oracle OpenJDK 17.0.10 (자바)
-* HTML, CSS, JAVA SCRIPT
-* GITHUB (깃허브)
-* Docker Desktop
-* DBeaver 24.0.3
+![개발 환경](https://github.com/jeongsuri/Poketmon/assets/163954005/c793a374-e2c4-4078-ad90-1685d1c5acaa)
+
+
+[기술스택] : Java Oracle OpenJDK 17.0.10, SQL, HTML5, CSS3, JavaScript
+
+[사용툴] : Gradle 8.4ver, Dbeaver 24.0.3ver, Git
+
+[프레임워크] : MyBatis 
+
+[라이브러리] : JSTL
+
+[API] : 포켓몬 API
+
+[서버] : Apache Tomcat ver.10
+
+[컨테이너] : Docker Desktop
+
+[프로그램] : IntelliJ IDEA 2024.1.3
 <br>
 
 ## 3. GitMind 작성
 ---------------------------------------------------------
----------------------------------------------------------
+
 ![img_12.png](README_Img/img_12.png)
 <br>
 
-
-
 ## 4. 역할 분담
 ----------------------------------------------------------
-----------------------------------------------------------
+
 * 회원가입 및 로그인 : 박세현
 * 관리자 및 게시글 : 김정훈
 * 포켓몬 도감 및 개별 포켓몬 : 정채윤
@@ -49,14 +56,13 @@
 
 ## 5. 일정표
 ----------------------------------------------------------
-----------------------------------------------------------
+
 
 -> 한셀 이미지로 추가할 예정
 
-
 ## 6. DB 연동 테이블
 ----------------------------------------------------------
-----------------------------------------------------------
+
 
 - DB TABLE 전체 표
 
@@ -66,94 +72,92 @@
 
 (1) 게시판 테이블
 ```sql
-CREATE TABLE BOARD ( <br>
-BID VARCHAR2(30) PRIMARY KEY, <br>
-BNAME VARCHAR2(60) NOT NULL, <br>
-ROWS_PER_PAGE NUMBER(4) DEFAULT 20, <br>
-ACTIVE NUMBER(1) DEFAULT 0, <br>
-ACTIVE_CATEGORY NUMBER(1) DEFAULT 0, <br>
-CATEGORY CLOB, <br>
-AUTHORITY VARCHAR2(10) DEFAULT 'ALL' CHECK(AUTHORITY IN ('ALL', 'USER', 'ADMIN')) <br>
+CREATE TABLE BOARD ( 
+BID VARCHAR2(30) PRIMARY KEY,
+BNAME VARCHAR2(60) NOT NULL,
+ROWS_PER_PAGE NUMBER(4) DEFAULT 20,
+ACTIVE NUMBER(1) DEFAULT 0,
+ACTIVE_CATEGORY NUMBER(1) DEFAULT 0, 
+CATEGORY CLOB, 
+AUTHORITY VARCHAR2(10) DEFAULT 'ALL' CHECK(AUTHORITY IN ('ALL', 'USER', 'ADMIN')) 
 );
 ```
-<br>
 
 -------------------------------------------------------------------------------- 
+<br>
 
 (2) 게시판 설정 테이블
 ```sql
-CREATE TABLE BOARD_DATA ( <br>
-SEQ NUMBER(10) PRIMARY KEY, <br>
-BID VARCHAR2(30), <br>
-GID VARCHAR2(45), <br>
-POSTER VARCHAR2(40) NOT NULL, <br>
-MEMBER_SEQ NUMBER(10) DEFAULT 0, <br>
-GUEST_PASSWORD VARCHAR2(65), <br>
-CATEGORY VARCHAR2(40), <br>
-NOTICE NUMBER(1) DEFAULT 0, <br>
-SUBJECT VARCHAR2(255) NOT NULL, <br>
-CONTENT CLOB NOT NULL, <br>
-UA VARCHAR2(150), <br>
-IP VARCHAR2(30), <br>
-REG_DT DATE DEFAULT SYSDATE, <br>
-MOD_DT DATE <br>
+CREATE TABLE BOARD_DATA (
+SEQ NUMBER(10) PRIMARY KEY, 
+BID VARCHAR2(30),
+GID VARCHAR2(45), 
+POSTER VARCHAR2(40) NOT NULL, 
+MEMBER_SEQ NUMBER(10) DEFAULT 0, 
+GUEST_PASSWORD VARCHAR2(65), 
+CATEGORY VARCHAR2(40),
+NOTICE NUMBER(1) DEFAULT 0,
+SUBJECT VARCHAR2(255) NOT NULL,
+CONTENT CLOB NOT NULL,
+UA VARCHAR2(150),
+IP VARCHAR2(30),
+REG_DT DATE DEFAULT SYSDATE,
+MOD_DT DATE 
 );
 ```
-<br>
 
 --------------------------------------------------------------------------------
+<br>
 
 (3) 멤버 테이블
 ```sql
-CREATE TABLE MEMBER( <br>
-USER_NO NUMBER(10) PRIMARY KEY, <br>
-USER_ID VARCHAR2(60) UNIQUE NOT NULL, <br>
-PASSWORD VARCHAR2(65) NOT NULL, <br>
-USER_TYPE VARCHAR2(20) DEFAULT 'USER' CHECK(USER_TYPE IN ('USER', 'ADMIN')), <br>
-NICKNAME VARCHAR2(50) UNIQUE NOT NULL, <br>
-MY_POKEMON_SEQ NUMBER(10) DEFAULT 0 <br>
+CREATE TABLE MEMBER(
+USER_NO NUMBER(10) PRIMARY KEY, 
+USER_ID VARCHAR2(60) UNIQUE NOT NULL, 
+PASSWORD VARCHAR2(65) NOT NULL, 
+USER_TYPE VARCHAR2(20) DEFAULT 'USER' CHECK(USER_TYPE IN ('USER', 'ADMIN')),
+NICKNAME VARCHAR2(50) UNIQUE NOT NULL, 
+MY_POKEMON_SEQ NUMBER(10) DEFAULT 0 
 );
 ```
-<br>
-
 --------------------------------------------------------------------------------
+<br>
 
 (4) 내 포켓몬 테이블
 ```sql
-CREATE TABLE MYPOKEMON ( <br>
-USER_NO NUMBER(10) REFERENCES MEMBER(USER_NO), <br>
-POKEMON_NO NUMBER(10) REFERENCES POKEMON(SEQ), <br>
-NICKNAME VARCHAR2(50) <br>
+CREATE TABLE MYPOKEMON (
+USER_NO NUMBER(10) REFERENCES MEMBER(USER_NO),
+POKEMON_NO NUMBER(10) REFERENCES POKEMON(SEQ), 
+NICKNAME VARCHAR2(50) 
 );
 ```
-<br>
-
 --------------------------------------------------------------------------------
+<br>
 
 (5) 포켓몬 API 연동 테이블
 ```sql
-CREATE TABLE POKEMON ( <br>
-SEQ NUMBER(10) PRIMARY KEY, <br>
-NAME VARCHAR2(60) NOT NULL, <br>
-WEIGHT NUMBER(7) DEFAULT 0, <br>
-TYPE1 VARCHAR2(60) NOT NULL, <br>
-TYPE2 VARCHAR2(60), <br>
-FLAVOR_TEXT VARCHAR2(1000), <br>
-FRONT_DEFAULT VARCHAR2(1000), <br>
-RAW_DATA CLOB <br>
+CREATE TABLE POKEMON (
+SEQ NUMBER(10) PRIMARY KEY, 
+NAME VARCHAR2(60) NOT NULL, 
+WEIGHT NUMBER(7) DEFAULT 0, 
+TYPE1 VARCHAR2(60) NOT NULL,
+TYPE2 VARCHAR2(60),
+FLAVOR_TEXT VARCHAR2(1000),
+FRONT_DEFAULT VARCHAR2(1000),
+RAW_DATA CLOB
 );
 ```
 --------------------------------------------------------------
 
 ## 6. 기능 명세서
 ----------------------------------------------------------
-----------------------------------------------------------
+
 <br>
 
 
 ## 회원 
 ----------------------------------------------------------
-----------------------------------------------------------
+
 ✅ 회원가입 
 -
 ### 비회원
@@ -304,8 +308,8 @@ RAW_DATA CLOB <br>
 <br>
 
 ## 도감
-----------------------------------------------------------
-----------------------------------------------------------
+---------------------------------------------------------------
+
 ✅ 포켓몬 도감
 -
 - 포켓몬 공식 사이트 API 연동
@@ -325,7 +329,7 @@ RAW_DATA CLOB <br>
 
 ## 게임
 ----------------------------------------------------------
-----------------------------------------------------------
+
 ✅ 이름 맞추기 게임
 - 
 - POKEMON 테이블에서 랜덤 포켓몬 실루엣, 설명, 속성을 뽑아서 가져온 뒤 이름 맞추기 퀴즈 형식으로 문제 출제 <br>
@@ -351,7 +355,7 @@ RAW_DATA CLOB <br>
 
 ## 랭킹
 ----------------------------------------------------------
-----------------------------------------------------------
+
 ✅ 전체 랭킹
 - MYPOKEMON 테이블에 저장된 값 중 회원번호(USER_NO)와 포켓몬 번호(POKEMON_NO)로 순위를 나열하여 전체 유저 중 TOP10 랭킹 출력
 
@@ -376,10 +380,24 @@ RAW_DATA CLOB <br>
 - 모든 검색이 끝나고 순위표로 이동 버튼 클릭 시 다시 TOP10 랭킹을 보여 주는 화면으로 이동
 <br>
 
-## 내 포켓몬
-----------------------------------------------------------
+
+
+
+< 내포켓몬 >   
 ----------------------------------------------------------
 
+✅ 내포켓몬 보기 
+- 이름맞추기게임에서 결과를 로그인된 MEMBER 테이블과 MYPOKEMON 에 저장된 값으로 조회해서 화면에 출력 및 수정 
+
 <br>
+✅ 랜덤 포켓몬 프로필 설정하기 
+
+
+- 비밀번호 확인후 수정하기를 누르면 저장되어있는 API 로 이미지와 정보를 받아와서 랜덤으로 포켓몬을 뽑아서 프로필 사진 설정,변경 
+
+![img_24.png](README_Img/img_24.PNG)
+![img_25.png](README_Img/img_25.PNG)
+
+
 
 
