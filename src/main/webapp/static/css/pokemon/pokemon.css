@@ -52,6 +52,11 @@
     padding: 10px 10px;
 }
 
+.no-data {
+    font-family: "Jua", sans-serif;
+    font-size: 1.2rem;
+}
+
 .pokemon-list { /* 포켓몬 목록 */
     display: flex;
     flex-wrap: wrap;
