@@ -12,19 +12,21 @@
 
         <div class="pokemon-info">
             <div class="p-item p-name">
-                <이름> ${data.name}
+                &lt;이름&gt; ${data.name}
             </div>
 
             <div class="p-item p-weight">
-                <몸무게> ${data.weight/10}kg
+                &lt;몸무게&gt;${data.weight/10}kg
             </div>
 
             <div class="p-item p-type">
-                <속성 타입 1> ${data.type1} / <속성 타입 2> ${data.type2}
+                &lt;속성 타입 1&gt; ${data.type1} / <속성 타입 2> ${data.type2}
             </div>
 
             <div class="p-item p-desc">
-                <특징> ${fn:replace(data.flavorText, '\\n', ' ')}
+                <div class="inner">
+                &lt;특징&gt; ${fn:replace(data.flavorText, '\\n', ' ')}
+                </div>
             </div>
         </div>
         </div>
