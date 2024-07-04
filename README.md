@@ -17,15 +17,23 @@
 ## 2. 개발 환경
 ---------------------------------------------------------
 ---------------------------------------------------------
-![개발 환경](https://github.com/jeongsuri/Poketmon/assets/163954005/a089c4ae-760c-4ec5-834d-69babeb10331)
+![개발 환경](https://github.com/jeongsuri/Poketmon/assets/163954005/64da6370-0762-41ef-a339-046bec36bcc9)
 
-* IntelliJ IDEA 2024.1.3 (인텔리제이)
-* Gradle (그래들)
-* JAVA Oracle OpenJDK 17.0.10 (자바)
-* HTML, CSS, JAVA SCRIPT
-* GITHUB (깃허브)
-* Docker Desktop
-* DBeaver 24.0.3
+[기술스택] : Java Oracle OpenJDK 17.0.10, SQL, HTML5, CSS3, JavaScript
+
+[사용툴] : Gradle 8.4ver, Dbeaver 24.0.3ver, Git
+
+[프레임워크] : MyBatis 
+
+[라이브러리] : JSTL
+
+[API] : 포켓몬 API
+
+[서버] : Apache Tomcat
+
+[컨테이너] : Docker Desktop
+
+[프로그램] : IntelliJ IDEA 2024.1.3
 <br>
 
 ## 3. GitMind 작성
