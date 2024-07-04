@@ -47,9 +47,9 @@
         </div>
     </section>
 
-    <c:if test="${items != null && !items.isEmpty()}">
-        <section class="layout-width">
-            <jsp:include page="_list.jsp" />
-        </section>
-    </c:if>
+<%--    <c:if test="${items != null && !items.isEmpty()}">--%>
+<%--        <section class="layout-width">--%>
+<%--            <jsp:include page="_list.jsp" />--%>
+<%--        </section>--%>
+<%--    </c:if>--%>
 </layout:main>

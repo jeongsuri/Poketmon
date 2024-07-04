@@ -6,11 +6,17 @@ header{
     background: #fff;
     align-items: center;
 }
+header .left {
+    width: 210px;
+}
+header .left img {
+    display: block;
+    margin: 0 auto;
+}
 
 /* 내용 배치 */
 main{
     display: flex;
-    min-height: 750px;
     font-family: "Jua", sans-serif; /* 기본 폰트, 대체 폰트 */
 }
 
@@ -27,6 +33,7 @@ main > .side-menu a{
     padding: 0 30px;
     line-height: 62px;
     text-align: center;
+    text-decoration: none;
 }
 
 
