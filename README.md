@@ -215,7 +215,7 @@
 - DB 개별 테이블
 
 (1) 게시판 테이블
-
+```
 CREATE TABLE BOARD ( <br>
 BID VARCHAR2(30) PRIMARY KEY, <br>
 BNAME VARCHAR2(60) NOT NULL, <br>
@@ -225,10 +225,11 @@ ACTIVE_CATEGORY NUMBER(1) DEFAULT 0, <br>
 CATEGORY CLOB, <br>
 AUTHORITY VARCHAR2(10) DEFAULT 'ALL' CHECK(AUTHORITY IN ('ALL', 'USER', 'ADMIN')) <br>
 );
+```
 <br>
 --------------------------------------------------------------------------------
 (2) 게시판 설정 테이블
-
+```
 CREATE TABLE BOARD_DATA ( <br>
 SEQ NUMBER(10) PRIMARY KEY, <br>
 BID VARCHAR2(30), <br>
@@ -245,10 +246,11 @@ IP VARCHAR2(30), <br>
 REG_DT DATE DEFAULT SYSDATE, <br>
 MOD_DT DATE <br>
 );
+```
 <br>
 --------------------------------------------------------------------------------
 (3) 멤버 테이블
-
+```
 CREATE TABLE MEMBER( <br>
 USER_NO NUMBER(10) PRIMARY KEY, <br>
 USER_ID VARCHAR2(60) UNIQUE NOT NULL, <br>
@@ -257,19 +259,21 @@ USER_TYPE VARCHAR2(20) DEFAULT 'USER' CHECK(USER_TYPE IN ('USER', 'ADMIN')), <br
 NICKNAME VARCHAR2(50) UNIQUE NOT NULL, <br>
 MY_POKEMON_SEQ NUMBER(10) DEFAULT 0 <br>
 );
+```
 <br>
 --------------------------------------------------------------------------------
 (4) 내 포켓몬 테이블
-
+```
 CREATE TABLE MYPOKEMON ( <br>
 USER_NO NUMBER(10) REFERENCES MEMBER(USER_NO), <br>
 POKEMON_NO NUMBER(10) REFERENCES POKEMON(SEQ), <br>
 NICKNAME VARCHAR2(50) <br>
 );
+```
 <br>
 --------------------------------------------------------------------------------
 (5) 포켓몬 API 연동 테이블
-
+```
 CREATE TABLE POKEMON ( <br>
 SEQ NUMBER(10) PRIMARY KEY, <br>
 NAME VARCHAR2(60) NOT NULL, <br>
@@ -280,8 +284,9 @@ FLAVOR_TEXT VARCHAR2(1000), <br>
 FRONT_DEFAULT VARCHAR2(1000), <br>
 RAW_DATA CLOB <br>
 );
-<br>
---------------------------------------------------------------------------------
+```
+--------------------------------------------------------------
+
 
 <6. 역할 분담>
 ----------------------------------------------------------
