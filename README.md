@@ -17,6 +17,7 @@
 <2. 개발 환경>
 ---------------------------------------------------------
 ---------------------------------------------------------
+![개발 환경](https://github.com/jeongsuri/Poketmon/assets/163954005/a089c4ae-760c-4ec5-834d-69babeb10331)
 
 * IntelliJ IDEA 2024.1.3 (인텔리제이)
 * Gradle (그래들)
@@ -247,6 +248,7 @@ MOD_DT DATE <br>
 <br>
 --------------------------------------------------------------------------------
 (3) 멤버 테이블
+
 CREATE TABLE MEMBER( <br>
 USER_NO NUMBER(10) PRIMARY KEY, <br>
 USER_ID VARCHAR2(60) UNIQUE NOT NULL, <br>
@@ -258,6 +260,7 @@ MY_POKEMON_SEQ NUMBER(10) DEFAULT 0 <br>
 <br>
 --------------------------------------------------------------------------------
 (4) 내 포켓몬 테이블
+
 CREATE TABLE MYPOKEMON ( <br>
 USER_NO NUMBER(10) REFERENCES MEMBER(USER_NO), <br>
 POKEMON_NO NUMBER(10) REFERENCES POKEMON(SEQ), <br>
@@ -266,6 +269,7 @@ NICKNAME VARCHAR2(50) <br>
 <br>
 --------------------------------------------------------------------------------
 (5) 포켓몬 API 연동 테이블
+
 CREATE TABLE POKEMON ( <br>
 SEQ NUMBER(10) PRIMARY KEY, <br>
 NAME VARCHAR2(60) NOT NULL, <br>
