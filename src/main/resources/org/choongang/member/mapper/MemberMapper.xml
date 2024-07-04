@@ -20,6 +20,10 @@
         SELECT COUNT(*) FROM MEMBER WHERE USER_ID=#{userId}
     </select>
 
+    <select id="existsNickName" resultType="int">
+        SELECT COUNT(*) FROM MEMBER WHERE NICKNAME=#{nickName}
+    </select>
+
     <insert id="register">
         INSERT INTO MEMBER (USER_NO, USER_ID, PASSWORD, USER_TYPE, NICKNAME)
         VALUES (SEQ_MEMBER.NEXTVAL, #{userId}, #{password}, #{userType}, #{nickName})
