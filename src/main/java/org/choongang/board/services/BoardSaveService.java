@@ -7,6 +7,7 @@ import org.choongang.board.controllers.RequestBoardData;
 import org.choongang.board.entities.BoardData;
 import org.choongang.board.mapper.BoardDataMapper;
 import org.choongang.board.validators.BoardSaveValidator;
+import org.choongang.file.mapper.FileInfoMapper;
 import org.choongang.global.config.annotations.Service;
 import org.choongang.global.config.containers.BeanContainer;
 import org.choongang.global.exceptions.AlertException;
@@ -18,59 +19,62 @@ import java.util.Objects;
 import java.util.Optional;
 
 /**
- * 기시글 추가, 수정
+ * 게시글 추가, 수정
+ *
  */
 @Service
 @RequiredArgsConstructor
 public class BoardSaveService {
 
     private final BoardDataMapper mapper;
+    private final FileInfoMapper fileInfoMapper;
     private final BoardSaveValidator validator;
     private final MemberUtil memberUtil;
     private final BoardInfoService infoService;
     private final BoardAuthService authService;
 
-    public Optional<BoardData> save(RequestBoardData form){ //글 작성,수정후 글보기 페이지로 이동하기 위해 게시판번호를 알아야한다. 그렇기 때문에 BoardData로 반환
+
+    public Optional<BoardData> save(RequestBoardData form) {
+
         validator.check(form);
+
         String mode = form.getMode();
         mode = mode == null || mode.isBlank() ? "write" : mode;
 
-        //글 쓰기, 글 수정 권한 체크
+        // 글 쓰기, 글 수정 권한 체크
         authService.check(form.getBId(), form.getSeq(), mode);
 
         BoardData data = new ModelMapper().map(form, BoardData.class);
 
-        if(mode.equals("update")){//수정
-
-        }else {//등록
-            //현재 로그인한 회원번호
+        if (mode.equals("write")) { // 등록
+            // 현재 로그인한 회원 번호
             if (memberUtil.isLogin()) {
                 data.setMemberSeq(memberUtil.getMember().getUserNo());
             }
 
-            //작성자 환경 정보
+            // 작성자 환경 정보
             HttpServletRequest request = BeanContainer.getInstance().getBean(HttpServletRequest.class);
             if (request != null) {
-                String ua = request.getHeader("User-Agent"); //작성자 브라우저 정보
-                String ip = request.getRemoteAddr(); //작성자 IP정보
+                String ua = request.getHeader("User-Agent"); // 작성자 브라우저 정보
+                String ip = request.getRemoteAddr(); // 작성자 IP 정보
                 data.setUa(ua);
                 data.setIp(ip);
-            }else{
+            } else {
                 data.setUa("");
                 data.setIp("");
             }
         }
 
-        //비회원 비밀번호 해시화
-        if(!memberUtil.isLogin()){
+        // 비회원 비밀번호 해시화
+        if (!memberUtil.isLogin()) {
             String hash = BCrypt.hashpw(form.getGuestPassword(), BCrypt.gensalt(12));
             data.setGuestPassword(hash);
-        }else{
+        } else {
             data.setGuestPassword("");
         }
 
-        String category = form.getCategory();
-        data.setCategory(Objects.requireNonNullElse(category,""));
+        String category = data.getCategory();
+        data.setCategory(Objects.requireNonNullElse(category, ""));
 
         if (mode.equals("update")) {
             mapper.modify(data);
@@ -81,7 +85,9 @@ public class BoardSaveService {
             }
         }
 
+        // 파일 업로드 완료 처리
+        fileInfoMapper.updateDone(data.getGId());
+
         return infoService.get(data.getSeq());
     }
-
 }
