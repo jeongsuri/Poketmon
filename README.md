@@ -17,14 +17,15 @@
 <2. 개발 환경>
 ---------------------------------------------------------
 ---------------------------------------------------------
-* IntelliJ (인텔리제이)
+![img_22.png](img_22.png) 
+
+* IntelliJ IDEA 2024.1.3 (인텔리제이)
 * Gradle (그래들)
-* JAVA (자바)
+* JAVA Oracle OpenJDK 17.0.10 (자바)
 * HTML, CSS, JAVA SCRIPT
-* Sourcetree (소스 트리)
 * GITHUB (깃허브)
 * Docker Desktop
-* dbeaver
+* DBeaver 24.0.3
 <br>
 
 <3. GitMind 작성>
