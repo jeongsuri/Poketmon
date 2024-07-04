@@ -67,7 +67,8 @@
 
 - DB TABLE 전체 표
 
-![DB 모음](https://github.com/jeongsuri/Poketmon/assets/163954323/321b06ac-9a0f-4b88-a5d7-8f7573c3de31)
+![DB 모음](https://github.com/jeongsuri/Poketmon/assets/163954323/cd117192-f48f-427a-ba50-9ce48d478fcf)
+
 
 - DB 개별 테이블
 
