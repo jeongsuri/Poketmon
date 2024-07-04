@@ -8,4 +8,5 @@ public interface MemberMapper {
     int register(Member member);
     int modify(Member member);
     int adminModify(Member member);
+    int existsNickName(String nickName);
 }
